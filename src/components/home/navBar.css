@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 0.2rem;
+    /* border-bottom: rgb(58, 58, 58) solid 1px; */
+    height: 60px;
+  }
+  
+  .containerBgTop {
+    width: 100%;
+    position: fixed;
+    transition: 0.5s ease-in;
+    background-color: transparent;
+    z-index: 10;
+  }
+  
+  .containerBg {
+    width: 100%;
+    /* background-color: gray.400; */
+    background-color: rgba(66, 66, 66, 0.71);
+    color: white;
+    position: fixed;
+    /* background-color: black; */
+    z-index: 10;
+  }
+  

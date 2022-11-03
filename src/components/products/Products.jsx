@@ -18,7 +18,7 @@ const GetAllProducts = () => {
   });
 
   return (
-  <div>
+  <div className="products-card">
     <section id="products">
 
    {allProducts.length === 0 ?(
@@ -37,12 +37,25 @@ const GetAllProducts = () => {
    ):(
      allProducts && allProducts.map((product)=> {
        return (
-         <div key={product.id}>
-            <h2>title: {product.title}</h2>
-            <h2>Price: {product.price}$</h2>
-            <p>description: {product.description}</p>
+        <div id="container">	
+         <div key={product.id} className="product-details">
+            <h1>title: {product.title}</h1>
+            <p class="information">description: {product.description}</p>
+            <div  class="control">
+            <button class="btn">
+            <span class="price">Price: {product.price}$</span>
+            <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+            <span class="buy">Get now</span>
+            </button>
+            </div>
+            
+        </div>
+        <div class="product-image">
+          <img src={product.image} height="250" width="250"/> 
+        <div class="info">
             <h2>category: {product.category}</h2>
-            <img src={product.image} height="250" width="250"/> 
+        </div>
+        </div>
         </div>
       )
       

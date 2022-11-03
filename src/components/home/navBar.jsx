@@ -61,7 +61,7 @@ return (
              <li><a href="#inicio" className ="seleccionado" >INICIO</a></li>
              <li><a href="#users" >USUARIOS</a></li>
              <li><a href="#products" >PRODUCTOS</a></li>
-             <li><a href="#carrito">CARRITO</a></li>
+             <li><a href="#carrito">CARRITO<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
              <li><a href="#contacto">CONTACTO</a></li>
             </ul>
           <div id="icono-nav" >

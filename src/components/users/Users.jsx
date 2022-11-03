@@ -18,8 +18,10 @@ const User = () => {
 
   return (
   <div>
+     <section id="users">
+
    {allUser && allUser.map((user)=> {
-      return (
+     return (
         <div key={user.id}>
             <h2>username: {user.username}</h2>
             <h2>name: {user.name.firstname + " " + user.name.lastname}</h2>
@@ -30,6 +32,7 @@ const User = () => {
       )
    })}
 
+        </section>
   </div>)
 }
 

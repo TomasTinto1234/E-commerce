@@ -1,21 +1,17 @@
-import Products from "./components/products/Products"
-import './App.css';
-import SingleProduct from "./components/singleProduct/SingleProduct";
-import User from './components/users/Users'
-import SingleUser from "./components/singleUser/SingleUser";
 import NavBar from "./components/home/navBar";
+import Home from "./components/home/Home"
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      E-commerce
+    <div>
+      <header >
       <NavBar/>
-       <Products/>
-       <SingleProduct/>
-       <User/>
-       {/* <SingleUser/> */}
+      <Home/>
       </header>
+       {/* <SingleUser/> */}
+      <Footer/>
+
     </div>
   );
 }

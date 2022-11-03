@@ -18,7 +18,7 @@ const GetAllProducts = () => {
   });
 
   return (
-  <div className="products-card">
+  <div>
     <section id="products">
 
    {allProducts.length === 0 ?(
@@ -37,7 +37,7 @@ const GetAllProducts = () => {
    ):(
      allProducts && allProducts.map((product)=> {
        return (
-        <div id="container">	
+        <div id="container" className="products-card">	
          <div key={product.id} className="product-details">
             <h1>title: {product.title}</h1>
             <p class="information">description: {product.description}</p>

@@ -5,6 +5,7 @@ import "./products.css"
 const GetAllProducts = () => {
     
   const [allProducts, setAllProducts] = useState("");
+  
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -18,7 +19,7 @@ const GetAllProducts = () => {
   });
 
   return (
-  <div>
+  <div >
     <section id="products">
 
    {allProducts.length === 0 ?(
@@ -37,13 +38,13 @@ const GetAllProducts = () => {
    ):(
      allProducts && allProducts.map((product)=> {
        return (
-        <div id="container" className="products-card">	
-         <div key={product.id} className="product-details">
-            <h1>title: {product.title}</h1>
+        <div key={product.id} id="container" className="products-card">	
+         <div className="product-details">
+            <h1>{product.title}</h1>
             <p class="information">description: {product.description}</p>
             <div  class="control">
             <button class="btn">
-            <span class="price">Price: {product.price}$</span>
+            <span class="price">{product.price}$</span>
             <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
             <span class="buy">Get now</span>
             </button>

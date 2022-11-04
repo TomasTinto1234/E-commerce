@@ -55,6 +55,7 @@ return (
           <div class="contenedor-foto">
           {/* <img src="carrito.png" alt=""/> */}
       </div>
+      <img src={carrito} height="55, 65"/>
            <h1>E-commerce</h1>
            <nav>
             <ul id="links">
@@ -63,6 +64,7 @@ return (
              <li><a href="#products" >PRODUCTOS</a></li>
              <li><a href="#carrito">CARRITO<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
              <li><a href="#contacto">CONTACTO</a></li>
+             <li><a href="#categories">CATEGORIAS</a></li>
             </ul>
           <div id="icono-nav" >
             <i className="fa-solid fa-bars"></i>

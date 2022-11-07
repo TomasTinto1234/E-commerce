@@ -20,7 +20,7 @@ const SingleProduct = () => {
           return (
             <div>
               <h2>producto: {product}</h2>
-              <h2>precio: {product.price}</h2>
+              {/* <h2>precio: {product.price}</h2> */}
               <h2></h2>
               <h2></h2>
               <img />

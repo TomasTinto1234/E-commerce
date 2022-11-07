@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./products.css"
+import { useDispatch, useSelector} from "react-redux";
 
-const GetAllProducts = () => {
-    
+const GetAllProducts = (id) => {
+  // const dispatch = useDispatch()
   const [allProducts, setAllProducts] = useState("");
   
 
@@ -38,15 +40,18 @@ const GetAllProducts = () => {
    ):(
      allProducts && allProducts.map((product)=> {
        return (
-        <div key={product.id} id="container" className="products-card">	
+         <div key={product.id} id="container" className="products-card">	
          <div className="product-details">
+
             <h1>{product.title}</h1>
             <p class="information">description: {product.description}</p>
             <div  class="control">
             <button class="btn">
             <span class="price">{product.price}$</span>
             <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+         <Link to={`/products/${id}`}>
             <span class="buy">Get now</span>
+        </Link>
             </button>
             </div>
             

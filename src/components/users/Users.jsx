@@ -14,15 +14,36 @@ const User = () => {
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
+
+  const getUserId =  (id) => {
+    fetch(`https://fakestoreapi.com/users/${id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setAllUser([json]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+//   function handleClic(e) {
+//     setAllUser(e)
+// }
 
   return (
   <div>
      <section id="users">
-
+        
    {allUser && allUser.map((user)=> {
      return (
         <div key={user.id}>
+           <button
+                      class="btn"
+                      onClick={() => getUserId(user.id)}
+                    >
+                      <span>select user</span>
+                    </button>
             <h2>username: {user.username}</h2>
             <h2>name: {user.name.firstname + " " + user.name.lastname}</h2>
             <h2>email: {user.email}</h2>

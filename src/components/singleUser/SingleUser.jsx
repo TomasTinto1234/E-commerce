@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const SingleUser = ({id, }) => {
+const SingleUser = () => {
   const [user, setUser] = useState("");
 
   useEffect((id) => {
@@ -11,7 +11,16 @@ const SingleUser = ({id, }) => {
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
+
+  useEffect((id) => {
+    fetch(`https://fakestoreapi.com/users/${id}`)
+      .then((res) => res.json())
+      .then((json) => setUser(json))
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
 
   return (
     <div>

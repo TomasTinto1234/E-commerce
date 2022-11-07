@@ -11,8 +11,10 @@ const SingleProduct = () => {
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
 
+
+  
   return (
     <div>
       {product &&

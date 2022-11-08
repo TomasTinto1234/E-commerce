@@ -3,7 +3,7 @@ import Products from "../products/Products"
 import "./navBar.css"
 import SingleProduct from "../singleProduct/SingleProduct";
 import User from '../users/Users'
-import Pagination from "../pagination/Pagination"
+// import Pagination from "../pagination/Pagination"
 import Categories from "../categories/Categories"
 import Carrito from "../carrito/Carrito"
 
@@ -14,7 +14,7 @@ return (
         <Carrito/>
         <Categories/>
         <Products/>
-       <Pagination/>
+       {/* <Pagination/> */}
        {/* <SingleProduct/> */}
        <User/>
     </div>

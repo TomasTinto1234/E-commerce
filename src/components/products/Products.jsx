@@ -13,10 +13,10 @@ const GetAllProducts = () => {
   const dispatch = useDispatch()
   const [allProducts, setAllProducts] = useState("");
   // const favoritesProducts = useSelector((state) => state.favoritesProducts);
-  const [shopProduct, setShopProduct] = useState("");
+  const [shopProduct, /*setShopProduct*/] = useState("");
   
   const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage, setPerPage] = useState(5)
+  const [productsPerPage, /*setPerPage*/] = useState(5)
   const indexOfLastProduct = currentPage * productsPerPage; 
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)

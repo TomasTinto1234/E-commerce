@@ -61,14 +61,14 @@ return (
         {/* <!-- Elementos generados a partir del JSON --> */}
         <main id="product" class="col-sm-8 row">{image}</main>
         {/* <!-- Carrito --> */}
-        <aside class="col-sm-4">
+        <div class="col-sm-4">
             <th scope="col" class="h5">Carrito</th>
             {/* <!-- Elementos del carrito --> */}
             <ul id="carrito" class="list-group"></ul>
             {/* <!-- Precio total --> */}
             <p class="text-right">Total: <span id="total">{}</span>&euro;</p>
             <button id="boton-vaciar" onClick={()=>vaciarCarrito()} class="btn btn-danger">Vaciar</button>
-        </aside>
+        </div>
     </div>
 </div>
 

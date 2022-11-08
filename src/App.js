@@ -13,7 +13,7 @@ function App() {
       <NavBar/>
       <Home/>
       <Routes>
-      {/* <Route path="/products/:id" component={SingleProduct}/> */}
+      <Route path="/:id" component={SingleProduct}/>
       </Routes>
       </header>
        {/* <SingleUser/> */}

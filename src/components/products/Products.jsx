@@ -1,12 +1,30 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import axios from "axios";
 import "./products.css";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+// import Carrito from "../carrito/Carrito"
+// import {getFavsProducts} from "../../actions/actions"
+import SingleProduct from "../singleProduct/SingleProduct"
+import Pagination from "../pagination/Pagination"
 
 const GetAllProducts = () => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [allProducts, setAllProducts] = useState("");
+  // const favoritesProducts = useSelector((state) => state.favoritesProducts);
+  const [shopProduct, setShopProduct] = useState("");
+  
+  const [currentPage, setCurrentPage] = useState(1)
+  const [productsPerPage, setPerPage] = useState(5)
+  const indexOfLastProduct = currentPage * productsPerPage; 
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)
+
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber);
+      };
+
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -17,26 +35,44 @@ const GetAllProducts = () => {
       });
   }, []);
 
-  const getProductId =  (id) => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setAllProducts([json]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  function handleClic(e) {
-    setAllProducts(e)
+const refresh = ()=> {
+  dispatch(allProducts)
 }
 
+
+const getProductId = async (id) => {
+  await fetch(`https://fakestoreapi.com/products/${id}`)
+     .then((res) => res.json())
+     .then((json) => {
+       setAllProducts([json]);
+     })
+     .catch((err) => {
+       console.log(err);
+     });
+ };
 
 
   return (
     <div>
-      <button onClick={e=>{handleClic(e)}}>refresh</button>
+      <Pagination 
+        productsPerPage={productsPerPage}
+        allProducts={allProducts.length}
+        paginado={paginado}
+        />
+      {shopProduct && shopProduct?.map((f, index) => {
+                    return (
+                      <div key={index}>
+                        <SingleProduct
+                          id={f.id}
+                          image={f.image}
+                          price={f.price}
+                          category={f.category}
+                          description={f.description}
+                        />
+                      </div>
+                    );
+                })}
+      <button class="btn" onClick={() =>refresh()}>refresh</button>
       <section id="products">
         {allProducts.length === 0 ? (
           <div className="spinner">
@@ -52,28 +88,22 @@ const GetAllProducts = () => {
             <span>.</span>
           </div>
         ) : (
-          allProducts?.map((product) => {
+          currentProducts?.map((product) => {
             return (
-              <div key={product.id} id="container" className="products-card">
-                <div className="product-details">
-                  <h1>{product.title}</h1>
-                  <p class="information">description: {product.description}</p>
-                  <div class="control">
-                    <button
-                      class="btn"
-                      onClick={() => getProductId(product.id)}
-                    >
-                      <span>Shop now</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="product-image">
-                  <img src={product.image} height="250" width="250" />
-                  <div class="info">
-                    <h2>category: {product.category}</h2>
-                  </div>
-                </div>
-              </div>
+            <div key={product.id}>
+              <Link to= {`/${product.id}`}>
+                <a onClick={() => getProductId(product.id)}>
+                <SingleProduct
+                id={product.id}
+                title= {product.title}
+                description={product.description}
+                category={product.category}
+                image={product.image}
+                >
+                </SingleProduct>
+                  </a>
+                </Link>
+            </div>
             );
           })
         )}

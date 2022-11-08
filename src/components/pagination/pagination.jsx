@@ -1,39 +1,23 @@
 import React from "react";
+import "./pagination.css"
 
-const Pagination = ({ prev, next, onPrevious, onNext }) => {
-  const handlePrevious = () => {
-    onPrevious();
-  };
+const Pagination = ({ productsPerPage, allProducts, paginado }) => {
+  const pageNumbers = [];
+  //redondea todos los personajes por los personajes por pagina
+  for (let i = 0; i < Math.ceil(allProducts / productsPerPage); i++) {
+    pageNumbers.push(i+1);
+  }
 
-  const handleNext = () => {
-    onNext();
-  };
-  return ( 
+  return (
     <nav>
-      <ul className="pagination justify-content-center">
-        {prev ? (
-          <li className="page-item">
-            <button className="page-link" onClick={handlePrevious}>
-              previous
-            </button>
-          </li>
-        ) : <li className="page-item">
-        <button className="page-link" onClick={handlePrevious}>
-          previous
-        </button>
-      </li>}
-        {next ? (
-          <li className="page-item">
-            <button className="page-link" onClick={handleNext}>
-              next
-            </button>
-          </li>
-        ) :  <li className="page-item">
-        <button className="page-link" onClick={handleNext}>
-          next
-        </button>
-      </li>}
-      </ul>
+      {pageNumbers &&
+        pageNumbers.map((number) => (
+          <ul className="pagina" key={number}>
+            <li  className="page-item" onClick={() => paginado(number)}>
+              <a className="numero">{number} </a>
+            </li>
+          </ul>
+        ))}
     </nav>
   );
 };

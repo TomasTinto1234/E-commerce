@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-// import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import Products from "../products/Products"
 import "./navBar.css"
 import SingleProduct from "../singleProduct/SingleProduct";
 import User from '../users/Users'
-import Pagination from "../pagination/pagination"
+import Pagination from "../pagination/Pagination"
 import Categories from "../categories/Categories"
+import Carrito from "../carrito/Carrito"
 
 
 const Home = () => {
 return (
     <div>
-        <Pagination/>
-        <Products/>
+        <Carrito/>
         <Categories/>
+        <Products/>
        <Pagination/>
-       <SingleProduct/>
+       {/* <SingleProduct/> */}
        <User/>
     </div>
 )

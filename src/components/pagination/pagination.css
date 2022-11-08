@@ -1,12 +1,24 @@
-#container{
-	box-shadow: 0 15px 30px 1px grey;
-	background: rgba(255, 255, 255, 0.90);
-	text-align: center;
-	border-radius: 5px;
-	overflow: hidden;
-	margin: 5em auto;
-	height: 350px;
-	width: 700px;
-  
-	
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
 }
+
+ul.pagination li {display: inline;}
+
+ul.pagination li i {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+ul.pagination li i.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li i:hover:not(.active) {background-color:  rgb(3, 59, 8);}

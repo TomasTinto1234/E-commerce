@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import Carrito from "../carrito/Carrito"
 // import {getFavsProducts} from "../../actions/actions"
 import SingleProduct from "../singleProduct/SingleProduct"
-import Pagination from "../pagination/Pagination"
+import Pagination from "../paginacion/Paginacion"
 
 const GetAllProducts = () => {
   const dispatch = useDispatch()

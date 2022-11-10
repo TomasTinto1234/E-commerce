@@ -16,7 +16,7 @@ const GetAllProducts = () => {
   const [shopProduct, /*setShopProduct*/] = useState("");
   
   const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage, /*setPerPage*/] = useState(5)
+  const [productsPerPage, /*setPerPage*/] = useState(4)
   const indexOfLastProduct = currentPage * productsPerPage; 
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)
@@ -65,12 +65,13 @@ const getProductId = async (id) => {
       title={allProducts.title}
       description={allProducts.description}
       /> */}
+        <button className="products-card" onClick={() =>refresh()}>refresh</button>
       <Paginations 
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}
         paginado={paginado}
         />
-      {shopProduct && shopProduct?.map((f, index) => {
+      {/* {shopProduct && shopProduct?.map((f, index) => {
                     return (
                       <div key={index}>
                         <SingleProduct
@@ -82,8 +83,7 @@ const getProductId = async (id) => {
                         />
                       </div>
                     );
-                })}
-      <button className="products-card" onClick={() =>refresh()}>refresh</button>
+                })} */}
       <section id="products">
         {allProducts.length === 0 ? (
           <div className="spinner">

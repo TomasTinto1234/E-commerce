@@ -7,6 +7,7 @@ export const TYPES = {
     CLEAR_CART: "CLEAR_CART",
   };
   export const GET_FAVORITES_PRODUCTS = "GET_FAVORITES_PRODUCTS";
+  export const CURRENT_PAGE = "CURRENT_PAGE"
 
 
   export function getFavsProducts(id) {
@@ -28,3 +29,9 @@ export const TYPES = {
       type: "CLEAN",
     };
   }
+
+  export const setCurrentPage = payload => {
+    return dispatch => {
+        dispatch({ type: CURRENT_PAGE, payload })
+    }
+};

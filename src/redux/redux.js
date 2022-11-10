@@ -4,10 +4,16 @@ export const shoppingInitialState = {
   products: [],
   cart: [],
   favoritesProducts:[],
+  paginate: [],
 };
 
 export default function shoppingReducer(state = shoppingInitialState , action) {
   switch (action.type) {
+    case TYPES.CURRENT_PAGE:
+      return {
+          ...state,
+          paginate: { ...state.paginate, currentPage: action.payload }
+      }
     case TYPES.ADD_TO_CART: {
       let newItem = state.products.find(
         (product) => product.id === action.payload

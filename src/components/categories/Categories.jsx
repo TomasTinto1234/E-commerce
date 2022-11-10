@@ -36,7 +36,7 @@ const Categories = () => {
             <select class="btn">
               <select hidden={true}>categories</select>
               {allCategories&&allCategories.map((categories)=> {
-                  <label key ={categories} value={categories}>{categories}</label>   
+                  <options key ={categories} value={categories}>{categories}</options>   
               })}
             </select>
         </div>

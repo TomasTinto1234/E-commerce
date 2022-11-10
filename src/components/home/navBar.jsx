@@ -14,8 +14,8 @@ return (
           <div className="contenido-header">
           <div class="contenedor-foto">
       </div>
+         <a className="pr" href="#inicio"><h1 className="sonh1">E-commerce</h1></a>
       <img src={carrito} height="55, 65"/>
-         <a href="#inicio"><h1 className="sonh1">E-commerce</h1></a>
            <nav className="elnav">
             <ul id="links" className="losul">
              <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li>
@@ -30,10 +30,10 @@ return (
           </div>
 
           <div className="redes">
-          <a href="https://wa.me/+541161263966" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
-          <a href="https://www.linkedin.com/in/tomas-tinto-320a85236/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/TomasTinto1234" target="_blank"><i className="fa-brands fa-github"></i></a>
-          <a href="https://www.instagram.com/tomas_tinto/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
+          <a className="pr" href="https://wa.me/+541161263966" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
+          <a className="pr" href="https://www.linkedin.com/in/tomas-tinto-320a85236/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
+          <a className="pr" href="https://github.com/TomasTinto1234" target="_blank"><i className="fa-brands fa-github"></i></a>
+          <a className="pr" href="https://www.instagram.com/tomas_tinto/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
           </div>
            </nav>
           </div>

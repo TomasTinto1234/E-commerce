@@ -9,12 +9,12 @@ const Pagination = ({ productsPerPage, allProducts, paginado }) => {
   }
 
   return (
-    <nav>
+    <nav className='pag'>
       {pageNumbers &&
         pageNumbers.map((number) => (
-          <ul className="pagina" key={number}>
-            <li  className="page-item" onClick={() => paginado(number)}>
-              <a className="numero">{number} </a>
+          <ul className='pagination' key={number}>
+            <li  className='pagination' onClick={() => paginado(number)}>
+              <a className="select">{number} </a>
             </li>
           </ul>
         ))}

@@ -4,7 +4,7 @@ import "./navBar.css"
 import SingleProduct from "../singleProduct/SingleProduct";
 import User from '../users/Users'
 // import Pagination from "../pagination/Pagination"
-import Categories from "../categories/Categories"
+import Categories from "../categories/Categories.jsx"
 import Carrito from "../carrito/Carrito"
 
 

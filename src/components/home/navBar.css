@@ -44,7 +44,7 @@
 #inicio .contenido header .contenido-header .redes a {
     text-decoration: none;
     color: #fff;
-    display: inline-block;
+    display: block;
     margin-left: 10px;
     transition: .5s;
 }

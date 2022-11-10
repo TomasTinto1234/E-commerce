@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import axios from "axios";
 import "./products.css";
 import { useDispatch, useSelector } from "react-redux";
-// import Carrito from "../carrito/Carrito"
+import Carrito from "../carrito/Carrito"
 // import {getFavsProducts} from "../../actions/actions"
 import SingleProduct from "../singleProduct/SingleProduct"
 import Pagination from "../paginacion/Paginacion"
@@ -54,6 +54,12 @@ const getProductId = async (id) => {
 
   return (
     <div>
+      {/* <Carrito
+      image={allProducts.image}
+      price={allProducts.price}
+      title={allProducts.title}
+      description={allProducts.description}
+      /> */}
       <Pagination 
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}

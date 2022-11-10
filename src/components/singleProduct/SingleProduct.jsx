@@ -39,7 +39,7 @@ const SingleProduct = ({title, description, category, image, id}) => {
       <div key={id} id="container" className="products-card">
       <div className="product-details">
       <h1>{title}</h1>
-      <p class="information">description: {description}</p>
+      <p class="information">{description}</p>
       <div class="control">
         <button
           class="btn"

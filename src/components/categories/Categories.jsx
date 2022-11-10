@@ -34,11 +34,9 @@ const Categories = () => {
         <div>
             <h2>categories: {allCategories+" "}</h2>
             <select class="btn">
-              <option hidden={true}>categories</option>
-              {allCategories[0]?.map((categories)=> {
-                for (let i = 0; i < categories.length; i++) {
-                  <option key ={categories} value={allCategories}>{categories}</option>   
-                }
+              <select hidden={true}>categories</select>
+              {allCategories&&allCategories.map((categories)=> {
+                  <label key ={categories} value={categories}>{categories}</label>   
               })}
             </select>
         </div>

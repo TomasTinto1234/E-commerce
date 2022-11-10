@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {getFavsProducts} from "../../actions/actions"
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 
-const Detail = (id) => {
-  const dispatch = useDispatch()
+const Detail = ({title, description, category, image, id, price}) => {
+  // const dispatch = useDispatch()
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -36,19 +37,33 @@ const Detail = (id) => {
 //     }
 
   return (
-      <div key={id} id="container" className="products-card">
-      <div >
-      <h1>{id.title}</h1>
-      <p >{id.description}</p>
-          </div>
-          <div >
-          <img src={id.image} height="250" width="250" />
-          <div >
-          <h2>category: {id.category}</h2>
-          </div>
-          </div>
-          </div>
-        
+    <div key={id} id="container" className="products-card">
+    <div className="product-details">
+    <h1>{title}</h1>
+    <p class="information">{description}</p>
+    <div class="control">
+
+        <form 
+        // onSubmit={(e) => handleSubmit(e)}
+        >
+     <Link to= {`/Carrito/${id}`}>
+      <button
+        class="btn"
+        // onClick={()=>handleClickFav(id)}
+        >
+      <span>Shop now</span>
+        </button>
+        </Link>  
+        </form>
+        </div>
+        </div>
+        <div class="product-image">
+        <img src={image} height="250" width="250" />
+        <div class="info">
+        <h2>category: {category}</h2>
+        </div>
+        </div>
+        </div>
           );
         }
         

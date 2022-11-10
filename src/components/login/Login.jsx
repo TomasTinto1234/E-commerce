@@ -7,7 +7,7 @@ import "./login.css"
 const Login = ()=>{
 
     return(
-        <div>
+        <div id="login">
 
         <section className="sect">
     <div className="colour"></div>
@@ -21,7 +21,7 @@ const Login = ()=>{
         <div class="square"></div>
         <div class="container">
             <div class="formLogin">
-                <h2 className="jpy">Login Form</h2>
+                <h2 className="jpy">Login</h2>
                 <form>
                     <div class="input__box">
                         <input type="text" placeholder="Username" />

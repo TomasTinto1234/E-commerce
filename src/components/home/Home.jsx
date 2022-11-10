@@ -7,6 +7,7 @@ import User from '../users/Users'
 import Categories from "../categories/Categories.jsx"
 import Carrito from "../carrito/Carrito"
 import Login from "../login/Login"
+import Detail from "../detail/Detail"
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ return (
         <Carrito/>
         <Categories/>
         <Products/>
+        <Detail/>
        {/* <Paginations/> */}
        {/* <SingleProduct/> */}
        <User/>

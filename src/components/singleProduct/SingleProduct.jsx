@@ -43,26 +43,27 @@ const SingleProduct = ({title, description, category, image, id, price}) => {
       setShopProduct(e.target)
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setShopProduct(shopProduct)
-    console.log(shopProduct);
-    alert(`${shopProduct.title} añadido al carrito `);
-    setShopProduct({
-     title: title,
-     description: description,
-     price: price,
-     image: image,
-     category: category,
-    });
-    // history.push("/home");
-    return console.log("se creo")
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   setShopProduct(shopProduct)
+  //   console.log(shopProduct);
+  //   alert(`${shopProduct.title} añadido al carrito `);
+  //   setShopProduct({
+  //    title: title,
+  //    description: description,
+  //    price: price,
+  //    image: image,
+  //    category: category,
+  //   });
+  //   // history.push("/home");
+  //   return console.log("se creo")
+  // }
 
   return (
       <div key={id} id="container" className="products-card">
       <div className="product-details">
       <h1>{title}</h1>
+      <p>{price}</p>
       <p class="information">{description}</p>
       <div class="control">
       <Link to= {`/Detail/${id}`}>
@@ -74,7 +75,9 @@ const SingleProduct = ({title, description, category, image, id, price}) => {
           <span>details</span>
         </button>
           </Link>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form 
+          // onSubmit={(e) => handleSubmit(e)}
+          >
        <Link to= {`/Carrito/${id}`}>
         <button
           class="btn"

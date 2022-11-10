@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import carrito from "../../image/carrito.png"
 import "./navBar.css"
- 
+import {
+  BiUserCircle,
+  BiUser,
+  // BsCart4
+} from "react-icons/bi";
+import {
+  BsCart4
+} from "react-icons/bs";
 
 
   const NavBar = () => {
@@ -15,16 +22,25 @@ return (
           <div className="contenido-header">
           <div class="contenedor-foto">
       </div>
-         <a className="pr" href="#inicio"><h1 className="sonh1" >E-commerce</h1></a>
-      <img src={carrito} height="55, 65"/>
+         <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
+         <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
            <nav className="elnav">
             <ul id="links" className="losul">
-             <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li>
-             <li className="pages"><a href="#users" >USUARIOS</a></li>
+             {/* <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li> */}
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
-             <li className="pages"><a href="#carrito">CARRITO<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-             <li className="pages"><a href="#contacto">CONTACTO </a></li>
              <li className="pages"><a href="#categories">CATEGORIAS</a></li>
+             <li className="pages"><a href="#users" >USUARIOS</a></li>
+             <li className="pages"><a href="#contacto">CONTACTO </a></li>
+             <li className="pages"><a href="#carrito"><BsCart4 color="white"
+                size="25px"
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOut={({ target }) => (target.style.color = "white")}
+                cursor="pointer"/><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+             <li className="pages"><a href="#login"><BiUserCircle color="white"
+                size="25px"
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOut={({ target }) => (target.style.color = "white")}
+                cursor="pointer"/></a></li>
             </ul>
           <div id="icono-nav" >
             <i className="fa-solid fa-bars"></i>

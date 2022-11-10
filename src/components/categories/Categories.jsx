@@ -29,7 +29,7 @@ const Categories = () => {
   // }
 
   return (
-  <div>
+  <div className="products-card">
      <section id="categories">
         <div>
             <h2>categories: {allCategories+" "}</h2>

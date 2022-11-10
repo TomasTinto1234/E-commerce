@@ -11,7 +11,18 @@ const Footer = () => {
   const whatsapp = "https://wa.me/+541161263966";
   const linkedin = "linkedin.com/in/tomas-tinto-320a85236/";
 
+  function responsiveMenu() {
+    let x = document.getElementById("nav");
+    if (x.className === "") {
+        x.className = "responsive";
+    } else {
+        x.className = "";
+    }
+}
+
   return (
+    <div onclick={()=>responsiveMenu()}>
+
     <section id="contacto">
       <footer>
         <p>E-commerce Tomas Tinto - © 2022</p>
@@ -56,6 +67,7 @@ const Footer = () => {
         </div>
       </footer>
     </section>
+                </div>
   );
 };
 

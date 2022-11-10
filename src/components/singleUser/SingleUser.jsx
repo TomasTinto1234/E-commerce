@@ -23,7 +23,7 @@ const SingleUser = () => {
   },[]);
 
   return (
-    <div>
+    <div className="products-card">
       {user &&
         user.map((user) => {
           return (

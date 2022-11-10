@@ -32,7 +32,7 @@ const User = () => {
 // }
 
   return (
-  <div>
+  <div className="products-card"> 
      <section id="users">
         
    {allUser && allUser.map((user)=> {

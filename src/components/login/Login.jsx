@@ -7,7 +7,7 @@ import "./login.css"
 const Login = ()=>{
 
     return(
-        <div id="login">
+        <div id="login" className="products-card">
 
         <section className="sect">
     <div className="colour"></div>

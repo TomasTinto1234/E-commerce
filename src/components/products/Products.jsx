@@ -83,7 +83,7 @@ const getProductId = async (id) => {
                       </div>
                     );
                 })}
-      <button class="btn" onClick={() =>refresh()}>refresh</button>
+      <button className="products-card" onClick={() =>refresh()}>refresh</button>
       <section id="products">
         {allProducts.length === 0 ? (
           <div className="spinner">
@@ -101,7 +101,7 @@ const getProductId = async (id) => {
         ) : (
           currentProducts?.map((product) => {
             return (
-            <div key={product.id} className="cards">
+            <div key={product.id}>
               {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
                 <SingleProduct

@@ -1,7 +1,7 @@
 import React from "react";
 import "./pagination.css"
 
-const Pagination = ({ productsPerPage, allProducts, paginado }) => {
+const Paginations = ({ productsPerPage, allProducts, paginado }) => {
   const pageNumbers = [];
   //redondea todos los personajes por los personajes por pagina
   for (let i = 0; i < Math.ceil(allProducts / productsPerPage); i++) {
@@ -22,4 +22,4 @@ const Pagination = ({ productsPerPage, allProducts, paginado }) => {
   );
 };
 
-export default Pagination;
+export default Paginations;

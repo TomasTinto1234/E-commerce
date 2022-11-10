@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Carrito from "../carrito/Carrito"
 // import {getFavsProducts} from "../../actions/actions"
 import SingleProduct from "../singleProduct/SingleProduct"
-import Pagination from "../paginacion/Paginacion"
+import Paginations from "../paginacion/Paginacion"
 
 const GetAllProducts = () => {
   const dispatch = useDispatch()
@@ -36,7 +36,12 @@ const GetAllProducts = () => {
   }, []);
 
 const refresh = ()=> {
-  dispatch(allProducts)
+  fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setAllProducts(json))
+      .catch((err) => {
+        console.log(err);
+      });
 }
 
 
@@ -60,7 +65,7 @@ const getProductId = async (id) => {
       title={allProducts.title}
       description={allProducts.description}
       /> */}
-      <Pagination 
+      <Paginations 
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}
         paginado={paginado}
@@ -97,7 +102,7 @@ const getProductId = async (id) => {
           currentProducts?.map((product) => {
             return (
             <div key={product.id}>
-              <Link to= {`/${product.id}`}>
+              {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
                 <SingleProduct
                 id={product.id}
@@ -108,7 +113,7 @@ const getProductId = async (id) => {
                 >
                 </SingleProduct>
                   </a>
-                </Link>
+                {/* </Link> */}
             </div>
             );
           })

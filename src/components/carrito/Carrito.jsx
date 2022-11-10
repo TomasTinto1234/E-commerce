@@ -1,23 +1,27 @@
 import React ,{useState} from "react";
 
-const Carrito = ({title, image,description, category, price})=> {
+const Carrito = (id)=> {
     let carrito = []; 
+
     
   
 return (
     <div class="container">
-    <div id="carrito">
-    <div class="row">
+    <div id="carrito" class="formLogin">
+    <div class="input__box">
         {/* <!-- Elementos generados a partir del JSON --> */}
-        <main id="product" class="col-sm-8 row">{image}</main>
         {/* <!-- Carrito --> */}
         <div class="col-sm-4">
-            <th scope="col" class="h5">Carrito</th>
-            {/* <!-- Elementos del carrito --> */}
+            <div scope="col" className="jpy">Carrito</div>
+            <p>title: {id.title}</p>
+            <p>category: {id.category}</p>
+            <p class="information">price: {id.price}</p>
+            {/* <p class="information">{description}</p> */}
+            <img src={id.image} id="product" class="input__box">{id.image}</img>
             <ul id="carrito" class="list-group"></ul>
             {/* <!-- Precio total --> */}
-            <p class="text-right">Total: <span id="total">{carrito}</span>$</p>
-            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            <p class="forget">Total: <span id="total">{carrito.price}</span>$</p>
+            <button id="boton-vaciar" class="btn btn-danger">- Vaciar -</button>
         </div>
     </div>
 </div>

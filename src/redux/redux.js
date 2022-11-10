@@ -28,6 +28,7 @@ export default function shoppingReducer(state = shoppingInitialState , action) {
         : {
             ...state,
             cart: [...state.cart, { ...newItem, quantity: 1 }],
+            favoritesProducts:[...state.cart, { ...newItem, quantity: 1 }],
           };
     }
     case TYPES.REMOVE_ONE_FROM_CART: {
@@ -59,6 +60,7 @@ export default function shoppingReducer(state = shoppingInitialState , action) {
       case TYPES.GET_FAVORITES_PRODUCTS:
       return {
         ...state,
+        cart: action.payload,
         favoritesProducts: action.payload,
       };
     case TYPES.SET_FAVORITE:

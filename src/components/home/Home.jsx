@@ -8,6 +8,7 @@ import Categories from "../categories/Categories.jsx"
 import Carrito from "../carrito/Carrito"
 import Login from "../login/Login"
 import Detail from "../detail/Detail"
+import CreateProduct from "../createProduct/CreateProduct"
 
 
 const Home = () => {
@@ -15,9 +16,11 @@ return (
     <div>
         <Login/>
         <Carrito/>
-        <Categories/>
+        {/* <Categories/> */}
         <Products/>
-        <Detail/>
+        <CreateProduct/>
+        {/* <SingleProduct/> */}
+        {/* <Detail/> */}
        {/* <Paginations/> */}
        {/* <SingleProduct/> */}
        <User/>

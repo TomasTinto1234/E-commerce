@@ -8,6 +8,8 @@ import Carrito from "../carrito/Carrito"
 // import {getFavsProducts} from "../../actions/actions"
 import SingleProduct from "../singleProduct/SingleProduct"
 import Paginations from "../paginacion/Paginacion"
+import Detail from "../detail/Detail"
+import Categories from "../categories/Categories.jsx"
 
 const GetAllProducts = () => {
   const dispatch = useDispatch()
@@ -27,7 +29,7 @@ const GetAllProducts = () => {
 
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?sort=desc")
       .then((res) => res.json())
       .then((json) => setAllProducts(json))
       .catch((err) => {
@@ -104,15 +106,28 @@ const getProductId = async (id) => {
             <div key={product.id}>
               {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
-                <SingleProduct
+                  
+                <Detail
                 id={product.id}
                 title= {product.title}
                 description={product.description}
                 category={product.category}
                 image={product.image}
+                price={product.price}
+                rating ={product.rating.rate}
                 >
-                </SingleProduct>
+                </Detail>
                   </a>
+                  <Categories
+                   category={product.category}
+                   >
+                  </Categories>
+                {/* <SingleProduct id={product.id}
+                title= {product.title}
+                description={product.description}
+                category={product.category}
+                image={product.image}
+                price={product.price}></SingleProduct> */}
                 {/* </Link> */}
             </div>
             );

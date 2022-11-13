@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const Categories = () => {
+const Categories = ({category}) => {
     
   const [allCategories, SetAllCategories] = useState("");
-  console.log(allCategories)
+  // console.log(allCategories)
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
@@ -32,13 +32,14 @@ const Categories = () => {
   <div className="products-card">
      <section id="categories">
         <div>
-            <h2>categories: {allCategories+" "}</h2>
-            <select class="btn">
-              <select hidden={true}>categories</select>
-              {allCategories&&allCategories.map((categories)=> {
-                  <options key ={categories} value={categories}>{categories}</options>   
+            {/* <h2>categories: {allCategories+" "}</h2> */}
+            <h2>category: {category}</h2>
+            {/* <select class="btn">
+              <option hidden={true}>categories</option>
+              {category&&category.map((categories)=> {
+                <option key ={categories} value={categories}>{categories}</option>   
               })}
-            </select>
+            </select> */}
         </div>
       </section>
   </div>)

@@ -21,7 +21,7 @@ function App() {
       <Route exact path="/" component={Home}/>
       <Route  path="/" component={NavBar}/>
       <Route exact path="/Products" component={Products}/>
-      <Route exact path="/Carrito" component={Carrito}/>
+      <Route path="/Carrito" component={Carrito}/>
       <Route exact path="/Users" component={Users}/>
       <Route exact path="/Products/:id" component={SingleProduct}/>
       <Route exact path="/Detail/:id" component={Detail}/>

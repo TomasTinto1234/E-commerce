@@ -1,5 +1,24 @@
 
-
+.botones{
+    position: sticky;
+    font-family: 'Bebas Neue', cursive;
+    /* justify-content: space-around; */
+    text-decoration: none;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 20px 1px grey;
+	background: rgba(0, 0, 0, .8);
+	border-radius: 5px;
+	margin: 4.7rem auto 10% auto;
+	height: 100px;
+    width: 100%;
+    font-size: 20px;
+    padding: 25px ;
+    text-decoration: none;
+    color: #fff;
+    margin: -1 ;
+    font-weight: 400;
+    transition: .5s;
+}
 
 #inicio .contenido header {
     background-color: rgba(0, 0, 0, .8);
@@ -7,6 +26,7 @@
     width: 100%;
     z-index: 100;
     top: 0;
+    border: 2px solid #fff;
 }
 
 #inicio .contenido header .contenido-header {
@@ -15,7 +35,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px  ;
+    padding: 8px ;
 }
 
 #inicio .contenido header .contenido-header .sonh1 {

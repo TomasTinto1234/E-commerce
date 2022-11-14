@@ -44,6 +44,7 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
   }
 
   return (
+    <div>
     <div key={id} id="container" className="products-card">
     <div className="product-details">
     <h1>{title}</h1>
@@ -71,6 +72,7 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
      <Link to= {`/Carrito/${id}`}>
       <button
         class="btn"
+        type="submit"
         // onClick={()=>handleClickFav(id)}
         >
       <span>Shop now</span>
@@ -85,6 +87,7 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
         </form>
         </div>
         <h5>{description}</h5>
+        </div>
         </div>
         </div>
         </div>

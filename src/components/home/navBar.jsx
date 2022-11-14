@@ -10,6 +10,7 @@ import {
 import {
   BsCart4
 } from "react-icons/bs";
+import Carrito from "../carrito/Carrito"
 
 
   const NavBar = () => {
@@ -41,16 +42,16 @@ return (
              <li className="pages"><a href="#categories">CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
              <li className="pages"><a href="#contacto">CONTACTO </a></li>
-             <li className="pages"><a href="#carrito"><BsCart4 color="white"
+             <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
-             <li className="pages"><a href="#login"><BiUserCircle color="white"
+                cursor="pointer"/></Link></a></li>
+             <li className="pages"><a href="#login"><Link to={"/Users"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/></a></li>
+                cursor="pointer"/></Link></a></li>
             </ul>
           <div id="icono-nav" >
             <i className="fa-solid fa-bars"></i>

@@ -8,25 +8,28 @@ import { Link } from "react-router-dom";
 
 const SingleProduct = ({title, description, category, image, id, price}) => {
   const dispatch = useDispatch()
+  const [allProduct, setAllProduct] = useState({});
+    const [shopProduct, setShopProduct] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    const fetchProducts = async ()=>{
+
+    const {data} = await fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setAllProducts(json))
+      .then((json) => setAllProduct(data))
       .catch((err) => {
         console.log(err);
       });
+    }
   }, []);
 
-  const [allProducts, setAllProducts] = useState("");
-    const [shopProduct, setShopProduct] = useState([]);
     
 
   const getProductId = async (id) => {
    await fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((json) => {
-        setAllProducts([json]);
+        setAllProduct([json]);
       })
       .catch((err) => {
         console.log(err);

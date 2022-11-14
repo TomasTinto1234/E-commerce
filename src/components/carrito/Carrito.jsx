@@ -1,11 +1,14 @@
 import React ,{useState} from "react";
+import "./carrito.css"
 
 const Carrito = (id)=> {
-    let carrito = []; 
 
-    
+    let carrito = [];  
   
 return (
+<div>
+
+    <div className="carritos">
     <div class="container">
     <div id="carrito" class="formLogin">
     <div class="input__box">
@@ -29,21 +32,23 @@ return (
 
 {/* <div class="container">
     <div class="row">
-        <div class="col-sm-8 row"> logo</div>
-        <div class="h5">Shoping Cart</div>
-        <div class="col-sm-4">
+    <div class="col-sm-8 row"> logo</div>
+    <div class="h5">Shoping Cart</div>
+    <div class="col-sm-4">
             <button class="btn btn-danger"> vaciar carrito</button>
             <button class="btn btn-danger">regresar</button>
         </div>
         </div>
         <p class="btn btn-danger">carrito vacio</p>
         <div>
-     <div class="text-right"><p>Total {price}$</p></div>
-     <div class="btn btn-danger">continuar</div>
-    </div>
-</div> */}
+        <div class="text-right"><p>Total {price}$</p></div>
+        <div class="btn btn-danger">continuar</div>
+        </div>
+    </div> */}
 
     </div>
+    </div>
+        </div>
 )
 }
 

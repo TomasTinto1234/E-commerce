@@ -29,7 +29,7 @@ const GetAllProducts = () => {
 
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?sort=desc")
+    fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setAllProducts(json))
       .catch((err) => {
@@ -66,7 +66,11 @@ const getProductId = async (id) => {
       price={allProducts.price}
       title={allProducts.title}
       description={allProducts.description}
-      /> */}
+        /> */}
+       <Categories
+       category={currentProducts.category}
+       />
+
         <button className="products-card" onClick={() =>refresh()}>refresh</button>
       <Paginations 
         productsPerPage={productsPerPage}

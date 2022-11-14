@@ -1,0 +1,16 @@
+.carritos{
+    position: relative;
+    font-family: 'Bebas Neue', cursive;
+    /* justify-content: space-around; */
+    text-decoration: none;
+	border-radius: 5px;
+	margin:7% 15% 25% auto;
+	height: 100px;
+    width: 100%;
+    font-size: 20px;
+    padding: 25px ;
+    text-decoration: none;
+    margin: -1 ;
+    font-weight: 400;
+    transition: .5s;
+}

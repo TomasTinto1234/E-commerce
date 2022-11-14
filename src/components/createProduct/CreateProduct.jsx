@@ -18,18 +18,22 @@ const CreateProduct= ({title, description, category, image, id, price})=>{
         })
             .then(res=>res.json())
             .then(json=>console.log(json))
+            .then(console.log(title, description, category, image, price))
     })
 
     return (
         <div>
-            <h1>title</h1>
-         <input>{title}</input>
-         <h1>price</h1>
-         <input>{price}</input>
-         <h1>image</h1>
-         <input>{image}</input>
-         <h1>category</h1>
-         <input>{category}</input>
+            <p>title</p>
+         <input type="input">{title}</input>
+         <p>price</p>
+         <input type="input">{price}</input>
+         <p>image</p>
+         <input type="input">{image}</input>
+         <p>category</p>
+         <input type="input">{category}</input>
+         <div>
+         <button type="submit">create product</button>
+         </div>
         </div>
     )
 

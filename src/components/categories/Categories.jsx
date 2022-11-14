@@ -41,9 +41,9 @@ const Categories = ({ category }) => {
           {/* <h2>categories: {allCategories+" "}</h2> */}
           {/* <h2>category: {category}</h2> */}
           <select  onChange={(e) => handleSort(e)} name="category" id="category">
-            <option hidden={true}>category</option>
-            <option>{category[0]}</option>
-            <option>{category[1]}</option>
+            <option value={allCategories}>category</option>
+            <option value={category[0]}>{category[0]}</option>
+            <option value={category[1]}>{category[1]}</option>
             <option>{category[2]}</option>
             <option>{category[3]}</option>
           </select>

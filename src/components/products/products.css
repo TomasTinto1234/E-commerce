@@ -222,7 +222,7 @@ font-family: 'EB Garamond', serif;
 	position: relative;
 	overflow: hidden;
 	height: 100%;
-	float: right;
+	/* float: left; */
 	width: 45%;
 	display: inline-block;
 }

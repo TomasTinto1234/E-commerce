@@ -107,7 +107,7 @@ const getProductId = async (id) => {
         ) : (
           currentProducts?.map((product) => {
             return (
-            <div key={product.id}>
+            <div key={product.id} className="cards">
               {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
                   

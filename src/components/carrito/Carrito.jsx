@@ -1,7 +1,7 @@
 import React ,{useState} from "react";
 import "./carrito.css"
 
-const Carrito = (id)=> {
+const Carrito = ({title, description, category, image, id, price, rating})=> {
 
     let carrito = [];  
   
@@ -16,14 +16,14 @@ return (
         {/* <!-- Carrito --> */}
         <div class="col-sm-4">
             <div scope="col" className="jpy">Carrito</div>
-            <p>title: {id.title}</p>
-            <p>category: {id.category}</p>
-            <p class="information">price: {id.price}</p>
+            <p>title: {title}</p>
+            <p>category: {category}</p>
+            <p class="information">price: {price}</p>
             {/* <p class="information">{description}</p> */}
-            <img src={id.image} id="product" class="input__box">{id.image}</img>
+            <img src={image} id="product" class="input__box">{image}</img>
             <ul id="carrito" class="list-group"></ul>
             {/* <!-- Precio total --> */}
-            <p class="forget">Total: <span id="total">{carrito.price}</span>$</p>
+            <p class="forget">Total: <span id="total">{price}</span>$</p>
             <button id="boton-vaciar" class="btn btn-danger">- Vaciar -</button>
         </div>
     </div>

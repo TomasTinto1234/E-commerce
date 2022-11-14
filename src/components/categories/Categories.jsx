@@ -25,7 +25,7 @@ const Categories = ({ category }) => {
     try {
       if(category){
         // console.log("soy category: " +category)
-       const pCat =  allCategories.filter(e=>category.includes(category[e]))
+       const pCat =  category.filter(e=>category.includes(category[e]))
        console.log("soy pCat: " + pCat)
        return pCat
       }
@@ -35,15 +35,15 @@ const Categories = ({ category }) => {
   }
 
   return (
-    <div className="products-card">
+    <div >
       <section id="categories">
         <div>
           {/* <h2>categories: {allCategories+" "}</h2> */}
           {/* <h2>category: {category}</h2> */}
           <select  onChange={(e) => handleSort(e)} name="category" id="category">
-            <option value={allCategories}>category</option>
-            <option value={category[0]}>{category[0]}</option>
-            <option value={category[1]}>{category[1]}</option>
+            <option value={category}>category</option>
+            <option>{category[0]}</option>
+            <option>{category[1]}</option>
             <option>{category[2]}</option>
             <option>{category[3]}</option>
           </select>

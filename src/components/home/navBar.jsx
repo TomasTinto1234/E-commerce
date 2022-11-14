@@ -42,11 +42,11 @@ return (
              <li className="pages"><a href="#categories">CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
              <li className="pages"><a href="#contacto">CONTACTO </a></li>
-             <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
+             <li className="pages"><Link to={`/Carrito` }><a href="#carrito"><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/></Link></a></li>
+                cursor="pointer"/></a></Link></li>
              <li className="pages"><a href="#login"><Link to={"/Users"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}

@@ -75,7 +75,7 @@ const Home = () => {
     <div>
       <div className="botones">
         <SearchBar title={allProducts.title} />
-        <Categories className="losul" category={allCategories.map((e) => e)} />
+        <Categories className="losul" category={allCategories} />
       </div>
       <Pagination
         productsPerPage={productsPerPage}
@@ -133,16 +133,7 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
-      {/* <Login/> */}
-      {/* <Carrito/> */}
-      {/* <Categories/> */}
-      {/* <Products/>
-        <CreateProduct/> */}
-      {/* <SingleProduct/> */}
-      {/* <Detail/> */}
-      {/* <Paginations/> */}
-      {/* <SingleProduct/> */}
-      {/* <User/> */}
+      <Carrito/>
     </div>
   );
 };

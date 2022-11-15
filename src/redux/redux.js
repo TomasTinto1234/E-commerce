@@ -9,12 +9,8 @@ export const shoppingInitialState = {
 
 export default function shoppingReducer(state = shoppingInitialState , action) {
   switch (action.type) {
-    case TYPES.CURRENT_PAGE:
-      return {
-          ...state,
-          paginate: { ...state.paginate, currentPage: action.payload }
-      }
-    case TYPES.ADD_TO_CART: {
+
+    case "ADD_FAVORITE":{
       let newItem = state.products.find(
         (product) => product.id === action.payload
       );
@@ -37,7 +33,36 @@ export default function shoppingReducer(state = shoppingInitialState , action) {
             favoritesProducts:[...state.cart, { ...newItem, quantity: 1 }],
           };
     }
-    case TYPES.REMOVE_ONE_FROM_CART: {
+
+    case "CURRENT_PAGE":
+      return {
+          ...state,
+          paginate: { ...state.paginate, currentPage: action.payload }
+      }
+    case "ADD_TO_CART": {
+      let newItem = state.products.find(
+        (product) => product.id === action.payload
+      );
+      //console.log(newItem);
+
+      let itemInCart = state.cart.find((item) => item.id === newItem.id);
+
+      return itemInCart
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === newItem.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cart: [...state.cart, { ...newItem, quantity: 1 }],
+            favoritesProducts:[...state.cart, { ...newItem, quantity: 1 }],
+          };
+    }
+    case "REMOVE_ONE_FROM_CART": {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);
 
       return itemToDelete.quantity > 1
@@ -54,31 +79,31 @@ export default function shoppingReducer(state = shoppingInitialState , action) {
             cart: state.cart.filter((item) => item.id !== action.payload),
           };
     }
-    case TYPES.REMOVE_ALL_FROM_CART: {
+    case "REMOVE_ALL_FROM_CART": {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
       };
     }
-    case TYPES.CLEAR_CART:
+    case "CLEAR_CART":
       return shoppingInitialState;
 
-      case TYPES.GET_FAVORITES_PRODUCTS:
+      case "GET_FAVORITES_PRODUCTS":
       return {
         ...state,
         cart: action.payload,
         favoritesProducts: action.payload,
       };
-    case TYPES.SET_FAVORITE:
+    case "SET_FAVORITE":
       return {
         ...state,
       };
-    case TYPES.REMOVE_FAVORITE:
+    case "REMOVE_FAVORITE":
       return {
         ...state,
       };
 
-      case TYPES.CLEAN:
+      case "CLEAN":
         return {
           ...state,
           detail: {},

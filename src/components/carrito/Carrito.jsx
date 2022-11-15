@@ -1,36 +1,53 @@
-import React ,{useState} from "react";
-import "./carrito.css"
+import React, { useState } from "react";
+import "./carrito.css";
 
-const Carrito = ({title, description, category, image, id, price, rating})=> {
+const Carrito = ({title, description, category, image, id, price, rating,}) => {
 
-    let carrito = [];  
-  
-return (
-<div>
+    const aitems = [title, description, category, image, id, price, rating]
+    console.log(aitems)
+    const carrito = [];
+    console.log(carrito)
 
-    <div className="carritos">
-    <div class="container">
-    <div id="carrito" class="formLogin">
-    <div class="input__box">
-        {/* <!-- Elementos generados a partir del JSON --> */}
-        {/* <!-- Carrito --> */}
-        <div class="col-sm-4">
-            <div scope="col" className="jpy">Carrito</div>
-            <p>title: {title}</p>
-            <p>category: {category}</p>
-            <p class="information">price: {price}</p>
-            {/* <p class="information">{description}</p> */}
-            <img src={image} id="product" class="input__box">{image}</img>
-            <ul id="carrito" class="list-group"></ul>
-            {/* <!-- Precio total --> */}
-            <p class="forget">Total: <span id="total">{price}</span>$</p>
-            <button id="boton-vaciar" class="btn btn-danger">- Vaciar -</button>
-        </div>
-    </div>
-</div>
+    const items = () => {
+    if (id) {
+        carrito.push(aitems);
+      return carrito;
+    }
+    return items
+  };
 
+  return (
+    <div>
+      <div className="carritos">
+        <div class="container">
+          <div id="carrito" class="formLogin">
+            <div class="input__box">
+              {/* <!-- Elementos generados a partir del JSON --> */}
+              {/* <!-- Carrito --> */}
+              <div class="col-sm-4">
+                <div scope="col" className="jpy">
+                  Carrito
+                </div>
+                <p>title: {carrito.title}</p>
+                <p>category: {carrito.category}</p>
+                <p class="information">price: {carrito.price}</p>
+                {/* <p class="information">{description}</p> */}    
+                <img src={carrito.image} id="product" class="input__box">
+                  {carrito.image}
+                </img>
+                <ul id="carrito" class="list-group"></ul>
+                {/* <!-- Precio total --> */}
+                <p class="forget">
+                  Total: <span id="total">{carrito.price}</span>$
+                </p>
+                <button id="boton-vaciar" class="btn btn-danger">
+                  - Vaciar -
+                </button>
+              </div>
+            </div>
+          </div>
 
-{/* <div class="container">
+          {/* <div class="container">
     <div class="row">
     <div class="col-sm-8 row"> logo</div>
     <div class="h5">Shoping Cart</div>
@@ -45,11 +62,10 @@ return (
         <div class="btn btn-danger">continuar</div>
         </div>
     </div> */}
-
-    </div>
-    </div>
         </div>
-)
-}
+      </div>
+    </div>
+  );
+};
 
-export default Carrito
+export default Carrito;

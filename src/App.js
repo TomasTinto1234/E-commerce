@@ -3,7 +3,7 @@ import NavBar from "./components/home/navBar";
 import Home from "./components/home/Home"
 import Footer from "./components/footer/Footer";
 // import { Routes, Route } from 'react-router-dom';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {  Route, Switch } from "react-router-dom";
 import  SingleProduct  from '../src/components/singleProduct/SingleProduct'
 import Carrito from "./components/carrito/Carrito";
 import Users from "./components/users/Users";
@@ -15,21 +15,19 @@ import Login from "./components/login/Login"
 function App() {
   return (
     <div>
-      <BrowserRouter>
       <NavBar/>
       <Switch>
       <Route exact path="/" component={Home}/>
       <Route  path="/" component={NavBar}/>
-      <Route exact path="/Products" component={Products}/>
-      <Route path="/Carrito" component={Carrito}/>
+      <Route  path="/Products" component={Products}/>
+      <Route  path="/Carrito" component={Carrito}/>
       <Route exact path="/Users" component={Users}/>
       <Route exact path="/Products/:id" component={SingleProduct}/>
-      <Route exact path="/Detail/:id" component={Detail}/>
-      <Route exact path="/Login" component={Login}/>
+      <Route  path="/Detail/:id" component={Detail}/>
+      <Route  path="/Login" component={Login}/>
       <Route exact path="/footer" component={Footer}/>
       </Switch>
       <Footer/>
-      </BrowserRouter>
     </div>
   );
 }

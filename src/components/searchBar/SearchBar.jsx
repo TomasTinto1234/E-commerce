@@ -19,7 +19,7 @@ const SearchBar = ({title})=>{
     }
 
     return (
-          <div class="field">
+          <div >
           <input
        
             type="input"

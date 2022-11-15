@@ -1,13 +1,18 @@
 import axios from "axios";
 
-export const TYPES = {
-    ADD_TO_CART: "ADD_TO_CART",
-    REMOVE_ONE_FROM_CART: "REMOVE_ONE_FROM_CART",
-    REMOVE_ALL_FROM_CART: "REMOVE_ALL_FROM_CART",
-    CLEAR_CART: "CLEAR_CART",
-  };
+// export const TYPES = {
+//     ADD_TO_CART: "ADD_TO_CART",
+//     
+//     
+//    
+//   };
   export const GET_FAVORITES_PRODUCTS = "GET_FAVORITES_PRODUCTS";
   export const CURRENT_PAGE = "CURRENT_PAGE"
+  export const ADD_FAVORITE = "ADD_FAVORITE"
+  export const ADD_TO_CART = "ADD_TO_CART"
+  export const REMOVE_ONE_FROM_CART= "REMOVE_ONE_FROM_CART"
+  export const REMOVE_ALL_FROM_CART= "REMOVE_ALL_FROM_CART"
+  export const CLEAR_CART= "CLEAR_CART"
 
 
   export function getFavsProducts(id) {
@@ -30,8 +35,15 @@ export const TYPES = {
     };
   }
 
+  export function addFavorite(cart) {
+    return { 
+        type: "ADD_FAVORITE", 
+        cart
+    };
+  }
+
   export const setCurrentPage = payload => {
     return dispatch => {
-        dispatch({ type: CURRENT_PAGE, payload })
+        dispatch({ type: "CURRENT_PAGE", payload })
     }
 };

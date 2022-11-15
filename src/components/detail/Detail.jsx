@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {getFavsProducts} from "../../actions/actions"
+import {getFavsProducts, addFavorite} from "../../actions/actions"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const Detail = ({title, description, category, image, id, price, rating}) => {
   const dispatch = useDispatch()
+  const cart = useSelector(state => state.cart)
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?sort=desc")
@@ -69,10 +70,11 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
         <form 
         // onSubmit={(e) => handleSubmit(e)}
         >
-     <Link to= {`/Carrito/${id}`}>
+          <Link to= {`/Carrito`}>
       <button
         class="btn"
         type="submit"
+        onClick={(id)=>addFavorite({id:id ,title: title, category: category, price: price, image: image})}
         // onClick={()=>handleClickFav(id)}
         >
       <span>Shop now</span>

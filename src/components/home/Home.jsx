@@ -133,6 +133,7 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
+      <Carrito/>
     </div>
   );
 };

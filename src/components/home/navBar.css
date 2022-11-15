@@ -1,6 +1,6 @@
 
 .botones{
-    position: relative;
+    position: static;
     font-family: 'Bebas Neue', cursive;
     /* justify-content: space-around; */
     text-decoration: none;
@@ -18,6 +18,10 @@
     margin: -1 ;
     font-weight: 400;
     transition: .5s;
+}
+
+.home{
+    margin-top:7px;
 }
 
 #inicio .contenido header {

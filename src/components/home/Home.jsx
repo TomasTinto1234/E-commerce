@@ -72,7 +72,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <div className="botones">
         <SearchBar title={allProducts.title} />
         <Categories className="losul" category={allCategories} setCurrentPage={setCurrentPage} />

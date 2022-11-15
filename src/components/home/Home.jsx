@@ -133,7 +133,7 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
-      <Carrito/>
+      {/* <Carrito/> */}
     </div>
   );
 };

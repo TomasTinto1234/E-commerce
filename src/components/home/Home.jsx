@@ -75,7 +75,7 @@ const Home = () => {
     <div>
       <div className="botones">
         <SearchBar title={allProducts.title} />
-        <Categories className="losul" category={allCategories} />
+        <Categories className="losul" category={allCategories} setCurrentPage={setCurrentPage} />
       </div>
       <Pagination
         productsPerPage={productsPerPage}

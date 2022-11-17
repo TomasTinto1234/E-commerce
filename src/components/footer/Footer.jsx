@@ -22,8 +22,8 @@ const Footer = () => {
 
   return (
     <div onClick={()=>responsiveMenu()}>
-
-    <section id="contacto">
+<div>-</div>
+    {/* <section id="contacto"> */}
       <footer>
         <p>E-commerce Tomas Tinto - © 2022</p>
         <div>
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </section>
+    {/* </section> */}
                 </div>
   );
 };

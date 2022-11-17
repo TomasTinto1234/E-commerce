@@ -48,9 +48,9 @@ return (
         <header>
           <div className="contenido-header">
          <a className="pr" href="#inicio" ><h1>E-commerce</h1></a>
-          <div className="contenedor-foto">
+          {/* <div className="contenedor-foto">
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-      </div>
+      </div> */}
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
@@ -62,7 +62,7 @@ return (
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
-             <li className="pages"><a href="/login" ><Link to={"/Login"}><BiUserCircle color="white"
+             <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}

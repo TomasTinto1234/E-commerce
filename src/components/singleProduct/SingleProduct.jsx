@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const SingleProduct = ({title, description, category, image, id, price}) => {
   const dispatch = useDispatch()
-  const [allProduct, setAllProduct] = useState({});
+  const [allProduct, setAllProduct] = useState([]);
     const [shopProduct, setShopProduct] = useState([]);
 
   useEffect(() => {
@@ -63,27 +63,27 @@ const SingleProduct = ({title, description, category, image, id, price}) => {
   // }
 
   return (
-      <div key={id} id="container" className="products-card">
+      <div key={id} >
       <div className="product-details">
       <h1>{title}</h1>
       <p>{price}</p>
-      <p class="information">{description}</p>
-      <div class="control">
-      <Link to= {`/Detail/${id}`}>
+      <p className="information">{description}</p>
+      <div className="control">
+      {/* <Link to= {`/Detail/${id}`}>
 
         <button
-          class="btn"
+          className="btn"
           onClick={() => getProductId(id)}
           >
           <span>details</span>
         </button>
-          </Link>
+          </Link> */}
           <form 
           // onSubmit={(e) => handleSubmit(e)}
           >
        
         <button
-          class="btn"
+          className="btn"
           // onClick={()=>handleClickFav(id)}
           >
         <span>Shop now</span>
@@ -91,16 +91,16 @@ const SingleProduct = ({title, description, category, image, id, price}) => {
 
           </form>
           </div>
-          <button class="buttonCart"  onClick={()=>handleShopChange(id)}>
+          <button className="buttonCart"  onClick={()=>handleShopChange(id)}>
           <span>Shop now</span>
-            <div class="cartButton">
+            <div className="cartButton">
 
             </div>
         </button>
           </div>
-          <div class="product-image">
+          <div className="product-image">
           <img src={image} height="250" width="250" />
-          <div class="info">
+          <div className="info">
           <h2>category: {category}</h2>
           </div>
           </div>

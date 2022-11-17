@@ -39,7 +39,7 @@ const User = () => {
      return (
         <div key={user.id}>
            <button
-                      class="btn"
+                      className="btn"
                       onClick={() => getUserId(user.id)}
                     >
                       <span>select user</span>

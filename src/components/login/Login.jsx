@@ -14,28 +14,28 @@ const Login = ()=>{
     <div className="colour"></div>
     <div className="colour"></div>
     <div className="boxLogin">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="container">
-            <div class="formLogin">
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="container">
+            <div className="formLogin">
                 <h2 className="jpy">Login</h2>
                 <form>
-                    <div class="input__box">
+                    <div className="input__box">
                         <input type="text" placeholder="Username" />
                     </div>
-                    <div class="input__box">
+                    <div className="input__box">
                         <input type="password" placeholder="Password" />
                     </div>
-                    <div class="input__box">
+                    <div className="input__box">
                         <input type="submit" value="Login" />
                     </div>
-                    <p class="forget">
+                    <p className="forget">
                         Forgot Password? <a className="ksyo" href="#">Click Here</a>
                     </p>
-                    <p class="forget">
+                    <p className="forget">
                         Don't have an account? <a className="ksyo" href="#">Sign Up</a>
                     </p>
                 </form>

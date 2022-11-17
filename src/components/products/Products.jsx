@@ -29,12 +29,14 @@ const GetAllProducts = () => {
 
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    return ()=>{
+      fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => setAllProducts(json))
       .catch((err) => {
         console.log(err);
       });
+    }
   }, []);
 
 const refresh = ()=> {
@@ -110,7 +112,6 @@ const getProductId = async (id) => {
             <div key={product.id} className="cards">
               {/* <Link to= {`/detail/${product.id}`}> */}
                 {/* <a onClick={() => getProductId(product.id)}> */}
-                  
                 <Detail
                 id={product.id}
                 title= {product.title}
@@ -121,17 +122,15 @@ const getProductId = async (id) => {
                 rating ={product.rating.rate}
                 >
                 </Detail>
-                  {/* </a> */}
                   <Categories
                    category={product.category}
-                   >
-                  </Categories>
-                {/* <SingleProduct id={product.id}
+                   />
+                <SingleProduct id={product.id}
                 title= {product.title}
                 description={product.description}
                 category={product.category}
                 image={product.image}
-                price={product.price}></SingleProduct> */}
+                price={product.price}></SingleProduct>
                 {/* </Link> */}
             </div>
             );

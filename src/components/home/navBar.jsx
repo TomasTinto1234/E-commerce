@@ -5,6 +5,7 @@ import "./navBar.css"
 import {
   BiUserCircle,
   BiUser,
+  BiMenu
   // BsCart4
 } from "react-icons/bi";
 import {
@@ -17,16 +18,17 @@ import Carrito from "../carrito/Carrito"
      
   //función que muestra el menu responsive
   function responsiveMenu() {
-      let x = document.getElementById("nav");
-      if (x.className === "") {
+      const x = document.getElementById("nav");
+      if (x.className === "elnav") {
           x.className = "responsive";
       } else {
-          x.className = "";
+          x.className = "elnav";
       }
   }
 
 return (
-    <div onClick={()=>responsiveMenu()}>
+    <div>
+          {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />  */}
         <section id="inicio">
       <div className ="contenido">
         <header>
@@ -35,27 +37,54 @@ return (
       </div>
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-           <nav className="elnav">
-            <ul id="links" className="losul" onClick={()=>responsiveMenu()}>
-             {/* <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li> */}
-             <li className="pages"><a href="#products" >PRODUCTOS</a></li>
+         <nav className="elnav" onClick={()=>responsiveMenu()}>
+            <ul id="links" className="losul">
+             <li className="pages"><a href="#products" className ="seleccionado" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories">CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
-             <li className="pages"><a href="#contacto">CONTACTO </a></li>
-             <li className="pages"><Link to={`/Carrito` }><a href="#carrito"><BsCart4 color="white"
+             <li className="pages"><a href="#contacto">CONTACTO</a></li>
+             <li className="pages"><a href="/Carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/></a></Link></li>
-             <li className="pages"><a href="#login"><Link to={"/Login"}><BiUserCircle color="white"
+                cursor="pointer"/></Link></a></li>
+             <li className="pages"><a href="/login"><Link to={"/Login"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
             </ul>
+           </nav>
+             <div id="icono-nav" onClick={()=>responsiveMenu()}>
+              <BiMenu color="gray"
+                size="25px"
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOut={({ target }) => (target.style.color = "white")}
+                cursor="pointer"/>
+            {/* <i class="fa-solid fa-bars"></i> */}
+          </div>
+           {/* <nav className="elnav">
+            <ul id="links" className="losul">
+             <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li>
+             <li className="pages"><a href="#products" >PRODUCTOS</a></li>
+             <li className="pages"><a href="/Carrito"><Link to={`/Carrito` }><BsCart4 color="white"
+                size="25px"
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOut={({ target }) => (target.style.color = "white")}
+                cursor="pointer"/></Link></a></li>
+             <li className="pages"><a href="/login"><Link to={"/Login"}><BiUserCircle color="white"
+                size="25px"
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOut={({ target }) => (target.style.color = "white")}
+                cursor="pointer"/></Link></a></li>
+             <li className="pages"><a href="#categories">CATEGORIAS</a></li>
+             <li className="pages"><a href="#users" >USUARIOS</a></li>
+             <li className="pages"><a href="#contacto">CONTACTO </a></li>
+            </ul>
           <div id="icono-nav" >
             <i className="fa-solid fa-bars"></i>
           </div>
+           </nav> */}
 
           <div className="redes">
           <a className="pr" href="https://wa.me/+541161263966" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
@@ -63,7 +92,6 @@ return (
           <a className="pr" href="https://github.com/TomasTinto1234" target="_blank"><i className="fa-brands fa-github"></i></a>
           <a className="pr" href="https://www.instagram.com/tomas_tinto/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
           </div>
-           </nav>
           </div>
         </header>
       </div>

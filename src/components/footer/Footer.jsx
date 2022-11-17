@@ -21,7 +21,7 @@ const Footer = () => {
 }
 
   return (
-    <div onclick={()=>responsiveMenu()}>
+    <div onClick={()=>responsiveMenu()}>
 
     <section id="contacto">
       <footer>

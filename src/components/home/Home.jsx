@@ -101,7 +101,7 @@ const Home = () => {
         ) : (currentProducts &&
           currentProducts?.map((product) => {
             return (
-              <div key={product.id}>
+              <div key={product.id} id="products">
                 {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
                   <Detail

@@ -1,4 +1,3 @@
-import { TYPES } from "../actions/actions";
 
 export const shoppingInitialState = {
   products: [],

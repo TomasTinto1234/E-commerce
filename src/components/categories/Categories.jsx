@@ -3,11 +3,25 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const Categories = ({ category }) => {
-  const [allCategories, SetAllCategories] = useState("");
-  const cat = useSelector(state => state.allProducts)
+  const [allCategories, SetAllCategories] = useState([])
+  // console.log(allCategories)
+  const products = document.getElementById("products")
+  // console.log(products)
+  // const cat = useSelector(state => state.allProducts)
   // console.log(category)
 
   // console.log(allCategories)
+
+  useEffect(() => {
+    return ()=>{
+      fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => SetAllCategories(json))
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }, []);
 
   
   const getCategory = async () => {
@@ -40,12 +54,16 @@ const Categories = ({ category }) => {
         <div>
           {/* <h2>categories: {allCategories+" "}</h2> */}
           {/* <h2>category: {category}</h2> */}
-          <select  onChange={(e) => handleSort(e)} name="category" id="category">
-            <option value={category}>category</option>
-            <option>{category[0]}</option>
-            <option>{category[1]}</option>
+          <select name="category" id="category">
+            <option value={allCategories}>category</option>
+            {allCategories&&allCategories.map((e)=>{
+              <option value={e}>{e.category}</option>
+            })
+
+            }
+            {/* <option>{category[1]}</option>
             <option>{category[2]}</option>
-            <option>{category[3]}</option>
+            <option>{category[3]}</option> */}
           </select>
           {/* <select class="btn">
               <option hidden={true}>categories</option>

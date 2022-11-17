@@ -4,7 +4,8 @@ import "./carrito.css";
 const Carrito = ({title, description, category, image, id, price, rating,}) => {
 
   const [visible, setVisible] = useState(false)
-
+  const products = document.querySelector("products")
+console.log(products)
   //   const aitems = [title, description, category, image, id, price, rating]
   //   console.log(aitems)
   //   const carrito = [];
@@ -19,30 +20,30 @@ const Carrito = ({title, description, category, image, id, price, rating,}) => {
   // };
 
   return (
-    <div>
+    <div id="carrito">
       <div className="carritos">
-        <div class="container">
-          <div id="carrito" class="formLogin">
-            <div class="input__box">
+        <div className="container">
+          <div id="carrito" className="formLogin">
+            <div className="input__box">
               {/* <!-- Elementos generados a partir del JSON --> */}
               {/* <!-- Carrito --> */}
-              <div class="col-sm-4">
+              <div className="col-sm-4">
                 <h1 scope="col" className="jpy">
                   Carrito
                 </h1>
                 <p>title: {title}</p>
                 <p>category: {category}</p>
-                <p class="information">price: {price}</p>
+                <p className="information">price: {price}</p>
                 {/* <p class="information">{description}</p> */}    
-                <img src={image} id="product" class="input__box">
+                <img src={image} id="product" className="input__box">
                   {image}
                 </img>
-                <ul id="carrito" class="list-group"></ul>
+                <ul id="carrito" className="list-group"></ul>
                 {/* <!-- Precio total --> */}
-                <p class="forget">
+                <p className="forget">
                   Total: <span id="total">{price}</span>$
                 </p>
-                <button id="boton-vaciar" class="btn btn-danger">
+                <button id="boton-vaciar" className="btn btn-danger">
                   - Vaciar -
                 </button>
               </div>

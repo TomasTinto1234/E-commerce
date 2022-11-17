@@ -32,7 +32,7 @@ import Carrito from "../carrito/Carrito"
      
   //función que muestra el menu responsive
   function responsiveMenu() {
-      const x = document.getElementById("nav");
+      const x = document.getElementById("elnav");
       if (x.className === "elnav") {
           x.className = "responsive";
       } else {
@@ -51,13 +51,13 @@ return (
       </div>
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-         <nav id="nav" className="elnav" onClick={()=>responsiveMenu()}>
+         <nav id="elnav" className="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" className="losul">
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories" >CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
              <li className="pages"><a href="#contacto" >CONTACTO</a></li>
-             <li className="pages"><a href="/Carrito"><Link to={`/Carrito` }><BsCart4 color="white"
+             <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}

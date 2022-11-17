@@ -63,6 +63,7 @@
 }
 
 #inicio .contenido header .contenido-header nav ul .pages a:hover {
+    display: inline-block;
     color: #e28504;
 }
 
@@ -79,6 +80,7 @@
 }
 
 #inicio .contenido header .contenido-header .seleccionado {
+     display: inline-block;
     color: #e28504;
 }
 
@@ -132,6 +134,7 @@
 }
 
 #inicio .contenido .presentacion a:hover {
+    
     background-color: #e28504;
 }
 
@@ -182,13 +185,14 @@ a:link, a:visited, a:active {
         text-align: center;
     }
     nav.responsive ul li {
+        display: inline-table;
         margin: 5px 0;
     }
     #icono-nav {
         display: block;
     }
     #inicio .contenido .presentacion h2 {
-        font-size: 40px;
+        font-size: 20px;
     }
     /* seccion SOBRE MI */
     #products {

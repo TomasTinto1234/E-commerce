@@ -71,7 +71,7 @@ return (
            </nav>
              <div id="icono-nav" onClick={()=>responsiveMenu()}>
               <BiMenu color="gray"
-                size="25px"
+                size="35px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>

@@ -15,6 +15,20 @@ import Carrito from "../carrito/Carrito"
 
 
   const NavBar = () => {
+  //   function seleccionar(link) {
+  //     let opciones = document.querySelectorAll('#links  a');
+  //     opciones[0].className = "elnav";
+  //     opciones[1].className = "elnav";
+  //     opciones[2].className = "elnav";
+  //     opciones[3].className = "elnav";
+  //     opciones[4].className = "elnav";
+  //     link.className = "seleccionado";
+  
+  //     //Hacemos desaparecer el men una vez que se ha seleccionado una opcion
+  //     //en modo responsive
+  //     let x = document.getElementById("nav");
+  //     x.className = "";
+  // }
      
   //función que muestra el menu responsive
   function responsiveMenu() {
@@ -37,18 +51,18 @@ return (
       </div>
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-         <nav className="elnav" onClick={()=>responsiveMenu()}>
+         <nav id="nav" className="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" className="losul">
-             <li className="pages"><a href="#products" className ="seleccionado" >PRODUCTOS</a></li>
-             <li className="pages"><a href="#categories">CATEGORIAS</a></li>
+             <li className="pages"><a href="#products" >PRODUCTOS</a></li>
+             <li className="pages"><a href="#categories" >CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
-             <li className="pages"><a href="#contacto">CONTACTO</a></li>
+             <li className="pages"><a href="#contacto" >CONTACTO</a></li>
              <li className="pages"><a href="/Carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
-             <li className="pages"><a href="/login"><Link to={"/Login"}><BiUserCircle color="white"
+             <li className="pages"><a href="/login" ><Link to={"/Login"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}

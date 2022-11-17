@@ -161,7 +161,7 @@ a:link, a:visited, a:active {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .redes {
         display: none;
     }
@@ -191,32 +191,32 @@ a:link, a:visited, a:active {
         font-size: 40px;
     }
     /* seccion SOBRE MI */
-    #sobremi {
+    #products {
         padding: 50px 0;
         display: block;
     }
-    #sobremi .contenedor-foto {
+    #products .contenedor-foto {
         max-width: 200px;
         margin: auto;
     }
-    #sobremi .contenedor-foto img {
+    #products .contenedor-foto img {
         padding: 8px;
     }
-    #sobremi .sobremi .titulo-seccion {
+    #products .products .titulo-seccion {
         text-align: center;
     }
-    #sobremi .sobremi h2 {
+    #products .products h2 {
         font-size: 25px;
         text-align: center;
     }
     /* seccion MIS SERVICIOS */
-    #servicios {
+    #categories {
         padding: 50px 15px;
     }
-    #servicios .fila {
+    #categories .fila {
         display: block;
     }
-    #servicios .fila .servicio {
+    #categories .fila .servicio {
         margin: 10px auto;
     }
     /* seccion HABLIDADES MI */

@@ -48,11 +48,11 @@ return (
         <header>
           <div className="contenido-header">
           <div className="contenedor-foto">
-      </div>
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
+      </div>
          <nav id="elnav" className="elnav" onClick={()=>responsiveMenu()}>
-            <ul id="links" className="losul">
+            <ul id="links" >
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories" >CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
@@ -76,6 +76,12 @@ return (
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
             {/* <i class="fa-solid fa-bars"></i> */}
+                <div className="redes">
+                <a className="pr" href="https://wa.me/+541161263966" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
+                <a className="pr" href="https://www.linkedin.com/in/tomas-tinto-320a85236/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
+                <a className="pr" href="https://github.com/TomasTinto1234" target="_blank"><i className="fa-brands fa-github"></i></a>
+                <a className="pr" href="https://www.instagram.com/tomas_tinto/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
+                </div>
           </div>
            {/* <nav className="elnav">
             <ul id="links" className="losul">
@@ -100,12 +106,6 @@ return (
           </div>
            </nav> */}
 
-          <div className="redes">
-          <a className="pr" href="https://wa.me/+541161263966" target="_blank"><i className="fa-brands fa-whatsapp"></i></a>
-          <a className="pr" href="https://www.linkedin.com/in/tomas-tinto-320a85236/" target="_blank"><i className="fa-brands fa-linkedin"></i></a>
-          <a className="pr" href="https://github.com/TomasTinto1234" target="_blank"><i className="fa-brands fa-github"></i></a>
-          <a className="pr" href="https://www.instagram.com/tomas_tinto/" target="_blank"><i className="fa-brands fa-instagram"></i></a>
-          </div>
           </div>
         </header>
       </div>

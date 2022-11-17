@@ -26,17 +26,17 @@ import Carrito from "../carrito/Carrito"
   }
 
 return (
-    <div onclick={()=>responsiveMenu()}>
+    <div onClick={()=>responsiveMenu()}>
         <section id="inicio">
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-          <div class="contenedor-foto">
+          <div className="contenedor-foto">
       </div>
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-           <nav className="elnav"onclick={()=>responsiveMenu()}>
-            <ul id="links" className="losul" onclick={()=>responsiveMenu()}>
+           <nav className="elnav">
+            <ul id="links" className="losul" onClick={()=>responsiveMenu()}>
              {/* <li className="pages"><a href="#inicio" className ="seleccionado" >INICIO</a></li> */}
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories">CATEGORIAS</a></li>

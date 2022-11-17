@@ -20,7 +20,7 @@ const Home = () => {
   const [shopProduct /*setShopProduct*/] = useState("");
   const [allCategories, SetAllCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage /*setPerPage*/] = useState(3);
+  const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = allProducts?.slice(
@@ -54,7 +54,8 @@ const Home = () => {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
-      .then((json) => SetAllCategories(json))
+      .then((json) => {SetAllCategories(json)
+        setCurrentPage(1)})
       .catch((err) => {
         console.log(err);
       });
@@ -64,7 +65,8 @@ const Home = () => {
     await fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((json) => {
-        setAllProducts([json]);
+        setAllProducts([json])
+        setCurrentPage(1);
       })
       .catch((err) => {
         console.log(err);
@@ -83,7 +85,7 @@ const Home = () => {
         paginado={paginado}
       />
       <section id="products">
-        {allProducts.length === 0 ? (
+        {currentProducts.length === 0 ? (
           <div className="spinner">
             <span>L</span>
             <span>O</span>
@@ -96,7 +98,7 @@ const Home = () => {
             <span>.</span>
             <span>.</span>
           </div>
-        ) : (
+        ) : (currentProducts &&
           currentProducts?.map((product) => {
             return (
               <div key={product.id}>

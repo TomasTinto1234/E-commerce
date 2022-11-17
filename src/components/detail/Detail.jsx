@@ -77,7 +77,7 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
         onClick={(id)=>addFavorite({id:id ,title: title, category: category, price: price, image: image})}
         // onClick={()=>handleClickFav(id)}
         >
-      <span>Shop now</span>
+        Shop now
         </button>
         </Link>  
           {/* <div class="cartButton">

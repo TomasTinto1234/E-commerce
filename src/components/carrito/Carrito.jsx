@@ -3,18 +3,20 @@ import "./carrito.css";
 
 const Carrito = ({title, description, category, image, id, price, rating,}) => {
 
-    const aitems = [title, description, category, image, id, price, rating]
-    console.log(aitems)
-    const carrito = [];
-    console.log(carrito)
+  const [visible, setVisible] = useState(false)
 
-    const items = () => {
-    if (id) {
-        carrito.push(aitems);
-      return carrito;
-    }
-    return items
-  };
+  //   const aitems = [title, description, category, image, id, price, rating]
+  //   console.log(aitems)
+  //   const carrito = [];
+  //   console.log(carrito)
+
+  //   const items = () => {
+  //   if (id) {
+  //       carrito.push(aitems);
+  //     return carrito;
+  //   }
+  //   return items
+  // };
 
   return (
     <div>
@@ -25,20 +27,20 @@ const Carrito = ({title, description, category, image, id, price, rating,}) => {
               {/* <!-- Elementos generados a partir del JSON --> */}
               {/* <!-- Carrito --> */}
               <div class="col-sm-4">
-                <div scope="col" className="jpy">
+                <h1 scope="col" className="jpy">
                   Carrito
-                </div>
-                <p>title: {carrito.title}</p>
-                <p>category: {carrito.category}</p>
-                <p class="information">price: {carrito.price}</p>
+                </h1>
+                <p>title: {title}</p>
+                <p>category: {category}</p>
+                <p class="information">price: {price}</p>
                 {/* <p class="information">{description}</p> */}    
-                <img src={carrito.image} id="product" class="input__box">
-                  {carrito.image}
+                <img src={image} id="product" class="input__box">
+                  {image}
                 </img>
                 <ul id="carrito" class="list-group"></ul>
                 {/* <!-- Precio total --> */}
                 <p class="forget">
-                  Total: <span id="total">{carrito.price}</span>$
+                  Total: <span id="total">{price}</span>$
                 </p>
                 <button id="boton-vaciar" class="btn btn-danger">
                   - Vaciar -

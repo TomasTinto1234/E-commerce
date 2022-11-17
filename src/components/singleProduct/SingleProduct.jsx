@@ -81,14 +81,14 @@ const SingleProduct = ({title, description, category, image, id, price}) => {
           <form 
           // onSubmit={(e) => handleSubmit(e)}
           >
-       <Link to= {`/Carrito/${id}`}>
+       
         <button
           class="btn"
           // onClick={()=>handleClickFav(id)}
           >
         <span>Shop now</span>
           </button>
-          </Link>  
+
           </form>
           </div>
           <button class="buttonCart"  onClick={()=>handleShopChange(id)}>

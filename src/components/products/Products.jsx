@@ -17,15 +17,15 @@ const GetAllProducts = () => {
   // const favoritesProducts = useSelector((state) => state.favoritesProducts);
   const [shopProduct, /*setShopProduct*/] = useState("");
   
-  const [currentPage, setCurrentPage] = useState(1)
-  const [productsPerPage, /*setPerPage*/] = useState(4)
-  const indexOfLastProduct = currentPage * productsPerPage; 
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const [productsPerPage, /*setPerPage*/] = useState(4)
+  // const indexOfLastProduct = currentPage * productsPerPage; 
+  // const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  // const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)
 
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber);
-      };
+  //   const paginado = (pageNumber) => {
+  //       setCurrentPage(pageNumber);
+  //     };
 
 
   useEffect(() => {
@@ -67,16 +67,16 @@ const getProductId = async (id) => {
       title={allProducts.title}
       description={allProducts.description}
         /> */}
-       <Categories
+       {/* <Categories
        category={currentProducts.category}
-       />
+       /> */}
 
         <button className="products-card" onClick={() =>refresh()}>refresh</button>
-      <Paginations 
+      {/* <Paginations 
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}
         paginado={paginado}
-        />
+        /> */}
       {/* {shopProduct && shopProduct?.map((f, index) => {
                     return (
                       <div key={index}>
@@ -105,11 +105,11 @@ const getProductId = async (id) => {
             <span>.</span>
           </div>
         ) : (
-          currentProducts?.map((product) => {
+          allProducts?.map((product) => {
             return (
             <div key={product.id} className="cards">
               {/* <Link to= {`/detail/${product.id}`}> */}
-                <a onClick={() => getProductId(product.id)}>
+                {/* <a onClick={() => getProductId(product.id)}> */}
                   
                 <Detail
                 id={product.id}
@@ -121,7 +121,7 @@ const getProductId = async (id) => {
                 rating ={product.rating.rate}
                 >
                 </Detail>
-                  </a>
+                  {/* </a> */}
                   <Categories
                    category={product.category}
                    >

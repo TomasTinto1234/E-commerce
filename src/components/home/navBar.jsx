@@ -47,8 +47,8 @@ return (
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-          <div className="contenedor-foto">
          <a className="pr" href="#inicio" ><h1 className="sonh1">E-commerce</h1></a>
+          <div className="contenedor-foto">
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
       </div>
          <nav id="elnav" className="elnav" onClick={()=>responsiveMenu()}>

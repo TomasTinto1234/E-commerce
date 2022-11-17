@@ -1,6 +1,6 @@
 
 .botones{
-    position: static;
+    position: inline-block;
     font-family: 'Bebas Neue', cursive;
     /* justify-content: space-around; */
     text-decoration: none;
@@ -43,18 +43,18 @@
     padding: 8px ;
 }
 
-#inicio .contenido header .contenido-header .sonh1 {
+#inicio .contenido header .contenido-header h1 {
     text-align: center;
     color: #e2da04;
 }
 
-#inicio .contenido header .contenido-header .elnav ul {
+#inicio .contenido header .contenido-header nav ul {
     list-style: none;
     display: flex;
     align-items: center;
 }
 
-#inicio .contenido header .contenido-header .elnav ul .pages a {
+#inicio .contenido header .contenido-header nav ul .pages a {
     text-decoration: none;
     color: #fff;
     margin: 0 12px;
@@ -62,7 +62,7 @@
     transition: .5s;
 }
 
-#inicio .contenido header .contenido-header .elnav ul .pages a:hover {
+#inicio .contenido header .contenido-header nav ul .pages a:hover {
     color: #e28504;
 }
 
@@ -161,14 +161,14 @@ a:link, a:visited, a:active {
 }
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     .redes {
         display: none;
     }
-    .elnav {
+    nav {
         display: none;
     }
-    .elnav.responsive {
+    nav.responsive {
         display: block;
         background-color: rgba(0, 0, 0, .8);
         width: 100%;
@@ -177,11 +177,11 @@ a:link, a:visited, a:active {
         left: 0;
         padding: 10px 0;
     }
-    .elnav.responsive .ul {
+    nav.responsive .ul {
         display: block ;
         text-align: center;
     }
-    .elnav.responsive ul li {
+    nav.responsive ul li {
         margin: 5px 0;
     }
     #icono-nav {

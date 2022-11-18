@@ -6,10 +6,12 @@ import Detail from "../detail/Detail";
 import CreateProduct from "../createProduct/CreateProduct";
 import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
+import {orderByName, getProducts, clean} from "../../actions/actions"
 
 const Home = () => {
   window.scrollTo(0, 0);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [/*orden*/, setOrden] = useState("");
   const [allProducts, setAllProducts] = useState("");
   const [shopProduct /*setShopProduct*/] = useState("");
   const [allCategories, SetAllCategories] = useState([]);
@@ -29,7 +31,11 @@ const Home = () => {
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setAllProducts(json))
+      .then((json) => {
+        setAllProducts(json)
+      clean()
+      })
+
       .catch((err) => {
         console.log(err);
       });
@@ -47,11 +53,31 @@ const Home = () => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((json) => {SetAllCategories(json)
-        setCurrentPage(1)})
+        setCurrentPage(1)
+        clean()
+      })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products?sort=desc')
+    .then(res=>res.json())
+    .then(json=>{
+      // console.log(json)
+      setOrden(json)
+    })
+  },[])
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products?sort=asc')
+    .then(res=>res.json())
+    .then(json=>{
+      // console.log(json)
+      setOrden(json)
+    })
+  },[])
 
   const getProductId = async (id) => {
     await fetch(`https://fakestoreapi.com/products/${id}`)
@@ -64,6 +90,14 @@ const Home = () => {
         console.log(err);
       });
   };
+  
+
+  function handleSort(e) {
+    e.preventDefault();
+    dispatch(orderByName(e.target.value));
+    setCurrentPage(1);
+    setOrden(e.target.value);
+  }
 
   return (
     <div className="home">
@@ -73,8 +107,13 @@ const Home = () => {
       <div className="colour">
         {/* <Carrito/> */}
         <SearchBar title={allProducts.title} />
-        <Categories className="losul" category={allCategories} setCurrentPage={setCurrentPage} />
+        <Categories className="losul" category={allCategories}/>
       </div>
+      <select className="losul" onChange={(e) => handleSort(e)}>
+            <option hidden={true}>Por Nombre</option>
+            <option value="az">a-z</option>
+            <option value="za">z-a</option>
+          </select>
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}

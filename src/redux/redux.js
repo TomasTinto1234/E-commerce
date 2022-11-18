@@ -1,6 +1,7 @@
 
 export const shoppingInitialState = {
   products: [],
+  allProducts : [],
   cart: [],
   favoritesProducts:[],
   paginate: [],
@@ -8,30 +9,64 @@ export const shoppingInitialState = {
 
 export default function shoppingReducer(state = shoppingInitialState , action) {
   switch (action.type) {
+    // case "ADD_FAVORITE":{
+    //   let newItem = state.products.find(
+    //     (product) => product.id === action.payload
+    //   );
+    //   //console.log(newItem);
 
-    case "ADD_FAVORITE":{
-      let newItem = state.products.find(
-        (product) => product.id === action.payload
-      );
-      //console.log(newItem);
+    //   let itemInCart = state.cart.find((item) => item.id === newItem.id);
 
-      let itemInCart = state.cart.find((item) => item.id === newItem.id);
+    //   return itemInCart
+    //     ? {
+    //         ...state,
+    //         cart: state.cart.map((item) =>
+    //           item.id === newItem.id
+    //             ? { ...item, quantity: item.quantity + 1 }
+    //             : item
+    //         ),
+    //       }
+    //     : {
+    //         ...state,
+    //         cart: [...state.cart, { ...newItem, quantity: 1 }],
+    //         favoritesProducts:[...state.cart, { ...newItem, quantity: 1 }],
+    //       };
+    // }
+    case "GET_PRODUCTS":
+      const allProducts = fetch('https://fakestoreapi.com/products')
+      .then(res=>res.json())
+      .then(json=>console.log(json))
+      return {
+        ...state,
+        products: action.payload,
+        allProducts: action.payload,
+      };
+    case "ORDER_BY_NAME":
+      const orderProducts =
+        action.payload === "az"
+          ? state.allProducts.sort((a, b) => {
+              if (a.id > b.id) {
+                return 1;
+              }
+              if (b.id > a.id) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.allProducts.sort((a, b) => {
+              if (a.id > b.id) {
+                return -1;
+              }
+              if (b.id > a.id) {
+                return 1;
+              }
+              return 0;
+            });
+            return {
+              ...state,
+              products: orderProducts,
+            };
 
-      return itemInCart
-        ? {
-            ...state,
-            cart: state.cart.map((item) =>
-              item.id === newItem.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-            ),
-          }
-        : {
-            ...state,
-            cart: [...state.cart, { ...newItem, quantity: 1 }],
-            favoritesProducts:[...state.cart, { ...newItem, quantity: 1 }],
-          };
-    }
 
     case "CURRENT_PAGE":
       return {

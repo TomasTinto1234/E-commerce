@@ -24,13 +24,13 @@ const CreateProduct= ({title, description, category, image, id, price})=>{
     return (
         <div>
             <p>title</p>
-         <input type="input">{title}</input>
+         <input type="text">{title}</input>
          <p>price</p>
-         <input type="input">{price}</input>
+         <input type="text">{price}</input>
          <p>image</p>
-         <input type="input">{image}</input>
+         <input type="text">{image}</input>
          <p>category</p>
-         <input type="input">{category}</input>
+         <input type="text">{category}</input>
          <div>
          <button type="submit">create product</button>
          </div>

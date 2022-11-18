@@ -7,6 +7,23 @@
   export const CLEAR_CART= "CLEAR_CART"
 
 
+  export function getProducts() {
+    return async function (dispatch) {
+      try {
+        
+      let json =  fetch('https://fakestoreapi.com/products')
+        .then(res=>res.json())
+        .then(json=>console.log(json))
+        return dispatch({
+          type: "GET_PRODUCTS",
+          payload: json.data,
+        });
+      } catch (error) {
+        console.log(error)
+      }
+      };
+  }
+
   export function getFavsProducts(id) {
     return async function (dispatch) {
       try {
@@ -31,6 +48,12 @@
     return { 
         type: "ADD_FAVORITE", 
         cart
+    };
+  }
+  export function orderByName(payload) {
+    return {
+      type: "ORDER_BY_NAME",
+      payload,
     };
   }
 

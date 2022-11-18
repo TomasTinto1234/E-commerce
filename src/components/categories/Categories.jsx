@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { clean } from "../../actions/actions";
 
 const Categories = ({ category }) => {
   const [allCategories, SetAllCategories] = useState([])
@@ -16,7 +17,10 @@ const Categories = ({ category }) => {
     return ()=>{
       fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => SetAllCategories(json))
+      .then((json) =>{
+         SetAllCategories(json)
+        clean()
+        })
       .catch((err) => {
         console.log(err);
       });
@@ -29,19 +33,18 @@ const Categories = ({ category }) => {
     .then((res) => res.json())
     .then((json) => {
       SetAllCategories(json);
+      clean()
     })
     .catch((err) => {
         console.log(err);
     });
   }
   
-  function handleSort(category){
+  function handleSelect(categor){
+    // console.log(categor)
     try {
-      if(category){
-        // console.log("soy category: " +category)
-       const pCat =  category.filter(e=>category.includes(category[e]))
-       console.log("soy pCat: " + pCat)
-       return pCat
+      if(allCategories.category === categor){
+          return allCategories.category[categor]
       }
     } catch (error) {
       console.log(error)
@@ -54,10 +57,10 @@ const Categories = ({ category }) => {
         <div>
           {/* <h2>categories: {allCategories+" "}</h2> */}
           {/* <h2>category: {category}</h2> */}
-          <select name="category" id="category">
-            <option value={allCategories}>category</option>
+          <select name="category" id="category" onClick={(e) =>{getCategory(e)}}>
+            <option value={allCategories}>Category</option>
             {allCategories&&allCategories.map((e)=>{
-              <option value={e}>{e.category}</option>
+              <option value={e}>{allCategories[e]}</option>
             })
 
             }

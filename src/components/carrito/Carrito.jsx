@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./carrito.css";
 
 const Carrito = ({title, description, category, image, id, price, rating,}) => {
@@ -19,11 +20,11 @@ console.log(products)
   // };
 
   return (
+      <div className="carritos">
     <div id="carrito">
          <div className="colour"></div>
     <div className="colour"></div>
     <div className="colour"></div>
-      <div className="carritos">
       <div className="boxLogin">
       <div className="square"></div>
         <div className="square"></div>
@@ -49,6 +50,11 @@ console.log(products)
                 </p>
                 <button id="boton-vaciar" className="btn btn-danger">
                   - Vaciar -
+                </button>
+                <button className="btn btn-danger">
+                  <Link to="/">
+                  volver Home
+                </Link>
                 </button>
               </div>
             </div>

@@ -20,7 +20,16 @@ console.log(products)
 
   return (
     <div id="carrito">
+         <div className="colour"></div>
+    <div className="colour"></div>
+    <div className="colour"></div>
       <div className="carritos">
+      <div className="boxLogin">
+      <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
+        <div className="square"></div>
         <div className="container">
           <div id="carrito" className="formLogin">
             <div className="input__box">
@@ -46,6 +55,7 @@ console.log(products)
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

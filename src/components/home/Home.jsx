@@ -67,7 +67,10 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="botones">
+      <div className="colour"></div>
+    <div className="colour"></div>
+    <div className="colour"></div>
+      <div className="colour">
         {/* <Carrito/> */}
         <SearchBar title={allProducts.title} />
         <Categories className="losul" category={allCategories} setCurrentPage={setCurrentPage} />

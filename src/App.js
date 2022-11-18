@@ -3,7 +3,7 @@ import NavBar from "./components/home/navBar";
 import Home from "./components/home/Home"
 import Footer from "./components/footer/Footer";
 // import { Routes, Route } from 'react-router-dom';
-import {  Route, Switch } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 import  SingleProduct  from '../src/components/singleProduct/SingleProduct'
 import Carrito from "./components/carrito/Carrito";
 import Users from "./components/users/Users";
@@ -11,22 +11,23 @@ import Products from "./components/products/Products"
 import Detail from "./components/detail/Detail"
 // import { Switch } from "@chakra-ui/react";
 import Login from "./components/login/Login"
+// import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <NavBar/>
-      <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route  path="/" component={NavBar}/>
-      <Route  path="/Products" component={Products}/>
-      <Route  path="/Carrito" component={Carrito}/>
-      <Route exact path="/Users" component={Users}/>
-      <Route exact path="/Products/:id" component={SingleProduct}/>
-      <Route  path="/Detail/:id" component={Detail}/>
-      <Route  path="/Login" component={Login}/>
-      <Route exact path="/footer" component={Footer}/>
-      </Switch>
+      <Routes>
+      <Route  path="/Carrito" element={<Carrito/>}/>
+      <Route  path="/Login" element={<Login/>}/>
+      {/* <Route  path="/" component={NavBar}/>s */}
+      <Route  path="/Products" element={<Products/>}/>
+      <Route  path="/Users" element={<Users/>}/>
+      <Route  path="/Products/:id" element={<SingleProduct/>}/>
+      <Route  path="/Detail/:id" element={<Detail/>}/>
+      <Route  path="/footer" element={<Footer/>}/>
+      <Route exact path="/" element={<Home/>}/>
+      </Routes>
       <Footer/>
     </div>
   );

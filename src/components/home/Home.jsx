@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Products from "../products/Products";
 import "./navBar.css";
-import SingleProduct from "../singleProduct/SingleProduct";
-import User from "../users/Users";
 import Categories from "../categories/Categories.jsx";
-import Carrito from "../carrito/Carrito";
-import Login from "../login/Login";
 import Detail from "../detail/Detail";
 import CreateProduct from "../createProduct/CreateProduct";
 import Pagination from "../paginacion/Paginacion";
@@ -14,9 +9,8 @@ import SearchBar from "../searchBar/SearchBar";
 
 const Home = () => {
   window.scrollTo(0, 0);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [allProducts, setAllProducts] = useState("");
-  // const favoritesProducts = useSelector((state) => state.favoritesProducts);
   const [shopProduct /*setShopProduct*/] = useState("");
   const [allCategories, SetAllCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +25,6 @@ const Home = () => {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-  // console.log(allCategories)
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -76,6 +68,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="botones">
+        {/* <Carrito/> */}
         <SearchBar title={allProducts.title} />
         <Categories className="losul" category={allCategories} setCurrentPage={setCurrentPage} />
       </div>
@@ -102,7 +95,6 @@ const Home = () => {
           currentProducts?.map((product) => {
             return (
               <div key={product.id} id="products">
-                {/* <Link to= {`/detail/${product.id}`}> */}
                 <a onClick={() => getProductId(product.id)}>
                   <Detail
                     id={product.id}
@@ -114,17 +106,6 @@ const Home = () => {
                     rating={product.rating.rate}
                   ></Detail>
                 </a>
-                {/* <Categories
-                   category={product.category}
-                   > */}
-                {/* </Categories> */}
-                {/* <SingleProduct id={product.id}
-                title= {product.title}
-                description={product.description}
-                category={product.category}
-                image={product.image}
-                price={product.price}></SingleProduct> */}
-                {/* </Link> */}
               </div>
             );
           })
@@ -135,7 +116,6 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
-      {/* <Carrito/> */}
     </div>
   );
 };

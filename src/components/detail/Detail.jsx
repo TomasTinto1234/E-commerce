@@ -58,7 +58,6 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
     <p>${price}</p>
     <h5>{category}</h5>
     <div>
-      <Link to= {`/SingleProduct/${id}`}>
       <button
         className="btn"
         // onClick={() => getProductId(id)}
@@ -67,7 +66,6 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
           details
           </span>
       </button>
-        </Link>
           </div>
         </div>
         <div className="product-image">
@@ -78,7 +76,6 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
         <form 
         // onSubmit={(e) => handleSubmit(e)}
         >
-          <Link to= {`/Carrito`}>
       <button
         className="btn"
         type="submit"
@@ -87,7 +84,6 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
         >
         Shop now
         </button>
-        </Link>  
           {/* <div className="cartButton">
         <button className="buttonCart"  onClick={()=>handleShopChange(id)}>
         <span>Shop now</span>

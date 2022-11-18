@@ -1,11 +1,3 @@
-import axios from "axios";
-
-// export const TYPES = {
-//     ADD_TO_CART: "ADD_TO_CART",
-//     
-//     
-//    
-//   };
   export const GET_FAVORITES_PRODUCTS = "GET_FAVORITES_PRODUCTS";
   export const CURRENT_PAGE = "CURRENT_PAGE"
   export const ADD_FAVORITE = "ADD_FAVORITE"

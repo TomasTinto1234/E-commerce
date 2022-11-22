@@ -56,12 +56,12 @@ return (
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories" >CATEGORIAS</a></li>
              <li className="pages"><a href="#users" >USUARIOS</a></li>
-             <li className="pages"><a href="#contacto" >CONTACTO</a></li>
              <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
+                <li className="pages"><a href="#contacto" >CONTACTO</a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUserCircle color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}

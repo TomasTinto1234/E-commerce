@@ -11,7 +11,7 @@ const SearchBar = ({title})=>{
     }
 
     function handleSubmit(e) {
-        if(title.includes(e.target.value) ){
+        if(title === e.target.value ){
           setTitle(e.target.value)
         } else{
           alert("no se encuentra")
@@ -20,14 +20,13 @@ const SearchBar = ({title})=>{
 
     return (
           <div >
-          <input
-       
-            type="input"
-            placeholder="Products name..." 
-            onChange={(e) => handleInputChange(e)}
-            />
-          <label type="submit" onClick={(e)=> handleSubmit(e)}><BsSearch/></label>
-          {/* <span class="field__label">Products name</span> */}
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></link>
+
+<form action="">
+  <input type="search" required/>
+
+  <a href="javascript:void(0)" id="clear-btn"><i onClick={(e)=>handleSubmit(e)} class="fa fa-search"></i></a>
+</form>
             </div>
       );
 }

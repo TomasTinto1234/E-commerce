@@ -7,14 +7,15 @@ import CreateProduct from "../createProduct/CreateProduct";
 import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
 import {orderByName, getProducts, clean} from "../../actions/actions"
+import AllProducts from "../products";
 
 const Home = () => {
-  window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const [/*orden*/, setOrden] = useState("");
-  const [allProducts, setAllProducts] = useState("");
+  const [allProducts, setAllProducts] = useState(AllProducts);
   const [shopProduct /*setShopProduct*/] = useState("");
-  const [allCategories, SetAllCategories] = useState([]);
+  const [allCategories, SetAllCategories] = useState("");
+  // console.log(allCategories)
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -23,74 +24,81 @@ const Home = () => {
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  const [activo, setActivo]= useState(false)
+
+  const toggler =()=>{
+    setActivo(!activo)
+  }
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        setAllProducts(json)
-      clean()
-      })
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setAllProducts(json)
+  //     clean()
+  //     })
 
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
-  const refresh = () => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setAllProducts(json))
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => {SetAllCategories(json)
-        setCurrentPage(1)
-        clean()
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // const refresh = () => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => setAllProducts(json))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products/categories")
+  //     .then((res) => res.json())
+  //     .then((json) => {SetAllCategories(json)
+  //       setCurrentPage(1)
+  //       clean()
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products?sort=desc')
-    .then(res=>res.json())
-    .then(json=>{
-      // console.log(json)
-      setOrden(json)
-    })
-  },[])
+  // useEffect(() => {
+  //   fetch('https://fakestoreapi.com/products?sort=desc')
+  //   .then(res=>res.json())
+  //   .then(json=>{
+  //     // console.log(json)
+  //     setOrden(json)
+  //   })
+  // },[])
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products?sort=asc')
-    .then(res=>res.json())
-    .then(json=>{
-      // console.log(json)
-      setOrden(json)
-    })
-  },[])
+  // useEffect(() => {
+  //   fetch('https://fakestoreapi.com/products?sort=asc')
+  //   .then(res=>res.json())
+  //   .then(json=>{
+  //     // console.log(json)
+  //     setOrden(json)
+  //   })
+  // },[])
 
-  const getProductId = async (id) => {
-    await fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setAllProducts([json])
-        setCurrentPage(1);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
   
+  // const getCategory = async () => {
+  //   await fetch("https://fakestoreapi.com/products")
+  //   .then((res) => res.json())
+  //   .then((json) => {
+  //     // console.log(json)
+  //     SetAllCategories(json.category);
+  //     clean()
+  //   })
+  //   .catch((err) => {
+  //       console.log(err);
+  //   });
+  // }
 
   function handleSort(e) {
     e.preventDefault();
@@ -106,8 +114,30 @@ const Home = () => {
     <div className="colour"></div>
       <div className="colour">
         {/* <Carrito/> */}
-        <SearchBar title={allProducts.title} />
-        <Categories className="losul" category={allCategories}/>
+        <SearchBar title={currentProducts.title} />
+        {/* <Categories className="losul" category={allCategories}/> */}
+        <div >
+      <section id="categories">
+        <div>
+          {/* <h2>categories: {allCategories+" "}</h2> */}
+          {/* <h2>category: {category}</h2> */}
+          <select >
+            <option hidden={true}>Category</option>
+            {currentProducts?.map((e)=>{
+              <option value={e}>{e.category}</option>
+            })
+
+            }
+          </select>
+          {/* <select class="btn">
+              <option hidden={true}>categories</option>
+              {category&&category.map((categories)=> {
+                <option key ={categories} value={categories}>{categories}</option>   
+              })}
+            </select> */}
+        </div>
+      </section>
+    </div>
       </div>
       <select className="losul" onChange={(e) => handleSort(e)}>
             <option hidden={true}>Por Nombre</option>
@@ -137,7 +167,7 @@ const Home = () => {
           currentProducts?.map((product) => {
             return (
               <div key={product.id} id="products">
-                <a onClick={() => getProductId(product.id)}>
+                {/* <a onClick={() => getProductId(product.id)}> */}
                   <Detail
                     id={product.id}
                     title={product.title}
@@ -147,7 +177,7 @@ const Home = () => {
                     price={product.price}
                     rating={product.rating.rate}
                   ></Detail>
-                </a>
+                {/* </a> */}
               </div>
             );
           })

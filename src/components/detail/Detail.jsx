@@ -1,16 +1,19 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useReducer } from "react";
 // import {getFavsProducts, addFavorite} from "../../actions/actions"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-
+import SingleProduct from "../singleProduct/SingleProduct"
+import shoppingInitialState from "../../redux/redux"
 
 const Detail = ({title, description, category, image, id, price, rating}) => {
-  const dispatch = useDispatch()
-  const cart = useSelector(state => state.cart)
-  const products = useSelector(state => state.allProducts)
-  const carrito = []
+const dispatch = useDispatch()
+  // const cart = useSelector(state => state.cart)
+  // const products = useSelector(state => state.allProducts)
+  // const carrito = []
+  // const [state, dispatch] =useReducer(shoppingInitialState)
+  // console.log(state)
+  //   const {products, cart} = state
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?sort=desc")
@@ -29,25 +32,17 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
    await fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((json) => {
+        console.log(json)
         setAllProducts([json]);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  const addFavorite = async (id) => {
-  //  console.log(id)
-      // setShopProduct(id)
-      const item =await allProducts.map((prod)=>prod.id===id)
-      console.log(item)
-      carrito.push(item)
-      console.log(carrito)
-    }
-
-    const handleShopChange = (e) => {
-      // e.preventDefault()
-      setShopProduct(e)
-  }
+const addCart=(id)=>{
+  console.log(id)
+  dispatch({type: "ADD_TO_CART", payload: id})
+}
 
   return (
     <div>
@@ -58,20 +53,25 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
     <p>${price}</p>
     <h5>{category}</h5>
     <div>
-      <button
+      {
+      id?
+        <button
         className="btn"
         // onClick={() => getProductId(id)}
         >
-        <span>
+        <span >
+           <Link to={`/singleProduct/${id}`}>
           details
+          </Link>
           </span>
       </button>
+      :"no se encuentra"
+        }
           </div>
         </div>
         <div className="product-image">
         <img src={image} height="250" width="250" />
         <div className="info">
-        {/* <p>${price}</p> */}
     <div className="control">
         <form 
         // onSubmit={(e) => handleSubmit(e)}
@@ -79,17 +79,10 @@ const Detail = ({title, description, category, image, id, price, rating}) => {
       <button
         className="btn"
         type="submit"
-        onClick={(id)=>addFavorite({id:id ,title: title, category: category, price: price, image: image})}
-        // onClick={()=>handleClickFav(id)}
+        onClick={()=>addCart(id)}
         >
         Shop now
         </button>
-          {/* <div className="cartButton">
-        <button className="buttonCart"  onClick={()=>handleShopChange(id)}>
-        <span>Shop now</span>
-
-      </button>
-          </div> */}
         </form>
         </div>
         <h5>{description}</h5>

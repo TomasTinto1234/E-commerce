@@ -10,10 +10,11 @@ import SingleProduct from "../singleProduct/SingleProduct"
 import Paginations from "../paginacion/Paginacion"
 import Detail from "../detail/Detail"
 import Categories from "../categories/Categories.jsx"
+import AllProducts from "../products"
 
 const GetAllProducts = () => {
   const dispatch = useDispatch()
-  const [allProducts, setAllProducts] = useState("");
+  const [allProducts, setAllProducts] = useState(AllProducts)
   // const favoritesProducts = useSelector((state) => state.favoritesProducts);
   const [shopProduct, /*setShopProduct*/] = useState("");
   
@@ -28,70 +29,41 @@ const GetAllProducts = () => {
   //     };
 
 
-  useEffect(() => {
-    return ()=>{
-      fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setAllProducts(json))
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-  }, []);
+//   useEffect(() => {
+//     return ()=>{
+//       fetch("https://fakestoreapi.com/products")
+//       .then((res) => res.json())
+//       .then((json) => setAllProducts(json))
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//     }
+//   }, []);
 
-const refresh = ()=> {
-  fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setAllProducts(json))
-      .catch((err) => {
-        console.log(err);
-      });
-}
+// const refresh = ()=> {
+//   fetch("https://fakestoreapi.com/products")
+//       .then((res) => res.json())
+//       .then((json) => setAllProducts(json))
+//       .catch((err) => {
+//         console.log(err);
+//       });
+// }
 
 
-const getProductId = async (id) => {
-  await fetch(`https://fakestoreapi.com/products/${id}`)
-     .then((res) => res.json())
-     .then((json) => {
-       setAllProducts([json]);
-     })
-     .catch((err) => {
-       console.log(err);
-     });
- };
+// const getProductId = async (id) => {
+//   await fetch(`https://fakestoreapi.com/products/${id}`)
+//      .then((res) => res.json())
+//      .then((json) => {
+//        setAllProducts([json]);
+//      })
+//      .catch((err) => {
+//        console.log(err);
+//      });
+//  };
 
 
   return (
     <div>
-      {/* <Carrito
-      image={allProducts.image}
-      price={allProducts.price}
-      title={allProducts.title}
-      description={allProducts.description}
-        /> */}
-       {/* <Categories
-       category={currentProducts.category}
-       /> */}
-
-        <button className="products-card" onClick={() =>refresh()}>refresh</button>
-      {/* <Paginations 
-        productsPerPage={productsPerPage}
-        allProducts={allProducts.length}
-        paginado={paginado}
-        /> */}
-      {/* {shopProduct && shopProduct?.map((f, index) => {
-                    return (
-                      <div key={index}>
-                        <SingleProduct
-                          id={f.id}
-                          image={f.image}
-                          price={f.price}
-                          category={f.category}
-                          description={f.description}
-                        />
-                      </div>
-                    );
-                })} */}
       <section id="products">
         {allProducts.length === 0 ? (
           <div className="spinner">

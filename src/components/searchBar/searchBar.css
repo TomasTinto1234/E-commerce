@@ -1,56 +1,80 @@
-.field {
-    width: width;
-    height: width/5;
-    margin: auto;
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0; 
-  }
-  
-  .group {
-    width: 100%;
-    height: width/5;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  label {
-    position: absolute;
-    top: width/15;
-    color: rgba(white, .5);
-    font: 400 width/15 Roboto;
-    cursor: text;
-    transition: .25s ease;
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    padding-top: width/15;
-    border: none;
-    border-radius: 0; 
-    border-bottom: solid width/150 rgba(white, .5);
-    color: white;
-    background: main-color;
-    font-size: width/15;
-    transition: .3s ease;
-    
-    }
 
-  
-  .bar {
-  background: secondary-color;
-    background: rgba(white, .5);
-    content: '';
-    width: width;
-    height: width/100;
-    height: width/150;
-   transform: translateX(-100%);
-    transition: .3s ease;
-  margin-top: -2px;
-  
-    position: relative;
+form{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
 
-  }
-  
-  ::selection {background: rgba(secondary-color, .3);}
+input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa{
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover,
+form:valid{
+  width: 200px;
+  cursor: pointer;
+}
+
+form:hover input,
+form:valid input{
+  display: block;
+}
+
+form:hover .fa,
+form:valid .fa{
+  background: #07051a;
+  color: white;
+}
+
+
+a {
+display: none;
+position: absolute;
+top: 70px;
+bottom:0;
+left: 0;
+right: 0;
+font-size: 20px;
+color: white;
+text-align: center; 
+width: 100%;
+}
+
+form:valid a {
+display: block;
+}

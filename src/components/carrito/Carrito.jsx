@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
+import { useDispatch, useSelector} from "react-redux";
 import { Link } from "react-router-dom";
+import { shoppingInitialState } from "../../redux/redux";
 import "./carrito.css";
+import ProductItem from "../ProductItem/ProductItem"
+import CartItem from "../CartItem/CartItem"
+import { ADD_TO_CART } from "../../actions/actions";
 
-const Carrito = ({title, description, category, image, id, price, rating,}) => {
+const Carrito = ({title, description, category, image, id, price}) => {
 
-  const products = document.querySelector("products")
-console.log(products)
-  //   const aitems = [title, description, category, image, id, price, rating]
-  //   console.log(aitems)
-  //   const carrito = [];
-  //   console.log(carrito)
+  const dispatch =useDispatch()
+  const cart = useSelector(state => state.cart)
+//   const [state, dispatch] =useReducer(state => state.products)
+// console.log(state)
+//   const {products, cart} = state
 
-  //   const items = () => {
-  //   if (id) {
-  //       carrito.push(aitems);
-  //     return carrito;
-  //   }
-  //   return items
-  // };
+const addCart=(id)=>{
+  console.log(id)
+  dispatch({type: ADD_TO_CART, payload: id})
+}
+const deleteCart=()=>{}
+const clearCart=()=>{}
 
   return (
       <div className="carritos">
@@ -38,6 +41,16 @@ console.log(products)
                 <h1 scope="col" className="jpy">
                   Carrito
                 </h1>
+                {/* <article>
+                {products && products.map((product)=>{
+                  <ProductItem key={product.id} data={product} addCart={addCart} />
+                })}
+                </article> */}
+                {/* <article>
+                {cart && cart.map((item,idex)=>{
+                  <CartItem key={idex} data={item} addCart={addCart} />
+                })}
+                </article> */}
                 <p>title: {title}</p>
                 <p>category: {category}</p>
                 <p className="information">price: {price}</p> 
@@ -48,7 +61,7 @@ console.log(products)
                 <p className="forget">
                   Total: <span id="total">{price}</span>$
                 </p>
-                <button id="boton-vaciar" className="btn btn-danger">
+                <button id="boton-vaciar" onClick={clearCart} className="btn btn-danger">
                   - Vaciar -
                 </button>
                 <button className="btn btn-danger">

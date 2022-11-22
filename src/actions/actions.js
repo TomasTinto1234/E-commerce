@@ -1,3 +1,4 @@
+import AllProducts from "../components/products.js";
   export const GET_FAVORITES_PRODUCTS = "GET_FAVORITES_PRODUCTS";
   export const CURRENT_PAGE = "CURRENT_PAGE"
   export const ADD_FAVORITE = "ADD_FAVORITE"
@@ -6,23 +7,28 @@
   export const REMOVE_ALL_FROM_CART= "REMOVE_ALL_FROM_CART"
   export const CLEAR_CART= "CLEAR_CART"
 
+  let json =  AllProducts
 
-  export function getProducts() {
-    return async function (dispatch) {
-      try {
-        
-      let json =  fetch('https://fakestoreapi.com/products')
-        .then(res=>res.json())
-        .then(json=>console.log(json))
-        return dispatch({
-          type: "GET_PRODUCTS",
-          payload: json.data,
-        });
-      } catch (error) {
-        console.log(error)
+  export function GetAllProducts(payload) {
+    return  async function (dispatch){
+      return dispatch({
+        type: "GET_PRODUCTS",
+        payload,
       }
-      };
-  }
+    )
+    }}
+  // export function getProducts() {
+  //   return async function (dispatch) {
+  //     try {
+  //       return dispatch({
+  //         type: "GET_PRODUCTS",
+  //         payload: json.data,
+  //       });
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //     };
+  // }
 
   export function getFavsProducts(id) {
     return async function (dispatch) {

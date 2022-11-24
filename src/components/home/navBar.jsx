@@ -47,7 +47,7 @@ return (
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-         <a className="pr" href="#inicio" ><Link className="Link" to="/"><h1>E-commerce</h1></Link></a>
+         <a className="pr" href="#inicio" ><Link  to="/"><h1>E-commerce</h1></Link></a>
           {/* <div className="contenedor-foto">
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
       </div> */}

@@ -1,36 +1,100 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import {getFavsProducts} from "../../actions/actions"
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, {useState, useContext} from 'react'
+import { Card, Button, Row, Col, Image } from 'react-bootstrap'
+// import ItemCount from '../ItemCount/ItemCount'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+// import { CartContext } from '../../context/CartContext'
+import AllProducts from "../products"
 
+ 
+ const SingleProduct = (props) => {
 
+   console.log(props)
+    // const { id, title, image, price, category, description, rating } = props
 
-const SingleProduct = ({title, description, category, image, id, price}) => {
+    // const context = useContext(CartContext)
 
+    // const { agregarAlCarrito, isInCart } = useContext(AllProducts)
 
-  return (
-      <div key={id} >
-      <div className="product-details">
-      <h1>{title}</h1>
-      <p>{price}</p>
-      <p className="information">{description}</p>
-      <div className="control">
-          </div>
-          <button  className="btn">
-          <span>Shop now</span>
+    const [cantidad, setCantidad] = useState(0)
+    
 
-        </button>
-          </div>
-          <div className="product-image">
-          <img src={image} height="250" width="250" />
-          <div className="info">
-          <h2>category: {category}</h2>
-          </div>
-          </div>
-          </div>
-        
-          );
-        }
-        
-export default SingleProduct;
+    const navigate = useNavigate()
+    const handleBack = () => {
+        navigate(-1) 
+    }
+
+    const handleToIndex = () => {
+        navigate('/')
+    }
+
+    // const handleAddToCart = () => {
+    //     if (cantidad > 0) {
+
+    //         agregarAlCarrito({
+    //             id, title, price, imgProduct, cantidad
+    //         })
+            
+    //     }
+    // }
+
+    return (
+        <>
+            <Row>
+                <Col className="mt-4">                    
+                    <Button className="btn btn-info text-white" onClick={handleToIndex}>Ir al inicio</Button>
+                </Col>
+            </Row>
+            <Card className="mt-3">
+                <Card.Header as="h5" className="text-muted card-header">
+                    {props.title}
+                    <Card.Text className="text-muted">                          
+                        <small> {props.category} </small>
+                    </Card.Text>
+                </Card.Header>
+
+                <Card.Body className='card-detalle' >
+                    <Row>
+                    <Col xs={6}>
+                        <Image src={props.image} height="300"  />
+                        <p className='ingredientes'>Information</p>
+                        <Card.Text> {props.description} </Card.Text>
+                        {/* <p>Rating : {rating} </p> */}
+                    </Col>
+
+                    <Col className='link-compra'>
+                        <Card.Title className="text-info">Precio: $ {props.price}</Card.Title>
+                        <div className="d-flex mb-0">
+                        {/* <Card.Text className="me-2 mb-0 d-end">
+                            Disponibles: {stock}
+                        </Card.Text> */}
+                        </div>
+                        <Row className="mt-4">
+                        <Col xs={10} >
+                            {/* {
+                                !isInCart(id) 
+                                    ? <ItemCount  
+                                    max={stock}
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad} 
+                                    onAdd={handleAddToCart} 
+                                    />
+                                : <Link to="/cart" variant="primary" className="btn btn-success">Terminar compra</Link>
+                            }
+                                 */}
+                        </Col> 
+                        </Row>
+                    </Col>
+                    </Row>
+                </Card.Body>
+                <Card.Footer>
+                    <marquee>
+                    - E-COMMERCE compra OnLine - Entra a mi portfolio para mas proyectos - .
+                    </marquee>
+                </Card.Footer>
+            </Card>
+        </>
+    )
+}
+
+export default SingleProduct

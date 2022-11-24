@@ -8,6 +8,8 @@ import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
 import {orderByName, getProducts, clean} from "../../actions/actions"
 import AllProducts from "../products";
+import ShopingCart from "../ShopingCart.jsx"
+import { Link } from "@chakra-ui/react";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -114,6 +116,11 @@ const Home = () => {
     <div className="colour"></div>
       <div className="colour">
         {/* <Carrito/> */}
+       <div class="card text-white bg-success mb-3" >
+                  <marquee class="text-dark" >
+                    - E-COMMERCE compra OnLine - Entra a mi portfolio para mas proyectos - .
+                  </marquee>
+              </div>
         <SearchBar title={currentProducts.title} />
         {/* <Categories className="losul" category={allCategories}/> */}
         <div >
@@ -121,14 +128,17 @@ const Home = () => {
         <div>
           {/* <h2>categories: {allCategories+" "}</h2> */}
           {/* <h2>category: {category}</h2> */}
-          <select >
+          <span>
+          <select className="span" >
             <option hidden={true}>Category</option>
             {currentProducts?.map((e)=>{
               <option value={e}>{e.category}</option>
             })
-
-            }
+            
+          }
           </select>
+          </span>
+          {/* <ShopingCart/> */}
           {/* <select class="btn">
               <option hidden={true}>categories</option>
               {category&&category.map((categories)=> {
@@ -139,11 +149,14 @@ const Home = () => {
       </section>
     </div>
       </div>
+      <span>
       <select className="losul" onChange={(e) => handleSort(e)}>
             <option hidden={true}>Por Nombre</option>
             <option value="az">a-z</option>
             <option value="za">z-a</option>
           </select>
+      </span>
+      
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}

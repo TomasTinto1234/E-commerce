@@ -12,11 +12,11 @@ html {
 /* seccion I N I C I O */
 /* *********************/
 
-#inicio {
-    /* background: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../../image/el-ecommerce-que-es.jpg");
+#inicio   {
+    background: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../../image/el-ecommerce-que-es.jpg");
     background-size: cover;
-    background-position: center center; */
-    height: 15vh;
+    background-position: center center;
+    height: 95vh;
 }
 
 #inicio .contenido header {

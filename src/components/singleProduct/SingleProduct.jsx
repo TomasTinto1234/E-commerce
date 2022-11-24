@@ -10,7 +10,7 @@ import AllProducts from "../products"
  const SingleProduct = (props) => {
 
    console.log(props)
-    // const { id, title, image, price, category, description, rating } = props
+    const { id, title, image, price, category, description, rating } = props
 
     // const context = useContext(CartContext)
 
@@ -47,23 +47,23 @@ import AllProducts from "../products"
             </Row>
             <Card className="mt-3">
                 <Card.Header as="h5" className="text-muted card-header">
-                    {props.title}
+                    {title}
                     <Card.Text className="text-muted">                          
-                        <small> {props.category} </small>
+                        <small> {category} </small>
                     </Card.Text>
                 </Card.Header>
 
                 <Card.Body className='card-detalle' >
                     <Row>
                     <Col xs={6}>
-                        <Image src={props.image} height="300"  />
+                        <Image src={image} height="300"  />
                         <p className='ingredientes'>Information</p>
-                        <Card.Text> {props.description} </Card.Text>
+                        <Card.Text> {description} </Card.Text>
                         {/* <p>Rating : {rating} </p> */}
                     </Col>
 
                     <Col className='link-compra'>
-                        <Card.Title className="text-info">Precio: $ {props.price}</Card.Title>
+                        <Card.Title className="text-info">Precio: $ {price}</Card.Title>
                         <div className="d-flex mb-0">
                         {/* <Card.Text className="me-2 mb-0 d-end">
                             Disponibles: {stock}

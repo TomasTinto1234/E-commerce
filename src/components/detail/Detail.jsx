@@ -99,14 +99,14 @@ const addCart=(id)=>{
     <p>${price}</p>
     <h5>{category}</h5>
     <div>
-      {
-      id?
         <button
         className="btn"
         // onClick={() => getProductId(id)}
         >
-          <Link to={`/singleProduct/${id}`}>
-          <SingleProduct 
+          <Link to={`/SingleProduct/${props.id}`}>
+            <span >
+              Details
+          {/* <SingleProduct 
              id={id}
              title={title}
              description={description}
@@ -114,14 +114,11 @@ const addCart=(id)=>{
              image={image}
              price={price}
              rating={rating.rate}
-             />
-        <span >
-          details
+             /> */}
           </span>
           </Link>
       </button>
-      :"no se encuentra"
-        }
+
           </div>
         </div>
         <div className="product-image">
@@ -137,7 +134,7 @@ const addCart=(id)=>{
         // onClick={()=>addCart(id)}
         // onAdd={handleAddToCart}
         >
-        Shop now
+        Shop Now
         </button>
         </form>
         </div>

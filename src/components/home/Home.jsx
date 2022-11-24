@@ -181,6 +181,7 @@ const Home = () => {
             return (
               <div key={product.id} id="products">
                 {/* <a onClick={() => getProductId(product.id)}> */}
+                <Link to={`/SingleProduct/${product.id}`}>
                   <Detail
                     id={product.id}
                     title={product.title}
@@ -189,7 +190,8 @@ const Home = () => {
                     image={product.image}
                     price={product.price}
                     rating={product.rating.rate}
-                  ></Detail>
+                    ></Detail>
+                    </Link>
                 {/* </a> */}
               </div>
             );

@@ -67,22 +67,7 @@ const clearCart=()=>{}
                             </td>
                             <td class="font-weight-bold">$ <span>5000</span></td>
                         </template>
-                        <template id="template-carrito">
-                          <tr>
-                            <th scope="row">id</th>
-                            <td>Café</td>
-                            <td>1</td>
-                            <td>
-                                <button class="btn btn-info btn-sm">
-                                    +
-                                </button>
-                                <button class="btn btn-danger btn-sm">
-                                    -
-                                </button>
-                            </td>
-                            <td>$ <span>500</span></td>
-                          </tr>
-                        </template>
+                     
                         </div>
                       
                       

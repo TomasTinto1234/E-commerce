@@ -53,7 +53,8 @@ Link{
 #inicio .contenido header .contenido-header h1 {
     text-align: center;
     color: #e28504;
-    text-decoration: none
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #inicio .contenido header .contenido-header nav ul {
@@ -73,7 +74,8 @@ Link{
 
 #inicio .contenido header .contenido-header nav ul li a:hover {
     color: #e28504;
-    text-decoration: none
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #inicio .contenido header .contenido-header .redes a {

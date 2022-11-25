@@ -16,8 +16,8 @@ const Home = () => {
   const [/*orden*/, setOrden] = useState("");
   const [allProducts, setAllProducts] = useState(AllProducts);
   const [shopProduct /*setShopProduct*/] = useState("");
-  const [allCategories, SetAllCategories] = useState("");
-  // console.log(allCategories)
+  const [allCategories, setAllCategories] = useState([]);
+  console.log(allCategories)
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -101,18 +101,22 @@ const Home = () => {
   //       console.log(err);
   //   });
   // }
-  const getProductId = async (id) => {
-    await fetch(`https://fakestoreapi.com/products/${id}`)
-       .then((res) => res.json())
-       .then((json) => {
-         console.log(json)
-         setAllProducts([json]);
-       })
-       .catch((err) => {
-         console.log(err);
-       });
-   };
 
+  useEffect(()=>{
+    getCategory()
+ },[])
+
+
+  const getCategory = async () => {
+    await fetch("https://fakestoreapi.com/products/categories")
+    .then((res) => res.json())
+    .then((json) => {
+      setAllCategories(json);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+  }
   function handleSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
@@ -126,38 +130,24 @@ const Home = () => {
     <div className="colour"></div>
     <div className="colour"></div>
       <div className="colour">
-        {/* <Carrito/> */}
        <div class="card text-white bg-success mb-3" >
                   <marquee class="text-dark" >
-                    - E-COMMERCE compra OnLine - Entra a mi portfolio para mas proyectos - .
+                    - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
                   </marquee>
               </div>
         <SearchBar title={currentProducts} />
-        {/* <Categories className="losul" category={allCategories}/> */}
         <div >
-      <section id="categories">
         <div>
-          {/* <h2>categories: {allCategories+" "}</h2> */}
-          {/* <h2>category: {category}</h2> */}
-          <span>
-          <select className="span" >
-            <option hidden={true}>Category</option>
-            {currentProducts?.map((e)=>{
-              <option value={e}>{e.category}</option>
+          <select >
+            <option >Category</option>
+            {allCategories?.map((e)=>{
+              return (
+                  <option value={e}>{e}</option>
+                )
             })
-            
-          }
+            }
           </select>
-          </span>
-          {/* <ShopingCart/> */}
-          {/* <select class="btn">
-              <option hidden={true}>categories</option>
-              {category&&category.map((categories)=> {
-                <option key ={categories} value={categories}>{categories}</option>   
-              })}
-            </select> */}
         </div>
-      </section>
     </div>
       </div>
       <span>
@@ -167,7 +157,6 @@ const Home = () => {
             <option value="za">z-a</option>
           </select>
       </span>
-      
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.length}

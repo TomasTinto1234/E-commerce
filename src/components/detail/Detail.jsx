@@ -62,11 +62,9 @@ const addCart=(id)=>{
     <h1>{title}</h1>
     <p>⭐{rating}</p>
     <p>${price}</p>
-    <h5>{category}</h5>
     <div>
         <button
         className="btn"
-        // onClick={() => getProductId(id)}
         >
           <Link to={`/SingleProduct/${props.id}`}>
             <span >

@@ -12,7 +12,7 @@ import {
   BsCart4
 } from "react-icons/bs";
 import Carrito from "../carrito/Carrito"
-
+import { useNavigate } from 'react-router'
 
   const NavBar = () => {
   //   function seleccionar(link) {
@@ -39,6 +39,14 @@ import Carrito from "../carrito/Carrito"
           x.className = "elnav";
       }
   }
+  const navigate = useNavigate()
+  const handleBack = () => {
+      navigate(-1) 
+  }
+
+  const handleToIndex = () => {
+      navigate('/')
+  }
 
 return (
     <div>
@@ -47,7 +55,7 @@ return (
       <div className ="contenido">
         <header>
           <div className="contenido-header">
-         <a className="pr" href="#inicio" ><Link  to="/"><h1>E-commerce</h1></Link></a>
+         <h1 className="pages" onClick={handleToIndex}>E-commerce</h1>
           {/* <div className="contenedor-foto">
          <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
       </div> */}

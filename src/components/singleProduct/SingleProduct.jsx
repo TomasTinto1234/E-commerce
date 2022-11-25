@@ -9,8 +9,8 @@ import AllProducts from "../products"
  
  const SingleProduct = (props) => {
 
+     const { id, title, image, price, category, description, rating } = props
    console.log(props)
-    const { id, title, image, price, category, description, rating } = props
 
     // const context = useContext(CartContext)
 

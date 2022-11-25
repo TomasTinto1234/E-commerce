@@ -121,7 +121,7 @@ const Home = () => {
                     - E-COMMERCE compra OnLine - Entra a mi portfolio para mas proyectos - .
                   </marquee>
               </div>
-        <SearchBar title={currentProducts.title} />
+        <SearchBar title={currentProducts} />
         {/* <Categories className="losul" category={allCategories}/> */}
         <div >
       <section id="categories">

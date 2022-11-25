@@ -11,9 +11,50 @@ const Carrito = (id) => {
   const dispatch =useDispatch()
   const cart = useSelector(state => state.cart)
   const {title, description, category, image, price} = cart
+  console.log(id)
 //   const [state, dispatch] =useReducer(state => state.products)
 // console.log(state)
 //   const {products, cart} = state
+const [carrito, setCarrito] = useState([id])
+
+const [producto, setProducto]= useState()
+const [productos, setProductos] = useState()
+const [loading,setLoading] = useState(false)
+
+const agregarAlCarrito = (item) => {
+  setCarrito( [...carrito, item] )
+}
+
+const removerDelCarrito = (id) => {
+  setCarrito( carrito.filter(prod => prod.id !== id ) )
+}
+
+const vaciarCarrito = () => {
+  setCarrito([])
+}
+
+const totalCantidad = () => {
+  return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
+}
+
+const totalCompra = () => {
+  return carrito.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0)
+}
+
+const isInCart = (id) => {
+  return carrito.some( prod => prod.id === id )
+}
+
+const limpiarTodoElCarrito = () => {
+  setCarrito([]);
+};
+
+const [allProducts, setAllProducts] = useState([]);
+  const [shopProduct, setShopProduct] = useState([]);
+  // const context = useContext(CartContext)
+
+  // const { agregarAlCarrito, isInCart } = useContext(CartContext)
+  const [cantidad, setCantidad] = useState(0)
 
 const addCart=(id)=>{
   console.log(id)
@@ -24,7 +65,7 @@ const clearCart=()=>{}
 
   return (
       <div className="carritos">
-        {cart.length === 0 ? (
+        {cart.length === 1 ? (
           <div class="container">
           <div id="carritoVacio" class="text-center py-5">
   
@@ -41,18 +82,18 @@ const clearCart=()=>{}
                             <thead>
                               <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">nombre</th>
+                                <th scope="col">nombre {title}</th>
                                 <th scope="col">Cantidad</th>
                                 <th scope="col">Acción</th>
                                 <th scope="col">Total</th>
                               </tr>
                             </thead>
                             <tbody id="items"></tbody>
-                            <tfoot>
+                            {/* <tfoot>
                               <tr id="footer">
                                 <th scope="row" colspan="5">Carrito vacío</th>
                               </tr>
-                            </tfoot>
+                            </tfoot> */}
                           </table>
                           {/* <br> */}
                           <div class="row" id="cards"></div>
@@ -61,7 +102,7 @@ const clearCart=()=>{}
                             
                             <td>10</td>
                             <td>
-                                <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                                <button onClick={limpiarTodoElCarrito} class="btn btn-danger btn-sm" id="vaciar-carrito">
                                     vaciar todo
                                 </button>
                             </td>
@@ -126,14 +167,14 @@ const clearCart=()=>{}
                 <p>title: {title}</p>
                 <p>category: {category}</p>
                 <p className="information">price: {price}</p> 
-                <img src={image} id="product" className="input__box">
+                <img src={image} id="product" className="input__box"/>
                   {image}
-                </img>
+                <button onClick={removerDelCarrito}>eliminar un product</button>
                 <ul id="carrito" className="list-group"></ul>
                 <p className="forget">
                   Total: <span id="total">{price}</span>$
                 </p>
-                <button  className="btn" id="boton-vaciar" onClick={clearCart} >
+                <button  className="btn" id="boton-vaciar" onClick={limpiarTodoElCarrito} >
                   - Vaciar -
                 </button>
                 <button  className="btn">

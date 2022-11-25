@@ -26,45 +26,10 @@ const dispatch = useDispatch()
       });
   }, []);
   const [carrito, setCarrito] = useState([])
-
-  const [producto, setProducto]= useState()
-  const [productos, setProductos] = useState()
-  const [loading,setLoading] = useState(false)
-
+  const [allProducts, setAllProducts] = useState([]);
   const agregarAlCarrito = (item) => {
     setCarrito( [...carrito, item] )
   }
-
-  const removerDelCarrito = (id) => {
-    setCarrito( carrito.filter(prod => prod.id !== id ) )
-  }
-
-  const vaciarCarrito = () => {
-    setCarrito([])
-  }
-
-  const totalCantidad = () => {
-    return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
-  }
-
-  const totalCompra = () => {
-    return carrito.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0)
-  }
-
-  const isInCart = (id) => {
-    return carrito.some( prod => prod.id === id )
-  }
-
-  const limpiarTodoElCarrito = () => {
-    setCarrito([]);
-  };
-
-  const [allProducts, setAllProducts] = useState([]);
-    const [shopProduct, setShopProduct] = useState([]);
-    // const context = useContext(CartContext)
-
-    // const { agregarAlCarrito, isInCart } = useContext(CartContext)
-    const [cantidad, setCantidad] = useState(0)
   // const getProductId = async (id) => {
   //  await fetch(`https://fakestoreapi.com/products/${id}`)
   //     .then((res) => res.json())
@@ -131,7 +96,7 @@ const addCart=(id)=>{
       <button
         className="btn"
         type="submit"
-        // onClick={()=>addCart(id)}
+        onClick={()=>{agregarAlCarrito(id)}}
         // onAdd={handleAddToCart}
         >
         Shop Now

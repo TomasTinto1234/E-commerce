@@ -9,25 +9,11 @@ import Carrito from "../carrito/Carrito"
 import SingleProduct from "../singleProduct/SingleProduct"
 import Paginations from "../paginacion/Paginacion"
 import Detail from "../detail/Detail"
-import Categories from "../categories/Categories.jsx"
 import AllProducts from "../products"
 
 const GetAllProducts = () => {
   const dispatch = useDispatch()
   const [allProducts, setAllProducts] = useState(AllProducts)
-  // const favoritesProducts = useSelector((state) => state.favoritesProducts);
-  const [shopProduct, /*setShopProduct*/] = useState("");
-  
-  // const [currentPage, setCurrentPage] = useState(1)
-  // const [productsPerPage, /*setPerPage*/] = useState(4)
-  // const indexOfLastProduct = currentPage * productsPerPage; 
-  // const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  // const currentProducts = allProducts?.slice(indexOfFirstProduct, indexOfLastProduct)
-
-  //   const paginado = (pageNumber) => {
-  //       setCurrentPage(pageNumber);
-  //     };
-
 
 //   useEffect(() => {
 //     return ()=>{
@@ -94,9 +80,6 @@ const GetAllProducts = () => {
                 rating ={product.rating.rate}
                 >
                 </Detail>
-                  <Categories
-                   category={product.category}
-                   />
                 <SingleProduct id={product.id}
                 title= {product.title}
                 description={product.description}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./navBar.css";
-import Categories from "../categories/Categories.jsx";
 import Detail from "../detail/Detail";
 import CreateProduct from "../createProduct/CreateProduct";
 import Pagination from "../paginacion/Paginacion";
@@ -17,7 +16,6 @@ const Home = () => {
   const [allProducts, setAllProducts] = useState(AllProducts);
   const [shopProduct /*setShopProduct*/] = useState("");
   const [allCategories, setAllCategories] = useState([]);
-  console.log(allCategories)
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -57,17 +55,6 @@ const Home = () => {
         console.log(err);
       });
   };
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products/categories")
-  //     .then((res) => res.json())
-  //     .then((json) => {SetAllCategories(json)
-  //       setCurrentPage(1)
-  //       clean()
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   // useEffect(() => {
   //   fetch('https://fakestoreapi.com/products?sort=desc')
@@ -87,23 +74,9 @@ const Home = () => {
   //   })
   // },[])
 
-
-  
-  // const getCategory = async () => {
-  //   await fetch("https://fakestoreapi.com/products")
-  //   .then((res) => res.json())
-  //   .then((json) => {
-  //     // console.log(json)
-  //     SetAllCategories(json.category);
-  //     clean()
-  //   })
-  //   .catch((err) => {
-  //       console.log(err);
-  //   });
-  // }
-
   useEffect(()=>{
     getCategory()
+    // select()
  },[])
 
 
@@ -118,10 +91,14 @@ const Home = () => {
     });
   }
   function handleSort(e) {
-    e.preventDefault();
-    dispatch(orderByName(e.target.value));
-    setCurrentPage(1);
-    setOrden(e.target.value);
+    // dispatch(orderByName(e));
+    // setOrden(e);
+  }
+
+  const select = (e)=>{
+   if(currentProducts.category === e){
+    setAllProducts(e)
+   }
   }
 
   return (
@@ -138,7 +115,7 @@ const Home = () => {
         <SearchBar title={currentProducts} />
         <div >
         <div>
-          <select >
+          <select id="categories"onClick={(e)=>select(e)} >
             <option >Category</option>
             {allCategories?.map((e)=>{
               return (
@@ -151,7 +128,7 @@ const Home = () => {
     </div>
       </div>
       <span>
-      <select className="losul" onChange={(e) => handleSort(e)}>
+      <select className="losul" >
             <option hidden={true}>Por Nombre</option>
             <option value="az">a-z</option>
             <option value="za">z-a</option>

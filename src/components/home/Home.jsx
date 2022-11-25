@@ -49,14 +49,14 @@ const Home = () => {
   //     });
   // }, []);
 
-  // const refresh = () => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then((res) => res.json())
-  //     .then((json) => setAllProducts(json))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const refresh = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setAllProducts(json))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   // useEffect(() => {
   //   fetch("https://fakestoreapi.com/products/categories")
   //     .then((res) => res.json())
@@ -101,6 +101,17 @@ const Home = () => {
   //       console.log(err);
   //   });
   // }
+  const getProductId = async (id) => {
+    await fetch(`https://fakestoreapi.com/products/${id}`)
+       .then((res) => res.json())
+       .then((json) => {
+         console.log(json)
+         setAllProducts([json]);
+       })
+       .catch((err) => {
+         console.log(err);
+       });
+   };
 
   function handleSort(e) {
     e.preventDefault();
@@ -180,7 +191,7 @@ const Home = () => {
           currentProducts?.map((product) => {
             return (
               <div key={product.id} id="products">
-                {/* <a onClick={() => getProductId(product.id)}> */}
+                {/* <a onClick={() => refresh(product.id)}> */}
                 <Link to={`/SingleProduct/${product.id}`}>
                   <Detail
                     id={product.id}

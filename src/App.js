@@ -18,12 +18,13 @@ function App() {
     <div>
       <NavBar/>
       <Routes>
-      <Route  path="/Carrito" element={<Carrito/>}/>
+      <Route  path="/Carrito/" element={<Carrito/>}/>
+      <Route  path="/Carrito/:id" element={<Carrito/>}/>
       <Route  path="/Login" element={<Login/>}/>
       {/* <Route  path="/" component={NavBar}/>s */}
       <Route  path="/Products" element={<Products/>}/>
       <Route  path="/Users" element={<Users/>}/>
-      <Route  path="/SingleProduct/:id" element={<SingleProduct/>}/>
+      <Route  path="/SingleProduct/:id" element={<SingleProduct />}/>
       <Route  path="/Detail/:id" element={<Detail/>}/>
       <Route  path="/footer" element={<Footer/>}/>
       <Route exact path="/" element={<Home/>}/>

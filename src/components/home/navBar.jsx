@@ -14,6 +14,7 @@ import {
 import Carrito from "../carrito/Carrito"
 import { useNavigate } from 'react-router'
 
+
   const NavBar = () => {
   //   function seleccionar(link) {
   //     let opciones = document.querySelectorAll('#links  a');

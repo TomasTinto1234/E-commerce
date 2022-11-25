@@ -1,20 +1,33 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { Card, Button, Row, Col, Image } from 'react-bootstrap'
 // import ItemCount from '../ItemCount/ItemCount'
 import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 // import { CartContext } from '../../context/CartContext'
 import AllProducts from "../products"
 
  
- const SingleProduct = (props) => {
+ const SingleProduct = () => {
 
-     const { id, title, image, price, category, description, rating } = props
-   console.log(props)
+     const { id } = useParams();
+     const [product, setProduct] = useState({})
+     
+     useEffect(()=>{
+        getProductId(id)
+     },[])
 
-    // const context = useContext(CartContext)
+     const getProductId = async (id) => {
+        await fetch(`https://fakestoreapi.com/products/${id}`)
+           .then((res) => res.json())
+           .then((json) => {
+             console.log(json)
+             setProduct(json);
+           })
+           .catch((err) => {
+             console.log(err);
+           });
+       };
 
-    // const { agregarAlCarrito, isInCart } = useContext(AllProducts)
 
     const [cantidad, setCantidad] = useState(0)
     
@@ -37,7 +50,7 @@ import AllProducts from "../products"
             
     //     }
     // }
-
+const { title, category, image, price, description} = product
     return (
         <>
             <Row>

@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer,useParams, useEffect } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { Link } from "react-router-dom";
 import { shoppingInitialState } from "../../redux/redux";
@@ -8,18 +8,26 @@ import CartItem from "../CartItem/CartItem"
 import { ADD_TO_CART } from "../../actions/actions";
 
 const Carrito = (id) => {
-  const dispatch =useDispatch()
-  const cart = useSelector(state => state.cart)
-  const {title, description, category, image, price} = cart
-  console.log(id)
-//   const [state, dispatch] =useReducer(state => state.products)
-// console.log(state)
-//   const {products, cart} = state
-const [carrito, setCarrito] = useState([id])
+//  const {id} = useParams()
+ const [product, setProduct] = useState({})
+const [carrito, setCarrito] = useState(id)
+// useEffect(()=>{
+//   getProductId(id)
+// },[])
 
-const [producto, setProducto]= useState()
-const [productos, setProductos] = useState()
-const [loading,setLoading] = useState(false)
+// const getProductId = async (id) => {
+//   await fetch(`https://fakestoreapi.com/products/${id}`)
+//      .then((res) => res.json())
+//      .then((json) => {
+//        console.log(json)
+//        setProduct(json);
+//      })
+//      .catch((err) => {
+//        console.log(err);
+//      });
+//  };
+
+const {title, description, category, image, price} = product
 
 const agregarAlCarrito = (item) => {
   setCarrito( [...carrito, item] )
@@ -49,94 +57,18 @@ const limpiarTodoElCarrito = () => {
   setCarrito([]);
 };
 
-const [allProducts, setAllProducts] = useState([]);
-  const [shopProduct, setShopProduct] = useState([]);
-  // const context = useContext(CartContext)
-
-  // const { agregarAlCarrito, isInCart } = useContext(CartContext)
-  const [cantidad, setCantidad] = useState(0)
-
-const addCart=(id)=>{
-  console.log(id)
-  dispatch({type: ADD_TO_CART, payload: id})
-}
+// const addCart=(id)=>{
+//   console.log(id)
+//   dispatch({type: ADD_TO_CART, payload: id})
+// }
 const deleteCart=()=>{}
 const clearCart=()=>{}
 
   return (
       <div className="carritos">
-        {cart.length === 1 ? (
-          <div class="container">
-          <div id="carritoVacio" class="text-center py-5">
-  
-          </div>
-  
-          <div class="container py-5">
-              <div class="card text-justify">
-                  <div class="card-header bg-info text-center ">
-                      <h4 class="text-light">Carrito</h4>
-                  </div>
-                  <div id="carritoItems"  class="flex-md-column">
-                      <div class="container">
-                          <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">nombre {title}</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Acción</th>
-                                <th scope="col">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody id="items"></tbody>
-                            {/* <tfoot>
-                              <tr id="footer">
-                                <th scope="row" colspan="5">Carrito vacío</th>
-                              </tr>
-                            </tfoot> */}
-                          </table>
-                          {/* <br> */}
-                          <div class="row" id="cards"></div>
-                          <template id="template-footer">
-                            <th  scope="row" colspan="2"><img src="./image/carrito.png" class="img-cart" alt="carrito"  /></th>
-                            
-                            <td>10</td>
-                            <td>
-                                <button onClick={limpiarTodoElCarrito} class="btn btn-danger btn-sm" id="vaciar-carrito">
-                                    vaciar todo
-                                </button>
-                            </td>
-                            <td class="font-weight-bold">$ <span>5000</span></td>
-                        </template>
-                     
-                        </div>
-                      
-                      
-                        <div class="item-productos">
-                          <template id="template-card">
-                            <div class="col-md-3 col-12 mb-2">
-                              <div class="card">
-                                <img src="" alt="" class="card-img-top img-producto"/>
-                                <div class="card-body">
-                                  <h5>Titulo</h5>
-                                  <p>precio</p>
-                                  <button class="btn btn-dark">añadir al carrito</button>
-                                </div>
-                              </div>
-                            </div>
-                          </template>
-                        
-                        </div>
-                  </div>
-  
-  
-                  
-  
-  
-              </div>
-          </div>
-          </div>
-        ): 
+      {product.length === 0 ?(
+        alert("no hay nada")
+      ):
     <div id="carrito">
          <div className="colour"></div>
     <div className="colour"></div>
@@ -188,8 +120,9 @@ const clearCart=()=>{}
         </div>
       </div>
     </div>
-  }
-    </div>
+  
+}
+  </div>
   );
 };
 

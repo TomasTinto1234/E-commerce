@@ -17,33 +17,33 @@ const dispatch = useDispatch()
   // console.log(state)
   //   const {products, cart} = state
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products?sort=desc")
-      .then((res) => res.json())
-      .then((json) => setAllProducts(json))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products?sort=desc")
+  //     .then((res) => res.json())
+  //     .then((json) => setAllProducts(json))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   const [carrito, setCarrito] = useState([])
   const [allProducts, setAllProducts] = useState([]);
   const agregarAlCarrito = (item) => {
     setCarrito( [...carrito, item] )
   }
-  // const getProductId = async (id) => {
-  //  await fetch(`https://fakestoreapi.com/products/${id}`)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       console.log(json)
-  //       setAllProducts([json]);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const getProductId = async (id) => {
+   await fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json)
+        setAllProducts([json]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 const addCart=(id)=>{
   console.log(id)
-  dispatch({type: "ADD_TO_CART", payload: id})
+  dispatch(getProductId(id))
 }
 
 // const handleAddToCart = () => {
@@ -71,15 +71,6 @@ const addCart=(id)=>{
           <Link to={`/SingleProduct/${props.id}`}>
             <span >
               Details
-          {/* <SingleProduct 
-             id={id}
-             title={title}
-             description={description}
-             category={category}
-             image={image}
-             price={price}
-             rating={rating.rate}
-             /> */}
           </span>
           </Link>
       </button>

@@ -1,6 +1,6 @@
 
 form{
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -61,7 +61,7 @@ form:valid .fa{
   color: white;
 }
 
-
+/* 
 a {
 display: none;
 position: absolute;
@@ -77,4 +77,4 @@ width: 100%;
 
 form:valid a {
 display: block;
-}
+} */

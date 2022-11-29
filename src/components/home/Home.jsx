@@ -116,19 +116,16 @@ const Home = () => {
                     - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
                   </marquee>
               </div>
-                <Link to="/CreateProduct">
-              <button>
-              create new product
-              </button>
-              </Link>
+              <div >
         <SearchBar currentProducts={currentProducts} />
+                </div>
         <div >
         <div>
           <select onClick={(e)=>getCat(e)} >
             <option >Category</option>
             {allCategories?.map((e)=>{
               return (
-                  <option key={e} value={getCat(e)}>{e}</option>
+                  <option id={e} key={e} value={getCat(e)}>{e}</option>
                 )
             })
             }

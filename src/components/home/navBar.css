@@ -23,7 +23,9 @@ html {
     margin: 0;
     display: flex;
 }
-
+.search{
+    justify-content: center;
+}
 #inicio .contenido header {
     background-color: rgba(0, 0, 0, .6);
     position: fixed;

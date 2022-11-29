@@ -9,6 +9,7 @@ import Carrito from "./components/carrito/Carrito";
 import Users from "./components/users/Users";
 import Products from "./components/products/Products"
 import Detail from "./components/detail/Detail"
+import CreateProduct from "./components/createProduct/CreateProduct"
 // import { Switch } from "@chakra-ui/react";
 import Login from "./components/login/Login"
 // import { BrowserRouter } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
     <div>
       <NavBar/>
       <Routes>
+      <Route  path="/CreateProduct" element={<CreateProduct/>}/>
       <Route  path="/Carrito/" element={<Carrito/>}/>
       <Route  path="/Carrito/:id" element={<Carrito/>}/>
       <Route  path="/Login" element={<Login/>}/>

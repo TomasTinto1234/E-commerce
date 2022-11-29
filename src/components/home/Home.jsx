@@ -79,6 +79,10 @@ const Home = () => {
     // select()
  },[])
 
+ function getCat(categ){
+   const cat = allProducts.find((e)=> e.category === categ)
+   return cat
+ }
 
   const getCategory = async () => {
     await fetch("https://fakestoreapi.com/products/categories")
@@ -96,8 +100,8 @@ const Home = () => {
   }
 
   const select = (e)=>{
-   if(currentProducts.category === e){
-    setAllProducts(e)
+   if(currentProducts.category=== e){
+    setAllProducts(currentProducts.category)
    }
   }
 
@@ -112,14 +116,19 @@ const Home = () => {
                     - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
                   </marquee>
               </div>
-        <SearchBar title={currentProducts} />
+                <Link to="/CreateProduct">
+              <button>
+              create new product
+              </button>
+              </Link>
+        <SearchBar currentProducts={currentProducts} />
         <div >
         <div>
-          <select id="categories"onClick={(e)=>select(e)} >
+          <select onClick={(e)=>getCat(e)} >
             <option >Category</option>
             {allCategories?.map((e)=>{
               return (
-                  <option value={e}>{e}</option>
+                  <option key={e} value={getCat(e)}>{e}</option>
                 )
             })
             }
@@ -139,7 +148,7 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
-      <section id="products">
+      <section  className="one-card">
         {currentProducts.length === 0 ? (
           <div className="spinner">
             <span>L</span>
@@ -156,7 +165,7 @@ const Home = () => {
         ) : (currentProducts &&
           currentProducts?.map((product) => {
             return (
-              <div key={product.id} id="products">
+              <div key={product.id} id="products" className="one-card">
                 {/* <a onClick={() => refresh(product.id)}> */}
                 <Link to={`/SingleProduct/${product.id}`}>
                   <Detail

@@ -11,10 +11,15 @@ import AllProducts from "../products"
 
      const { id } = useParams();
      const [product, setProduct] = useState({})
-     
+     const [carrito, setCarrito] = useState([])
+
      useEffect(()=>{
         getProductId(id)
      },[])
+     const agregarAlCarrito = (item) => {
+        setCarrito( [...carrito, item] )
+      }
+
 
      const getProductId = async (id) => {
         await fetch(`https://fakestoreapi.com/products/${id}`)
@@ -84,26 +89,16 @@ const { title, category, image, price, description} = product
                         </div>
                         <Row className="mt-4">
                         <Col xs={10} >
-                            {/* {
-                                !isInCart(id) 
-                                    ? <ItemCount  
-                                    max={stock}
-                                    cantidad={cantidad}
-                                    setCantidad={setCantidad} 
-                                    onAdd={handleAddToCart} 
-                                    />
-                                : <Link to="/cart" variant="primary" className="btn btn-success">Terminar compra</Link>
-                            }
-                                 */}
+                          <Button onClick={() =>{agregarAlCarrito(id)}}>agregar al carrito</Button>
                         </Col> 
                         </Row>
                     </Col>
                     </Row>
                 </Card.Body>
                 <Card.Footer>
-                    <marquee>
-                    - E-COMMERCE compra OnLine - Entra a mi portfolio para mas proyectos - .
-                    </marquee>
+                <marquee class="text-dark" >
+                    - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
+                  </marquee>
                 </Card.Footer>
             </Card>
         </>

@@ -7,7 +7,7 @@
 }
 
 .sect .colour {
-    position: absolute;
+    position: fixed;
     filter: blur(150px);
 }
 

@@ -9,29 +9,24 @@ import { ADD_TO_CART } from "../../actions/actions";
 
 const Carrito = (id) => {
 //  const {id} = useParams()
- const [product, setProduct] = useState({})
-const [carrito, setCarrito] = useState(id)
-// useEffect(()=>{
-//   getProductId(id)
-// },[])
+ const [product, setProduct] = useState([])
+const [carrito, setCarrito] = useState({})
+useEffect(()=>{
+  getProductId(id)
+},[])
 
-// const getProductId = async (id) => {
-//   await fetch(`https://fakestoreapi.com/products/${id}`)
-//      .then((res) => res.json())
-//      .then((json) => {
-//        console.log(json)
-//        setProduct(json);
-//      })
-//      .catch((err) => {
-//        console.log(err);
-//      });
-//  };
-
+const getProductId =  (id) => {
+   fetch(`https://fakestoreapi.com/products/${id}`)
+     .then((res) => res.json())
+     .then((json) => {
+       console.log(json)
+       setProduct(json);
+     })
+     .catch((err) => {
+       console.log(err);
+     });
+ };
 const {title, description, category, image, price} = product
-
-const agregarAlCarrito = (item) => {
-  setCarrito( [...carrito, item] )
-}
 
 const removerDelCarrito = (id) => {
   setCarrito( carrito.filter(prod => prod.id !== id ) )
@@ -66,9 +61,7 @@ const clearCart=()=>{}
 
   return (
       <div className="carritos">
-      {product.length === 0 ?(
-        alert("no hay nada")
-      ):
+      {
     <div id="carrito">
          <div className="colour"></div>
     <div className="colour"></div>

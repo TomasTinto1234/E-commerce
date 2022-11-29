@@ -5,8 +5,8 @@ import "./navBar.css"
 import {
   BiUserCircle,
   BiUser,
-  BiMenu
-  // BsCart4
+  BiMenu,
+  BiCart
 } from "react-icons/bi";
 import {
   BsCart4
@@ -64,7 +64,8 @@ return (
             <ul id="links" >
              <li className="pages"><a href="#products" >PRODUCTOS</a></li>
              <li className="pages"><a href="#categories" >CATEGORIAS</a></li>
-             <li className="pages"><a href="#users" >USUARIOS</a></li>
+             <li className="pages"><a href="/users" >USUARIOS</a></li>
+             <li className="pages"><a href="/createProduct" >CREAR PRODUCTO</a></li>
              <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}

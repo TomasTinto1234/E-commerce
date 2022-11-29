@@ -10,21 +10,6 @@ const Detail = (props) => {
   const {title, description, category, image, id, price, rating} = props
   // console.log(props)
 const dispatch = useDispatch()
-  // const cart = useSelector(state => state.cart)
-  // const products = useSelector(state => state.allProducts)
-  // const carrito = []
-  // const [state, dispatch] =useReducer(shoppingInitialState)
-  // console.log(state)
-  //   const {products, cart} = state
-
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products?sort=desc")
-  //     .then((res) => res.json())
-  //     .then((json) => setAllProducts(json))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
   const [carrito, setCarrito] = useState([])
   const [allProducts, setAllProducts] = useState([]);
   const agregarAlCarrito = (item) => {

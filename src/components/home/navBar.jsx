@@ -32,6 +32,11 @@ import { useNavigate } from 'react-router'
   // }
      
   //función que muestra el menu responsive
+  useEffect(()=>{
+    getCategory()
+    getCategories()
+    // select()
+ },[])
   function responsiveMenu() {
       const x = document.getElementById("elnav");
       if (x.className === "elnav") {
@@ -44,10 +49,10 @@ import { useNavigate } from 'react-router'
   const handleBack = () => {
       navigate(-1) 
   }
-  var util = {
+  let util = {
     f: {
       addStyle: function (elem, prop, val, vendors) {
-        var i, ii, property, value
+        let i, ii, property, value
         if (!util.f.isElem(elem)) {
           elem = document.getElementById(elem)
         }
@@ -56,7 +61,7 @@ import { useNavigate } from 'react-router'
           val = [val]
         }
         for (i = 0; i < prop.length; i += 1) {
-          var thisProp = String(prop[i]),
+          let thisProp = String(prop[i]),
             thisVal = String(val[i])
           if (typeof vendors !== "undefined") {
             if (!util.f.isArray(vendors)) {
@@ -71,7 +76,7 @@ import { useNavigate } from 'react-router'
         }
       },
       cssLoaded: function (event) {
-        var child = util.f.getTrg(event)
+        let child = util.f.getTrg(event)
         child.setAttribute("media", "all")
       },
       events: {
@@ -125,7 +130,7 @@ import { useNavigate } from 'react-router'
     init: {
       register: function () {
         // console.clear()// just cuz codepen
-        var child, children = document.getElementsByClassName("field"), i
+        let child, children = document.getElementsByClassName("field"), i
         for (i = 0; i < children.length; i += 1) {
           child = children[i]
           util.f.addStyle(child, "Opacity", 1)
@@ -144,7 +149,7 @@ import { useNavigate } from 'react-router'
     select: {
       blur: function (field) {
         field.classList.remove("focused")
-        var child, children = field.childNodes, i, ii, nested_child, nested_children
+        let child, children = field.childNodes, i, ii, nested_child, nested_children
         for (i = 0; i < children.length; i += 1) {
           child = children[i]
           if (util.f.isElem(child)) {
@@ -174,7 +179,7 @@ import { useNavigate } from 'react-router'
       },
       focus: function (field) {
         field.classList.add("focused")
-        var bool = false, child, children = field.childNodes, i, ii, iii, nested_child, nested_children, nested_nested_child, nested_nested_children, size = 0
+        let bool = false, child, children = field.childNodes, i, ii, iii, nested_child, nested_children, nested_nested_child, nested_nested_children, size = 0
         for (i = 0; i < children.length; i += 1) {
           child = children[i]
           // util.f.isElem(child) && child.classList.contains("deselect") ? bool = true : null
@@ -208,7 +213,7 @@ import { useNavigate } from 'react-router'
         }
       },
       selection: function (child, parent) {
-        var children = parent.childNodes, i, ii, nested_child, nested_children, time = 0, value
+        let children = parent.childNodes, i, ii, nested_child, nested_children, time = 0, value
         if (util.f.isElem(child) && util.f.isElem(parent)) {
           parent.dataset.value = child.dataset.value
           value = child.innerHTML
@@ -239,7 +244,7 @@ import { useNavigate } from 'react-router'
       },
       toggle: function (event) {
         util.f.events.stop(event)
-        var child = util.f.getTrg(event), children, i, parent
+        let child = util.f.getTrg(event), children, i, parent
         switch (true) {
           case (child.classList.contains("psuedo_select")):
           case (child.classList.contains("deselect")):
@@ -263,9 +268,20 @@ import { useNavigate } from 'react-router'
       navigate('/')
   }
   const [allCategories, setAllCategories] = useState([]);
+  const [categories, setCategories] = useState([])
 
+  const getCategories = async (category) => {
+    await fetch(`https://fakestoreapi.com/products/category/${category}`)
+    .then((res) => res.json())
+    .then((json) => {
+      setCategories([json]);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+  }
   const getCategory = async () => {
-    await fetch("https://fakestoreapi.com/products/categories")
+    await fetch(`https://fakestoreapi.com/products/categories`)
     .then((res) => res.json())
     .then((json) => {
       setAllCategories(json);
@@ -290,10 +306,10 @@ return (
             <ul id="links" >
              {/* <li className="pages"><a href="#products" >PRODUCTOS</a></li> */}
              <li className="pages"><a href="#categories" > <select class="field" onClick={(e)=>getCategory(e)} >
-            <option  className="pages" hidden={true}>Category</option>
+            <option  className="pages" >Category</option>
             {allCategories?.map((e)=>{
               return (
-                <option className="pages" id={e} key={e} value={e}>{e}
+                <option onClick={getCategories} className="pages" id={e} key={e} value={e}>{e}
                 </option>
                 )
               })

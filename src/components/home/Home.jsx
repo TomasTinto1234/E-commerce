@@ -120,17 +120,6 @@ const Home = () => {
         <SearchBar currentProducts={currentProducts} />
                 </div>
         <div >
-        <div>
-          <select onClick={(e)=>getCat(e)} >
-            <option >Category</option>
-            {allCategories?.map((e)=>{
-              return (
-                  <option id={e} key={e} value={getCat(e)}>{e}</option>
-                )
-            })
-            }
-          </select>
-        </div>
     </div>
       </div>
       <span>

@@ -9,6 +9,7 @@ import {orderByName, getProducts, clean} from "../../actions/actions"
 import AllProducts from "../products";
 import ShopingCart from "../ShopingCart.jsx"
 import { Link } from "@chakra-ui/react";
+import Spinner from "../Spinner/Spinner"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -110,6 +111,7 @@ const Home = () => {
       <div className="colour"></div>
     <div className="colour"></div>
     <div className="colour"></div>
+      <section>
       <div className="colour">
        <div class="card text-white bg-success mb-3" >
                   <marquee class="text-dark" >
@@ -134,19 +136,9 @@ const Home = () => {
         allProducts={allProducts.length}
         paginado={paginado}
       />
-      <section  className="one-card">
         {currentProducts.length === 0 ? (
-          <div className="spinner">
-            <span>L</span>
-            <span>O</span>
-            <span>A</span>
-            <span>D</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+          <div>
+            <Spinner/>
           </div>
         ) : (currentProducts &&
           currentProducts?.map((product) => {

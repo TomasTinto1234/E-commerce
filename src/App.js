@@ -19,6 +19,8 @@ function App() {
     <div>
       <NavBar/>
       <Routes>
+      <Route  path="/Detail/:id" element={<Detail/>}/>
+      <Route  path="/SingleProduct/:id" element={<SingleProduct />}/>
       <Route  path="/CreateProduct" element={<CreateProduct/>}/>
       <Route  path="/Carrito/" element={<Carrito/>}/>
       <Route  path="/Carrito/:id" element={<Carrito/>}/>
@@ -26,10 +28,9 @@ function App() {
       {/* <Route  path="/" component={NavBar}/>s */}
       <Route  path="/Products" element={<Products/>}/>
       <Route  path="/Users" element={<Users/>}/>
-      <Route  path="/SingleProduct/:id" element={<SingleProduct />}/>
-      <Route  path="/Detail/:id" element={<Detail/>}/>
       <Route  path="/footer" element={<Footer/>}/>
       <Route exact path="/" element={<Home/>}/>
+
       </Routes>
       <Footer/>
     </div>

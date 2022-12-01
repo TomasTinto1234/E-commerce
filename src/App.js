@@ -24,6 +24,12 @@ import Main from "./components/Main";
 function App() {
   const { products } = AllProducts;
   const [cartItems, setCartItems] = useState([]);
+  const productId = (id)=>{
+    console.log(id)
+    const idP = AllProducts.products.find((e)=>e.id ===id)
+    console.log(idP)
+    setCartItems([...cartItems])
+  }
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -50,7 +56,7 @@ function App() {
   };
   return (
     <div>
-      <NavBar/>
+      <NavBar countCartItems={cartItems.length}/>
       {/* <Header countCartItems={cartItems.length}></Header>
       <div className="row">
       <Main products={products} onAdd={onAdd}></Main>
@@ -69,8 +75,8 @@ function App() {
           />
           
           
+      <Route  path="/SingleProduct/:id" element={<SingleProduct onAdd={onAdd} productId={productId} cartItems={products} />}/>
       <Route  path="/Detail/:id" element={<Detail onAdd={onAdd} products={products}/>}/>
-      <Route  path="/SingleProduct/:id" element={<SingleProduct onAdd={onAdd} cartItems={cartItems} />}/>
       <Route  path="/CreateProduct" element={<CreateProduct />}/>
       <Route  path="/CartItem" element={<CartItem products={products}/>}/>
       <Route  path="/Carrito/" element={<Carrito cartItem={cartItems}/>}/>

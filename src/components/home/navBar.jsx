@@ -94,15 +94,15 @@ return (
              <li className="pages"><a href="/users" >USERS</a></li>
              <li className="pages"><a href="/createProduct" >CREATE PRODUCT</a></li>
              <li className="pages"><a href="#contacto" >CONTACT</a></li>
-             <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
+             <li className="pages"><a href="#carrito"><Link to={`/Carrito` }> {props.countCartItems ? (
+            <button className="badge">{props.countCartItems}</button>
+          ) : (
+            ''
+          )}<BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/></Link>{props.countCartItems ? (
-                  <button className="badge">{props.countCartItems}</button>
-                ) : (
-                  ''
-                )}</a></li>
+                cursor="pointer"/></Link></a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}

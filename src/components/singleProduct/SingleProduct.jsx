@@ -18,22 +18,22 @@ import AllProducts from "../../products"
        setCarrito( [...carrito, item] )
      }
 
-    //  useEffect(()=>{
-    //     getProductId(id)
-    //  },[id])
+     useEffect(()=>{
+        getProductId(id)
+     },[id])
 
 
-    //  const getProductId = async (id) => {
-    //     await fetch(`https://fakestoreapi.com/products/${id}`)
-    //        .then((res) => res.json())
-    //        .then((json) => {
-    //          console.log(json)
-    //          setProduct(json);
-    //        })
-    //        .catch((err) => {
-    //          console.log(err);
-    //        });
-    //    };    
+     const getProductId = async (id) => {
+        await fetch(`https://fakestoreapi.com/products/${id}`)
+           .then((res) => res.json())
+           .then((json) => {
+             console.log(json)
+             setProduct(json);
+           })
+           .catch((err) => {
+             console.log(err);
+           });
+       };    
 
     const navigate = useNavigate()
     const handleBack = () => {

@@ -1,4 +1,5 @@
 import "./App.css"
+import {useState} from "react"
 import NavBar from "./components/home/navBar";
 import Home from "./components/home/Home"
 import Footer from "./components/footer/Footer";
@@ -12,24 +13,75 @@ import Detail from "./components/detail/Detail"
 import CreateProduct from "./components/createProduct/CreateProduct"
 // import { Switch } from "@chakra-ui/react";
 import Login from "./components/login/Login"
-// import { BrowserRouter } from "react-router-dom";
+import ProductItem from "./components/ProductItem"
+import AllProducts from "./products";
+import CartItem from "./components/CartItem/CartItem"
+import Basket from "./components/Basquet";
+import Header from "./components/Header";
+import Main from "./components/Main";
+
 
 function App() {
+  const { products } = AllProducts;
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }]);
+    }
+  };
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
   return (
     <div>
       <NavBar/>
+      {/* <Header countCartItems={cartItems.length}></Header>
+      <div className="row">
+      <Main products={products} onAdd={onAdd}></Main>
+      <Basket
+      cartItems={cartItems}
+      onAdd={onAdd}
+      onRemove={onRemove}
+      ></Basket>
+    </div> */}
       <Routes>
-      <Route  path="/Detail/:id" element={<Detail/>}/>
-      <Route  path="/SingleProduct/:id" element={<SingleProduct />}/>
-      <Route  path="/CreateProduct" element={<CreateProduct/>}/>
-      <Route  path="/Carrito/" element={<Carrito/>}/>
-      <Route  path="/Carrito/:id" element={<Carrito/>}/>
+        <Route  path="/Header" countCartItems={cartItems.length} element={<Header countCartItems={cartItems.length}/>}/>
+        <Route  path="/Main"products={products} onAdd={onAdd} element={<Main products={products} onAdd={onAdd}/>}/>
+        <Route  path="/Basket" cartItems={cartItems} element={<Basket cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}/>}
+          />
+          
+          
+      <Route  path="/Detail/:id" element={<Detail onAdd={onAdd} products={products}/>}/>
+      <Route  path="/SingleProduct/:id" element={<SingleProduct onAdd={onAdd} cartItems={cartItems} />}/>
+      <Route  path="/CreateProduct" element={<CreateProduct />}/>
+      <Route  path="/CartItem" element={<CartItem products={products}/>}/>
+      <Route  path="/Carrito/" element={<Carrito cartItem={cartItems}/>}/>
+      <Route  path="/Carrito/:id" element={<Carrito products={products}/>}/>
+      <Route  path="/ProductItem" element={<ProductItem onAdd={onAdd} products={products}/>}/>
       <Route  path="/Login" element={<Login/>}/>
-      {/* <Route  path="/" component={NavBar}/>s */}
-      <Route  path="/Products" element={<Products/>}/>
+      <Route  path="/NavBar" element={<NavBar/> }countCartItems={cartItems.length}/>
+      <Route  path="/Products/:id" element={<Products products={products}/>}/>
       <Route  path="/Users" element={<Users/>}/>
       <Route  path="/footer" element={<Footer/>}/>
-      <Route exact path="/" element={<Home/>}/>
+      <Route exact path="/" element={<Home products={products}/>}/>
 
       </Routes>
       <Footer/>

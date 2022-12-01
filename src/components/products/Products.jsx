@@ -1,92 +1,59 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-// import axios from "axios";
 import "./products.css";
-import { useDispatch, useSelector } from "react-redux";
-import Carrito from "../carrito/Carrito"
-// import {getFavsProducts} from "../../actions/actions"
-import SingleProduct from "../singleProduct/SingleProduct"
-import Paginations from "../paginacion/Paginacion"
-import Detail from "../detail/Detail"
-import AllProducts from "../products"
+import Spinner from "../Spinner/Spinner"
 
-const GetAllProducts = () => {
-  const dispatch = useDispatch()
-  const [allProducts, setAllProducts] = useState(AllProducts)
-
-//   useEffect(() => {
-//     return ()=>{
-//       fetch("https://fakestoreapi.com/products")
-//       .then((res) => res.json())
-//       .then((json) => setAllProducts(json))
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//     }
-//   }, []);
-
-// const refresh = ()=> {
-//   fetch("https://fakestoreapi.com/products")
-//       .then((res) => res.json())
-//       .then((json) => setAllProducts(json))
-//       .catch((err) => {
-//         console.log(err);
-//       });
-// }
-
-
-// const getProductId = async (id) => {
-//   await fetch(`https://fakestoreapi.com/products/${id}`)
-//      .then((res) => res.json())
-//      .then((json) => {
-//        setAllProducts([json]);
-//      })
-//      .catch((err) => {
-//        console.log(err);
-//      });
-//  };
-
+const GetAllProducts = (props) => {
+  const {cartItem} = props
 
   return (
     <div>
       <section id="products">
-        {allProducts.length === 0 ? (
-          <div className="spinner">
-            <span>L</span>
-            <span>O</span>
-            <span>A</span>
-            <span>D</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+        {cartItem.length === 0 ? (
+          <div>
+          <Spinner/>
           </div>
         ) : (
-          allProducts?.map((product) => {
+          cartItem?.map((product) => {
             return (
-            <div key={product.id} className="cards">
-              {/* <Link to= {`/detail/${product.id}`}> */}
-                {/* <a onClick={() => getProductId(product.id)}> */}
-                <Detail
-                id={product.id}
-                title= {product.title}
-                description={product.description}
-                category={product.category}
-                image={product.image}
-                price={product.price}
-                rating ={product.rating.rate}
-                >
-                </Detail>
-                <SingleProduct id={product.id}
-                title= {product.title}
-                description={product.description}
-                category={product.category}
-                image={product.image}
-                price={product.price}></SingleProduct>
-                {/* </Link> */}
+              <div className="Cart-Container">
+                <div className="Header">
+ <h3 className="Heading">Shopping Cart</h3>
+ <h5 className="Action">Remove all</h5>
+ </div>
+ <div className="Cart-Items">
+ <div className="image-box">
+ <img src={product.image} alt={product.image} style={{ height:"120px" }} />
+ </div>
+ <div className="about">
+ <h1 className="title">{product.title}</h1>
+ <h3 className="subtitle">{product.category}</h3>
+ {/* <img src={product.image} style={{ height:"30px" }}/> */}
+ </div>
+ <div className="counter"></div>
+ <div className="prices"></div>
+ </div>
+ <div className="counter">
+ <div className="btn">+</div>
+ <div className="count"></div>
+ <div className="btn">-</div>
+ </div>
+ <div className="prices">
+ <div className="amount">{product.price}</div>
+ {/* <div className="save"><u>Save for later</u></div> */}
+ <div className="remove"><u>Remove</u></div>
+ </div>
+ {/* <hr>  </hr> */}
+ <div className="checkout">
+ <div className="total">
+ <div>
+ {/* <div className="Subtotal">Sub-Total</div>
+ <div className="items">2 items</div> */}
+ </div>
+ <div className="total-amount">{product.price}</div>
+ </div>
+ {/* <button className="button">Checkout</button> */}
+ </div>
+
             </div>
             );
           })

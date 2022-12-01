@@ -6,6 +6,22 @@ const CreateProduct = () => {
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
+  const [input, setInput] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // dispatch(createDog(input));
+    console.log(e);
+    alert(`${input.title.toUpperCase()} fue creado con exito `);
+    setInput({
+      title: "",
+      image: "",
+      description: "",
+      category: "",
+      price: "",
+    });
+    return console.log("se creo")
+  }
 
   function handleChange(e) {
     const name = e.target.name;
@@ -27,7 +43,7 @@ const CreateProduct = () => {
 
 
   function handleSubmit(e){
-  e.preventDefault()
+  // e.preventDefault()
   const product = {
     // id:id,
     title,
@@ -36,6 +52,7 @@ const CreateProduct = () => {
     price,
     image,
   }
+  return product
   }
 
   return (

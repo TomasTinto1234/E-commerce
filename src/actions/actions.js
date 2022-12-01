@@ -1,4 +1,4 @@
-import AllProducts from "../components/products.js";
+import AllProducts from "../products.js";
   export const GET_FAVORITES_PRODUCTS = "GET_FAVORITES_PRODUCTS";
   export const CURRENT_PAGE = "CURRENT_PAGE"
   export const ADD_FAVORITE = "ADD_FAVORITE"

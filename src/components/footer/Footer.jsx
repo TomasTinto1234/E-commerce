@@ -30,7 +30,7 @@ const Footer = () => {
                     <span className={s.footerSpan}>Sobre nosotros</span>
                   </a> */}
           <a href={whatsapp} cursor="pointer">
-            <span>Contacto</span>
+            <span>Contact</span>
           </a>
                     <p>REDES</p>
           <div>

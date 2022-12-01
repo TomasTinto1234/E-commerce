@@ -14,10 +14,6 @@ const Paginations = ({ productsPerPage, allProducts, paginado }) => {
     pageNumbers.push(i+1);
   }
 
-  const handlePage = num => {
-    if (paginate.currentPage !== num) dispatch(setCurrentPage(num))
-}
-
 const handlePrevious = () => {
     if (paginate.currentPage > 1) dispatch(setCurrentPage(paginate.currentPage - 1))
 }

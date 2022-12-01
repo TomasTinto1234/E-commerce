@@ -1,37 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import carrito from "../../image/carrito.png"
 import "./navBar.css"
 import {
-  BiUserCircle,
   BiUser,
   BiMenu,
-  BiCart
 } from "react-icons/bi";
 import {
   BsCart4
 } from "react-icons/bs";
-import Carrito from "../carrito/Carrito"
+import AllProducts from "../../products";
 import { useNavigate } from 'react-router'
 
 
-  const NavBar = () => {
-  //   function seleccionar(link) {
-  //     let opciones = document.querySelectorAll('#links  a');
-  //     opciones[0].className = "elnav";
-  //     opciones[1].className = "elnav";
-  //     opciones[2].className = "elnav";
-  //     opciones[3].className = "elnav";
-  //     opciones[4].className = "elnav";
-  //     link.className = "seleccionado";
-  
-  //     //Hacemos desaparecer el men una vez que se ha seleccionado una opcion
-  //     //en modo responsive
-  //     let x = document.getElementById("nav");
-  //     x.className = "";
-  // }
-     
-  //función que muestra el menu responsive
+  const NavBar = (props) => {
+ 
+    const {products} = AllProducts
+
   useEffect(()=>{
     getCategory()
     getCategories()
@@ -54,7 +38,7 @@ import { useNavigate } from 'react-router'
       navigate('/')
   }
   const [allCategories, setAllCategories] = useState([]);
-  const [categories, setCategories] = useState([])
+  const [/*categories*/, setCategories] = useState([])
 
   const getCategories = async (category) => {
     await fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -76,6 +60,12 @@ import { useNavigate } from 'react-router'
         console.log(err);
     });
   }
+  
+ function getCat(categ){
+  console.log(categ.target.value)
+   const cat = products.filter((e)=> e.category === categ.target.value)
+   return cat
+ }
 
 return (
     <div>
@@ -91,25 +81,29 @@ return (
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
              {/* <li className="pages"><a href="#products" >PRODUCTOS</a></li> */}
-             <li className="pages"> <select onClick={(e)=>getCategory(e)} >
+             <li className="pages"> <select onClick={(e)=>getCat(e)} >
             <option >Category</option>
             {allCategories?.map((e)=>{
               return (
-                <option onClick={(e)=>getCategory(e)} id={e} key={e} value={e}>{e}
+                <option onClick={(e)=>getCat(e)} id={e} key={e} value={e}>{e}
                 </option>
                 )
               })
             }
           </select></li>
-             <li className="pages"><a href="/users" >USUARIOS</a></li>
-             <li className="pages"><a href="/createProduct" >CREAR PRODUCTO</a></li>
-             <li className="pages"><a href="#contacto" >CONTACTO</a></li>
+             <li className="pages"><a href="/users" >USERS</a></li>
+             <li className="pages"><a href="/createProduct" >CREATE PRODUCT</a></li>
+             <li className="pages"><a href="#contacto" >CONTACT</a></li>
              <li className="pages"><a href="#carrito"><Link to={`/Carrito` }><BsCart4 color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
-                cursor="pointer"/></Link></a></li>
-             <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUserCircle color="white"
+                cursor="pointer"/></Link>{props.countCartItems ? (
+                  <button className="badge">{props.countCartItems}</button>
+                ) : (
+                  ''
+                )}</a></li>
+             <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
                 size="25px"
                 onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}

@@ -6,15 +6,19 @@ const User = () => {
   const [allUser, setAllUser] = useState("");
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/users")
-      .then((res) => res.json())
-      .then((json) => 
-      setAllUser(json)
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    getUserId()
+    getUsers()
   },[]);
+  const getUsers =()=>{
+    fetch("https://fakestoreapi.com/users")
+    .then((res) => res.json())
+    .then((json) => 
+    setAllUser(json)
+    )
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
   const getUserId =  (id) => {
     fetch(`https://fakestoreapi.com/users/${id}`)
@@ -45,10 +49,10 @@ const User = () => {
                       <span>select user</span>
                     </button>
             <h2>username: {user.username}</h2>
-            <h2>name: {user.name.firstname + " " + user.name.lastname}</h2>
+            {/* <h2>name: {user.name.firstname + " " + user.name.lastname}</h2> */}
             <h2>email: {user.email}</h2>
             <h2>phone: {user.phone}</h2>
-            <h2>address: {user.address.city + ", " + user.address.street + " " + user.address.number}</h2>
+            {/* <h2>address: {user.address.city + ", " + user.address.street + " " + user.address.number}</h2> */}
         </div>
       )
    })}

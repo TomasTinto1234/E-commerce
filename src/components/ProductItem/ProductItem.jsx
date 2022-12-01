@@ -1,11 +1,11 @@
-import React from "react";
-import { useEffect, useState } from "react";
+// import React from "react";
+// import { useEffect, useState } from "react";
 
 
 
-const ProductItem =({data, addCart})=>{
+const ProductItem =({/*data*/})=>{
 
-    let {id, title, category, image}= data
+    // let {id, title, category, image}= data
 
     return (
         <div>

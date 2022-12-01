@@ -1,35 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import "./navBar.css";
 import Detail from "../detail/Detail";
-import CreateProduct from "../createProduct/CreateProduct";
 import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
-import {orderByName, getProducts, clean} from "../../actions/actions"
-import AllProducts from "../products";
-import ShopingCart from "../ShopingCart.jsx"
+import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner"
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const [/*orden*/, setOrden] = useState("");
-  const [allProducts, setAllProducts] = useState(AllProducts);
-  const [shopProduct /*setShopProduct*/] = useState("");
-  const [allCategories, setAllCategories] = useState([]);
+  const [/*allCategories*/, setAllCategories] = useState({})
+const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = allProducts?.slice(
+  const currentProducts = allProducts.products?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
-  const [activo, setActivo]= useState(false)
+  // const [activo, setActivo]= useState(false)
 
-  const toggler =()=>{
-    setActivo(!activo)
-  }
+  // const toggler =()=>{
+  //   setActivo(!activo)
+  // }
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -48,14 +41,14 @@ const Home = () => {
   //     });
   // }, []);
 
-  const refresh = () => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setAllProducts(json))
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const refresh = () => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => setAllProducts(json))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   // useEffect(() => {
   //   fetch('https://fakestoreapi.com/products?sort=desc')
@@ -80,10 +73,11 @@ const Home = () => {
     // select()
  },[])
 
- function getCat(categ){
-   const cat = allProducts.find((e)=> e.category === categ)
-   return cat
- }
+//  function getCat(categ){
+//   console.log(categ)
+//    const cat = allProducts.find((e)=> e.category === categ)
+//    return cat
+//  }
 
   const getCategory = async () => {
     await fetch("https://fakestoreapi.com/products/categories")
@@ -95,16 +89,16 @@ const Home = () => {
         console.log(err);
     });
   }
-  function handleSort(e) {
-    // dispatch(orderByName(e));
-    // setOrden(e);
-  }
+  // function handleSort(e) {
+  //   // dispatch(orderByName(e));
+  //   // setOrden(e);
+  // }
 
-  const select = (e)=>{
-   if(currentProducts.category=== e){
-    setAllProducts(currentProducts.category)
-   }
-  }
+  // const select = (e)=>{
+  //  if(currentProducts.category=== e){
+  //   setAllProducts(currentProducts.category)
+  //  }
+  // }
 
   return (
     <div className="home">
@@ -113,8 +107,8 @@ const Home = () => {
     <div className="colour"></div>
       <section>
       <div className="colour">
-       <div class="card text-white bg-success mb-3" >
-                  <marquee class="text-dark" >
+       <div className="card text-white bg-success mb-3" >
+                  <marquee className="text-dark" >
                     - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
                   </marquee>
               </div>
@@ -126,14 +120,14 @@ const Home = () => {
       </div>
       <span>
       <select className="losul" >
-            <option hidden={true}>Por Nombre</option>
+            <option hidden={true}>By Name</option>
             <option value="az">a-z</option>
             <option value="za">z-a</option>
           </select>
       </span>
       <Pagination
         productsPerPage={productsPerPage}
-        allProducts={allProducts.length}
+        allProducts={allProducts.products.length}
         paginado={paginado}
       />
         {currentProducts.length === 0 ? (

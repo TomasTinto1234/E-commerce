@@ -1,19 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-const ProductItem = ({data, addToCart}) => {
-  let {id, title, category, image, price, rating, description} = data
-
+const ProductItem =()=> {
+  // const { products, onAdd } = props;
   return (
     <div>
-     <h4>{title}</h4>
-     <h4>{category}</h4>
-     <h4>{image}</h4>
-     <h4>{price}$</h4>
-     <h4>{rating}</h4>
-     <h4>{description}</h4>
-    <button onClick={() =>addToCart(id)}>agregar al carrito</button>
+      {/* <img className="small" src={products.image} alt={products.title} />
+      <h3>{products.tite}</h3>
+      <div>${products.price}</div>
+      <div>
+        <button onClick={() => onAdd(products)}>Add To Cart</button>
+      </div> */}
     </div>
-  )
+  );
 }
-
 export default ProductItem

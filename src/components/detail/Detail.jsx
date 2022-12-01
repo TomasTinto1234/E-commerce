@@ -1,35 +1,31 @@
 import React from "react";
-import { useEffect, useState, useReducer, useContext } from "react";
-// import {getFavsProducts, addFavorite} from "../../actions/actions"
-import { useDispatch, useSelector } from "react-redux";
+import { useState, } from "react";
 import { Link } from "react-router-dom";
-import SingleProduct from "../singleProduct/SingleProduct"
-import shoppingInitialState from "../../redux/redux"
 
 const Detail = (props) => {
-  const {title, description, category, image, id, price, rating} = props
+  const {title, description,  image, id, price, rating} = props
+  const { products, onAdd } = props;
   // console.log(props)
-const dispatch = useDispatch()
-  const [carrito, setCarrito] = useState([])
-  const [allProducts, setAllProducts] = useState([]);
-  const agregarAlCarrito = (item) => {
-    setCarrito( [...carrito, item] )
-  }
-  const getProductId = async (id) => {
-   await fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        console.log(json)
-        setAllProducts([json]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-const addCart=(id)=>{
-  console.log(id)
-  dispatch(getProductId(id))
-}
+  // const [carrito, setCarrito] = useState([])
+  // const [/*allProducts*/, setAllProducts] = useState([]);
+  // const agregarAlCarrito = (item) => {
+  //   setCarrito( [...carrito, item] )
+  // }
+  // const getProductId = async (id) => {
+  //  await fetch(`https://fakestoreapi.com/products/${id}`)
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       console.log(json)
+  //       setAllProducts([json]);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+// const addCart=(id)=>{
+//   console.log(id)
+//   dispatch(getProductId(id))
+// }
 
 // const handleAddToCart = () => {
 //   if (cantidad > 0) {
@@ -67,10 +63,13 @@ const addCart=(id)=>{
         <form 
         // onSubmit={(e) => handleSubmit(e)}
         >
+           <div>
+        <button onClick={() => onAdd(products)}>Add To Cart</button>
+      </div>
       <button
         className="btn"
         type="submit"
-        onClick={()=>{agregarAlCarrito(id)}}
+        onClick={()=>{onAdd(id)}}
         // onAdd={handleAddToCart}
         >
         Shop Now

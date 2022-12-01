@@ -1,23 +1,19 @@
-import React, { useReducer } from "react";
-// import shoppingReducer from "../redux/redux";
+import React, {  } from "react";
 import ProductItem from "./ProductItem";
-import {shoppingInitialState} from "../redux/redux.js"
 
-const ShopingCart = () => {
-  const [state, dispatch] = useReducer(
-  
-     shoppingInitialState);
-  const {products, cart} = state;
+const ShopingCart = (props) => {
+ 
+  const {products} = props;
 
   const addToCart = (id) => {
     console.log(id)
   };
-  const delFromCart = () => {};
-  const clearCart = () => {};
+  // const delFromCart = () => {};
+  // const clearCart = () => {};
 
   return (
     <div>
-      <h2>carrito de compras</h2>
+      <h2>carrito de compras</h2> 
       <h3>PRODUCTOS</h3>
       <article className="box">
         {products.map((product) => (

@@ -1,9 +1,9 @@
 .carritos{
-    position: relative;
+    position: static;
     /* justify-content: space-around; */
     text-decoration: none;
 	border-radius: 5px;
-	margin:7% 15% 25% auto;
+	margin:7% 35% 25% 30%;
 	height: 100px;
     width: 100%;
     font-size: 20px;

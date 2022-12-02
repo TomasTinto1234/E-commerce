@@ -84,11 +84,16 @@ return (
             <option >Category</option>
             {allCategories?.map((e)=>{
               return (
-                <option onClick={(e)=>getCat(e)} id={e} key={e} value={e}>{e}
+                <option onClick={()=>getCat(e)} id={e} key={e} value={e}>{e}
                 </option>
                 )
               })
             }
+          </select></li>
+          <li className="pages">   <select className="btn">
+            <option>By Name</option>
+            <option value="az">a-z</option>
+            <option value="za">z-a</option>
           </select></li>
              <li className="pages"><a href="/users" >USERS</a></li>
              <li className="pages"><a href="/createProduct" >CREATE PRODUCT</a></li>
@@ -104,7 +109,7 @@ return (
                 cursor="pointer"/></Link></a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOver={({ target }) => (target.style.color = "#809fff")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
             </ul>
@@ -112,7 +117,7 @@ return (
              <nav id="icono-nav" onClick={()=>responsiveMenu()}>
               <BiMenu color="gray"
                 size="35px"
-                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
+                onMouseOver={({ target }) => (target.style.color = "#809fff")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </nav>

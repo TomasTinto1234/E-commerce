@@ -104,11 +104,11 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
 
   return (
     <div >
-      <div className="colour"></div>
+      {/* <div className="colour"></div>
     <div className="colour"></div>
-    <div className="colour"></div>
+    <div className="colour"></div> */}
       {/* <section> */}
-      <div className="colour">
+      {/* <div className="colour"> */}
        <div className="card text-white bg-success mb-3" >
                   <marquee className="text-dark" >
                     - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
@@ -119,14 +119,7 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
                 </div>
         <div >
     </div>
-      </div>
-      <span>
-      <select className="losul" >
-            <option hidden={true}>By Name</option>
-            <option value="az">a-z</option>
-            <option value="za">z-a</option>
-          </select>
-      </span>
+      {/* </div> */}
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
@@ -139,7 +132,7 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
         ) : (currentProducts &&
           currentProducts?.map((product) => {
             return (
-              <div key={product.id} id="products" className="one-card">
+              <div key={product.id} id="products" >
                 {/* <a onClick={() => refresh(product.id)}> */}
                 <Link to={`/SingleProduct/${product.id}`}>
                   <Detail

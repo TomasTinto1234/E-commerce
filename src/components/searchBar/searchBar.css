@@ -60,7 +60,14 @@ form:valid .fa{
   background: #07051a;
   color: white;
 }
-
+searchs {
+  display: absolute;
+  align-items: right;
+  justify-content: right;
+  font-family: 'Roboto';
+  font-style: normal;
+  line-height: 21px;
+}
 /* 
 a {
 display: none;

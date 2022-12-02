@@ -54,12 +54,12 @@
     }
    }
 
-  .products-card{
+  /* .products-card{
     margin-top: 100px;
     margin:150px;
 
    
-  }
+  } */
 
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 
@@ -67,18 +67,18 @@
 body {
 background: #DFC2F2;
 	background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
-	background-attachment: fixed;	
-	background-size: cover;
+	/* background-attachment: fixed;	
+	background-size: cover; */
   
 	}
-
+/* 
 	.productss{
 		display: grid;
 		gap: 2rem;
 		margin: 2rem 2vw;
 		padding: 0;
 		list-style-type: none;
-	}
+	} */
 
 #container{
 	box-shadow: 0 15px 30px 1px grey;

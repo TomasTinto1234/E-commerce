@@ -7,8 +7,8 @@ import AllProducts from "../../products"
 
  
  const SingleProduct = (props) => {
-    const { products, onAdd } = props;
-    console.log(products)
+    const { onAdd } = props;
+    // console.log(products)
     const { id } = useParams(AllProducts);
     const [product, setProduct] = useState({})
     const [carrito, setCarrito] = useState([])
@@ -36,9 +36,9 @@ import AllProducts from "../../products"
        };    
 
     const navigate = useNavigate()
-    const handleBack = () => {
-        navigate(-1) 
-    }
+    //const handleBack = () => {
+    //    navigate(-1) 
+    //}
 
     const handleToIndex = () => {
         navigate('/')
@@ -78,7 +78,7 @@ import AllProducts from "../../products"
                         <Row className="mt-4">
                         <Col xs={10} >
                         <div>
-        <button onClick={onAdd}>Add To Cart</button>
+        <button onClick={()=>{onAdd(id)}}>Add To Cart</button>
       </div>
                           <Button onClick={() =>{agregarAlCarrito(id)}}>agregar al carrito</Button>
                         </Col> 

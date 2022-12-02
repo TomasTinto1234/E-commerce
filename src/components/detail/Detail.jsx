@@ -64,7 +64,7 @@ const Detail = (props) => {
         // onSubmit={(e) => handleSubmit(e)}
         >
            <div>
-        <button onClick={() => onAdd(products)}>Add To Cart</button>
+        <button  className="btn" onClick={() => onAdd(props.id)}>Add To Cart</button>
       </div>
       <button
         className="btn"

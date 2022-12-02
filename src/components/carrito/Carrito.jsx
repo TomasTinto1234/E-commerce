@@ -1,12 +1,11 @@
 import React, { /*useState,*/ } from "react";
 import "./carrito.css";
-// import Spinner from "../Spinner/Spinner"
-import CartItem from "../CartItem/CartItem"
+import Spinner from "../Spinner/Spinner"
 
 const Carrito = (props) => {
 //  const {id} = useParams()
 // const [product, /*setProduct*/] = useState([])
- const {cartItem} =props
+ const {cartItem} = props
  console.log(cartItem)
 // const [carrito, setCarrito] = useState({})
 
@@ -57,6 +56,7 @@ const Carrito = (props) => {
 // }
 // const deleteCart=()=>{}
 // const clearCart=()=>{}
+// console.log(JSON.stringify(cartItem))
 
   return (
       <div className="carritos">
@@ -78,12 +78,16 @@ const Carrito = (props) => {
                 <h1 scope="col" className="jpy">
                   Cart
                 </h1>
-                {cartItem.length=== 0?(
+                {cartItem.length === 0?(
+                  <div>
+                  <Spinner/>
                  <h1>The Cart Is Empty</h1>
+                  </div>
                 ):(
                   cartItem?.map((product)=>{
                     return (
-                      <div>
+                      <div key={product.id}>
+                        {/* <h1>{JSON.stringify(product)}</h1> */}
                         <h1>{product.title}</h1>
                         <h1>{product.image}</h1>
 

@@ -60,7 +60,6 @@ import { useNavigate } from 'react-router'
         console.log(err);
     });
   }
-  
  function getCat(categ){
   console.log(categ.target.value)
    const cat = products.filter((e)=> e.category === categ.target.value)

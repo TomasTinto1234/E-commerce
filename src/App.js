@@ -24,24 +24,20 @@ import Main from "./components/Main";
 function App() {
   const { products } = AllProducts;
   const [cartItems, setCartItems] = useState([]);
-  const productId = (id)=>{
-    console.log(id)
-    const idP = AllProducts.products.find((e)=>e.id ===id)
-    console.log(idP)
-    setCartItems([...cartItems])
-  }
+
   const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist) {
+    const existingItem = cartItems.find((x) => x.id === product.id);
+    if (existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === product.id ? { ...existingItem, qty: existingItem.qty + 1 } : x
         )
       );
     } else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
+  console.log(cartItems);
   const onRemove = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
@@ -67,20 +63,18 @@ function App() {
       ></Basket>
     </div> */}
       <Routes>
-        <Route  path="/Header" countCartItems={cartItems.length} element={<Header countCartItems={cartItems.length}/>}/>
+        {/* <Route  path="/Header" countCartItems={cartItems.length} element={<Header countCartItems={cartItems.length}/>}/>
         <Route  path="/Main"products={products} onAdd={onAdd} element={<Main products={products} onAdd={onAdd}/>}/>
         <Route  path="/Basket" cartItems={cartItems} element={<Basket cartItems={cartItems}
           onAdd={onAdd}
           onRemove={onRemove}/>}
-          />
-          
-          
-      <Route  path="/SingleProduct/:id" element={<SingleProduct onAdd={onAdd} productId={productId} cartItems={products} />}/>
+          /> */}
+      <Route  path="/SingleProduct/:id" element={<SingleProduct onAdd={onAdd} cartItems={cartItems} />}/>
       <Route  path="/Detail/:id" element={<Detail onAdd={onAdd} products={products}/>}/>
       <Route  path="/CreateProduct" element={<CreateProduct />}/>
       <Route  path="/CartItem" element={<CartItem products={products}/>}/>
-      <Route  path="/Carrito/" element={<Carrito cartItem={cartItems}/>}/>
-      <Route  path="/Carrito/:id" element={<Carrito products={products}/>}/>
+      <Route  path="/Carrito" element={<Carrito cartItem={cartItems}/>}/>
+      {/* <Route  path="/Carrito/:id" element={<Carrito cartItems={cartItems}/>}/> */}
       <Route  path="/ProductItem" element={<ProductItem onAdd={onAdd} products={products}/>}/>
       <Route  path="/Login" element={<Login/>}/>
       <Route  path="/NavBar" element={<NavBar/> }countCartItems={cartItems.length}/>

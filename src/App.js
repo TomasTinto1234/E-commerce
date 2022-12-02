@@ -24,9 +24,10 @@ import Main from "./components/Main";
 function App() {
   const { products } = AllProducts;
   const [cartItems, setCartItems] = useState([]);
-
+console.log(cartItems)
   const onAdd = (product) => {
     const existingItem = cartItems.find((x) => x.id === product.id);
+    console.log(existingItem)
     if (existingItem) {
       setCartItems(
         cartItems.map((x) =>
@@ -73,7 +74,7 @@ function App() {
       <Route  path="/Detail/:id" element={<Detail onAdd={onAdd} products={products}/>}/>
       <Route  path="/CreateProduct" element={<CreateProduct />}/>
       <Route  path="/CartItem" element={<CartItem products={products}/>}/>
-      <Route  path="/Carrito" element={<Carrito cartItem={cartItems}/>}/>
+      <Route  path="/Carrito" element={<Carrito cartItem={cartItems} countCartItems={cartItems}/>}/>
       {/* <Route  path="/Carrito/:id" element={<Carrito cartItems={cartItems}/>}/> */}
       <Route  path="/ProductItem" element={<ProductItem onAdd={onAdd} products={products}/>}/>
       <Route  path="/Login" element={<Login/>}/>
@@ -81,7 +82,7 @@ function App() {
       <Route  path="/Products/:id" element={<Products products={products}/>}/>
       <Route  path="/Users" element={<Users/>}/>
       <Route  path="/footer" element={<Footer/>}/>
-      <Route exact path="/" element={<Home products={products}/>}/>
+      <Route exact path="/" element={<Home products={products} onAdd={onAdd}/>}/>
 
       </Routes>
       <Footer/>

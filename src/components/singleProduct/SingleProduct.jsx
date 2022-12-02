@@ -48,7 +48,7 @@ import AllProducts from "../../products"
         <>
             <Row>
                 <Col className="mt-4">                    
-                    <Button className="btn btn-info text-white" onClick={handleToIndex}>Back Home</Button>
+                    <Button className="btn" onClick={handleToIndex}><span>Back Home</span></Button>
                 </Col>
             </Row>
             <Card className="mt-3">
@@ -78,9 +78,8 @@ import AllProducts from "../../products"
                         <Row className="mt-4">
                         <Col xs={10} >
                         <div>
-        <button onClick={()=>{onAdd(product)}}>Add To Cart</button>
+        <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
       </div>
-                          <Button onClick={() =>{agregarAlCarrito(id)}}>agregar al carrito</Button>
                         </Col> 
                         </Row>
                     </Col>

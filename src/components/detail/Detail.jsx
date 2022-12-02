@@ -1,48 +1,41 @@
 import React from "react";
-import { useState, } from "react";
+import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import {  useParams } from 'react-router-dom'
+import AllProducts from "../../products"
+
 
 const Detail = (props) => {
-  const {title, description,  image, id, price, rating} = props
-  const { products, onAdd } = props;
-  // console.log(props)
-  // const [carrito, setCarrito] = useState([])
-  // const [/*allProducts*/, setAllProducts] = useState([]);
-  // const agregarAlCarrito = (item) => {
-  //   setCarrito( [...carrito, item] )
-  // }
-  // const getProductId = async (id) => {
-  //  await fetch(`https://fakestoreapi.com/products/${id}`)
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       console.log(json)
-  //       setAllProducts([json]);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-// const addCart=(id)=>{
-//   console.log(id)
-//   dispatch(getProductId(id))
-// }
+  const { onAdd } = props;
+    // console.log(products)
+    const { id } = useParams(AllProducts);
+    const [product, setProduct] = useState({})
+    const [carrito, setCarrito] = useState([])
+  
+    // useEffect(()=>{
+    //    getProductId(id)
+    // },[id])
 
-// const handleAddToCart = () => {
-//   if (cantidad > 0) {
 
-//       agregarAlCarrito({
-//           id, title, price, image
-//       })
-      
-//     }}
+    // const getProductId = async (id) => {
+    //    await fetch(`https://fakestoreapi.com/products/${id}`)
+    //       .then((res) => res.json())
+    //       .then((json) => {
+    //         console.log(json)
+    //         setProduct(json);
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //       });
+    //   };    
 
   return (
     <div>
     <div key={id} id="container" className="products-card">
     <div className="product-details">
-    <h1>{title}</h1>
-    <p>⭐{rating}</p>
-    <p>${price}</p>
+    <h1>{props.title}</h1>
+    <p>⭐{props.rating}</p>
+    <p>${props.price}</p>
     <div>
         <button
         className="btn"
@@ -57,26 +50,26 @@ const Detail = (props) => {
           </div>
         </div>
         <div className="product-image">
-        <img src={image} height="250" width="250" />
+        <img src={props.image} height="250" width="250" />
         <div className="info">
     <div className="control">
         <form 
         // onSubmit={(e) => handleSubmit(e)}
         >
-           <div>
-        <button  className="btn" onClick={() => onAdd(props.id)}>Add To Cart</button>
+          </form>
+               <div>
+        <button  className="btn" onClick={()=>{onAdd(props.id)}}><span>Add To Cart</span></button>
       </div>
-      <button
+      {/* <button
         className="btn"
         type="submit"
         onClick={()=>{onAdd(id)}}
         // onAdd={handleAddToCart}
         >
         Shop Now
-        </button>
-        </form>
+        </button> */}
         </div>
-        <h5>{description}</h5>
+        <h5>{props.description}</h5>
         </div>
         </div>
         </div>

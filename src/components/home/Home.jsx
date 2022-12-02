@@ -7,7 +7,7 @@ import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner"
 
-const Home = () => {
+const Home = (props) => {
   const [/*allCategories*/, setAllCategories] = useState({})
 const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,6 +18,8 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  const { onAdd } = props;
+
   // const [activo, setActivo]= useState(false)
 
   // const toggler =()=>{
@@ -101,11 +103,11 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   // }
 
   return (
-    <div className="home">
+    <div >
       <div className="colour"></div>
     <div className="colour"></div>
     <div className="colour"></div>
-      <section>
+      {/* <section> */}
       <div className="colour">
        <div className="card text-white bg-success mb-3" >
                   <marquee className="text-dark" >
@@ -149,16 +151,17 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
                     price={product.price}
                     rating={product.rating.rate}
                     ></Detail>
+                  <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
                     </Link>
                 {/* </a> */}
               </div>
             );
           })
         )}
-      </section>
+      {/* </section> */}
       <Pagination
         productsPerPage={productsPerPage}
-        allProducts={allProducts.length}
+        allProducts={allProducts.products.length}
         paginado={paginado}
       />
     </div>

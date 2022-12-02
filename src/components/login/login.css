@@ -1,13 +1,13 @@
 .sect {
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
+    display: absolute;
+    /* min-height: 100vh; */
+    /* align-items: center;
+    justify-content: center; */
     background: linear-gradient(to bottom, #f7f7fe, #dff1ff);
 }
 
 .sect .colour {
-    position: fixed;
+    position: absolute;
     filter: blur(150px);
 }
 
@@ -35,7 +35,8 @@
 }
 
 .boxLogin {
-    position: relative;
+    position: static;
+
 }
 
 .boxLogin .square {

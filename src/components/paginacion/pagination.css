@@ -1,6 +1,6 @@
-.pagination{
+/* .pagination{
     height: 20px;
-  }
+  } */
 
   /* ul.pagination {
       display: block;
@@ -55,7 +55,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .pagination {
-    display: flex;
+    display: absolute;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto';

@@ -5,8 +5,9 @@ import Spinner from "../Spinner/Spinner"
 const Carrito = (props) => {
 //  const {id} = useParams()
 // const [product, /*setProduct*/] = useState([])
- const {cartItem} = props
+ const {cartItem, countCartItems} = props
  console.log(cartItem)
+ console.log(countCartItems)
 // const [carrito, setCarrito] = useState({})
 
 // useEffect(()=>{
@@ -59,18 +60,9 @@ const Carrito = (props) => {
 // console.log(JSON.stringify(cartItem))
 
   return (
-      <div className="carritos">
+      <div >
       {
     <div id="carrito">
-         <div className="colour"></div>
-    <div className="colour"></div>
-    <div className="colour"></div>
-      <div className="boxLogin">
-      <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
-        <div className="square"></div>
         <div className="container">
           <div id="carrito" className="formLogin">
             <div className="input__box">
@@ -87,9 +79,10 @@ const Carrito = (props) => {
                   cartItem?.map((product)=>{
                     return (
                       <div key={product.id}>
+                        <h5>{countCartItems.length}</h5>
                         {/* <h1>{JSON.stringify(product)}</h1> */}
-                        <h1>{product.title}</h1>
-                        <h1>{product.image}</h1>
+                        <h5>{product.title}</h5>
+                        <h5>{product.image}</h5>
 
                       </div>
                     )
@@ -101,7 +94,6 @@ const Carrito = (props) => {
           </div>
         </div>
       </div>
-    </div>
   
 }
   </div>

@@ -78,7 +78,7 @@ import AllProducts from "../../products"
                         <Row className="mt-4">
                         <Col xs={10} >
                         <div>
-        <button onClick={()=>{onAdd(id)}}>Add To Cart</button>
+        <button onClick={()=>{onAdd(product)}}>Add To Cart</button>
       </div>
                           <Button onClick={() =>{agregarAlCarrito(id)}}>agregar al carrito</Button>
                         </Col> 

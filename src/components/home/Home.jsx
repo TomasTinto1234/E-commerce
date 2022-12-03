@@ -135,12 +135,12 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
         <div class="cardt">
 		<figure class="card__thumb">
 			<img src={product.image} alt="Picture by Kyle Cottrell" height="350" width="250" class="card__image"/>
-			<figcaption class="card__caption">
+				<h5 class="card__snippet">{product.category}</h5>
+			<div class="card__caption">
 				<h2 class="card__title">{product.title}</h2>
-				<p class="card__snippet">{product.category}</p>
-				<a href={`/SingleProduct/${product.id}`} class="card__button">Read more</a>
+				<a href={`/SingleProduct/${product.id}`}><button className="btn"><span >Read more</span></button></a>
         <button className="btn" onClick={()=>{onAdd(product)}}><span class="card__button">Add To Cart</span></button>
-			</figcaption>
+			</div>
 		</figure>
 
 

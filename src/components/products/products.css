@@ -170,7 +170,7 @@ font-family: 'EB Garamond', serif;
   overflow: hidden;
 	cursor: pointer;
 	outline: none;
-	border: none;
+	border: gray;
 	color: #eee;
 	padding: 0;
 	margin: 0;
@@ -178,7 +178,9 @@ font-family: 'EB Garamond', serif;
 }
 
 .btn:hover{transform: translateY(-6px);
-	background: #1a66ff;}
+	background: #1a66ff;
+border: gray
+}
 
 .btn span {
 	font-family: 'Farsan', cursive;

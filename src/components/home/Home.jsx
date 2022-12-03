@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./navBar.css";
+import "./home.css";
 import Detail from "../detail/Detail";
 import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
 import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner"
+import Marquee from "../Marquee/Marquee"
 
 const Home = (props) => {
   const [/*allCategories*/, setAllCategories] = useState({})
@@ -103,17 +105,13 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   // }
 
   return (
-    <div >
+    <div className="totalpag">
       {/* <div className="colour"></div>
     <div className="colour"></div>
     <div className="colour"></div> */}
       {/* <section> */}
       {/* <div className="colour"> */}
-       <div className="card text-white bg-success mb-3" >
-                  <marquee className="text-dark" >
-                    - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
-                  </marquee>
-              </div>
+      <Marquee/>
               <div >
         <SearchBar currentProducts={currentProducts} />
                 </div>
@@ -132,9 +130,22 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
         ) : (currentProducts &&
           currentProducts?.map((product) => {
             return (
-              <div key={product.id} id="products" >
+              // <div key={product.id} id="products" >
+                // <div class="wrapper">
+        <div class="cardt">
+		<figure class="card__thumb">
+			<img src={product.image} alt="Picture by Kyle Cottrell" height="350" width="250" class="card__image"/>
+			<figcaption class="card__caption">
+				<h2 class="card__title">{product.title}</h2>
+				<p class="card__snippet">{product.category}</p>
+				<a href={`/SingleProduct/${product.id}`} class="card__button">Read more</a>
+        <button className="btn" onClick={()=>{onAdd(product)}}><span class="card__button">Add To Cart</span></button>
+			</figcaption>
+		</figure>
+
+
                 {/* <a onClick={() => refresh(product.id)}> */}
-                <Link to={`/SingleProduct/${product.id}`}>
+                {/* <Link to={`/SingleProduct/${product.id}`}>
                   <Detail
                     id={product.id}
                     title={product.title}
@@ -144,10 +155,12 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
                     price={product.price}
                     rating={product.rating.rate}
                     ></Detail>
-                  <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
-                    </Link>
+                    <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
+                  </Link> */}
                 {/* </a> */}
-              </div>
+                  </div>
+                // </div>
+              // </div>
             );
           })
         )}
@@ -157,6 +170,7 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
         allProducts={allProducts.products.length}
         paginado={paginado}
       />
+            <Marquee/>
     </div>
   );
 };

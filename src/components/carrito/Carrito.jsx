@@ -64,9 +64,9 @@ const Carrito = (props) => {
       {
     <div id="carrito">
         <div >
-          <div id="carrito" className="formLogin">
-            <div className="input__box">
-              <div className="col-sm-4">
+          <div id="carrito" >
+            <div >
+              <div >
                 <h1 scope="col" className="jpy">
                   Cart
                 </h1>
@@ -78,46 +78,80 @@ const Carrito = (props) => {
                 ):(
                   cartItem?.map((product) => {
                     return (
-                      <div className="Cart-Container">
-                        <div className="Header">
-         <h3 className="Heading">Shopping Cart</h3>
-         <h5 className="Action">Remove all</h5>
-         </div>
-         <div className="Cart-Items">
-         <div className="image-box">
-         <img src={product.image} alt={product.image} style={{ height:"120px" }} />
-         </div>
-         <div className="about">
-         <h1 className="title">{product.title}</h1>
-         <h3 className="subtitle">{product.category}</h3>
-         {/* <img src={product.image} style={{ height:"30px" }}/> */}
-         </div>
-         <div className="counter"></div>
-         <div className="prices"></div>
-         </div>
-         <div className="counter">
-         <div className="btn">+</div>
-         <div className="count"></div>
-         <div className="btn">-</div>
-         </div>
-         <div className="prices">
-         <div className="amount">{product.price}</div>
-         {/* <div className="save"><u>Save for later</u></div> */}
-         <div className="remove"><u>Remove</u></div>
-         </div>
-         {/* <hr>  </hr> */}
-         <div className="checkout">
-         <div className="total">
-         <div>
-         {/* <div className="Subtotal">Sub-Total</div>
-         <div className="items">2 items</div> */}
-         </div>
-         <div className="total-amount">{product.price}</div>
-         </div>
-         {/* <button className="button">Checkout</button> */}
-         </div>
-        
-                    </div>
+                     
+<div class="shopping-cart">
+
+<div class="column-labels">
+  <label class="product-image">{product.image}</label>
+  <label class="product-details">Product</label>
+  <label class="product-price">Price</label>
+  <label class="product-quantity">Quantity</label>
+  <label class="product-removal">Remove</label>
+  <label class="product-line-price">Total</label>
+</div>
+
+<div class="product">
+  <div class="product-image">
+    <img src={product.image}/>
+  </div>
+  <div class="product-details">
+    <div class="product-title">Dingo Dog Bones</div>
+    <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+  </div>
+  <div class="product-price">12.99</div>
+  <div class="product-quantity">
+    <input type="number" value="2" min="1"/>
+  </div>
+  <div class="product-removal">
+    <button class="remove-product">
+      Remove
+    </button>
+  </div>
+  <div class="product-line-price">25.98</div>
+</div>
+
+<div class="product">
+  <div class="product-image">
+    <img src={product.image}/>
+  </div>
+  <div class="product-details">
+    <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
+    <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
+  </div>
+  <div class="product-price">45.99</div>
+  <div class="product-quantity">
+    <input type="number" value="1" min="1"/>
+  </div>
+  <div class="product-removal">
+    <button class="remove-product">
+      Remove
+    </button>
+  </div>
+  <div class="product-line-price">45.99</div>
+</div>
+
+<div class="totals">
+  <div class="totals-item">
+    <label>Subtotal</label>
+    <div class="totals-value" id="cart-subtotal">71.97</div>
+  </div>
+  <div class="totals-item">
+    <label>Tax (5%)</label>
+    <div class="totals-value" id="cart-tax">3.60</div>
+  </div>
+  <div class="totals-item">
+    <label>Shipping</label>
+    <div class="totals-value" id="cart-shipping">15.00</div>
+  </div>
+  <div class="totals-item totals-item-total">
+    <label>Grand Total</label>
+    <div class="totals-value" id="cart-total">90.57</div>
+  </div>
+</div>
+    
+    <button class="checkout">Checkout</button>
+
+</div>
                     );
                   })
                 )}

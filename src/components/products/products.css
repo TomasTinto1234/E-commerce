@@ -217,14 +217,14 @@ font-family: 'EB Garamond', serif;
 
 
 .product-image {
-	transition: all 0.3s ease-out;
-	display: inline-block;
+	/* transition: all 0.3s ease-out; */
+	display: block;
 	position: relative;
 	overflow: hidden;
 	height: 100%;
-	/* float: left; */
-	width: 45%;
-	display: inline-block;
+	float: right;
+	width: 50%;
+	display: inline-block ;
 }
 
 #container img {width: 100%;height: 100%;}
@@ -260,8 +260,15 @@ font-family: 'EB Garamond', serif;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	
 }
-
+.totalpag{
+	width: 100%;
+	/* display: flex;
+	flex-wrap: wrap; */
+	/* justify-content: space-around; */
+	float: right;
+}
 .Cart-Container{
 	width: 70%;
 	height: 85%;

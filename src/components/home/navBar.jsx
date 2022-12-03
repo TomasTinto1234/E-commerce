@@ -109,7 +109,7 @@ return (
                 cursor="pointer"/></Link></a></li>
              <li className="pages"><a href="#login" ><Link to={"/Login"}><BiUser color="white"
                 size="25px"
-                onMouseOver={({ target }) => (target.style.color = "#809fff")}
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/></Link></a></li>
             </ul>
@@ -117,7 +117,7 @@ return (
              <nav id="icono-nav" onClick={()=>responsiveMenu()}>
               <BiMenu color="gray"
                 size="35px"
-                onMouseOver={({ target }) => (target.style.color = "#809fff")}
+                onMouseOver={({ target }) => (target.style.color = "#F9B621")}
                 onMouseOut={({ target }) => (target.style.color = "white")}
                 cursor="pointer"/>
           </nav>

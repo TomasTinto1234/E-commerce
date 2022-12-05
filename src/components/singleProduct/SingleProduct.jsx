@@ -4,6 +4,7 @@ import { Card, Button, Row, Col, Image } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import {  useParams } from 'react-router-dom'
 import AllProducts from "../../products"
+import Marquee from "../Marquee/Marquee"
 
  
  const SingleProduct = (props) => {
@@ -86,11 +87,10 @@ import AllProducts from "../../products"
                     </Row>
                 </Card.Body>
             </Card>
-                <Card.Footer>
-                <marquee className="text-dark" >
-                    - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
-                  </marquee>
-                </Card.Footer>
+               <div>
+               <Marquee/>
+               </div>
+               
         </>
     )
 }

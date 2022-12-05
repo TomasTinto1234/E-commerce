@@ -1,6 +1,7 @@
 import React, { /*useState,*/ } from "react";
 import "./carrito.css";
 import Spinner from "../Spinner/Spinner"
+import Marquee from "../Marquee/Marquee";
 
 const Carrito = (props) => {
 //  const {id} = useParams()
@@ -111,6 +112,7 @@ const Carrito = (props) => {
                   )}
                   </table>
                 </div>
+                <Marquee/>
               </div>
   );
 };

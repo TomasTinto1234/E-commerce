@@ -5,7 +5,15 @@ import { useNavigate } from 'react-router'
 import {  useParams } from 'react-router-dom'
 import AllProducts from "../../products"
 import Marquee from "../Marquee/Marquee"
-
+import {
+    BsCart4,
+    BsHouse
+  } from "react-icons/bs";
+  import {
+    BiUser,
+    BiMenu,
+    BiHomeSmile,
+  } from "react-icons/bi";
  
  const SingleProduct = (props) => {
     const { onAdd } = props;
@@ -49,7 +57,9 @@ import Marquee from "../Marquee/Marquee"
         <>
             <Row>
                 <Col className="mt-4">                    
-                    <Button className="btn" onClick={handleToIndex}><span>Back Home</span></Button>
+                    <Button className="btn" onClick={handleToIndex}><span><BsHouse color="black"
+                size="35px"
+                cursor="pointer"/></span></Button>
                 </Col>
             </Row>
             <Card className="mt-3">
@@ -60,7 +70,7 @@ import Marquee from "../Marquee/Marquee"
                     </Card.Text>
                 </Card.Header>
 
-                <Card.Body className='card-detalle' >
+                <Card.Body  >
                     <Row>
                     <Col xs={6}>
                         <Image src={image} height="300"  />
@@ -79,7 +89,17 @@ import Marquee from "../Marquee/Marquee"
                         <Row className="mt-4">
                         <Col xs={10} >
                         <div>
-        <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
+                        <button
+                              className="btn"
+                              onClick={() => {
+                                onAdd(product);
+                                
+                              }}
+                            >
+                              <span>Add To <BsCart4 color="black"
+                size="30px"
+                cursor="pointer"/></span>
+                            </button>
       </div>
                         </Col> 
                         </Row>

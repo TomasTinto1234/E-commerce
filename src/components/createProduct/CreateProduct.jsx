@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./createProduct.css"
+import { useNavigate } from 'react-router'
+import {
+  BsHouse
+} from "react-icons/bs";
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -8,6 +12,14 @@ const CreateProduct = () => {
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
   const [input, setInput] = useState("");
+  const navigate = useNavigate()
+  //const handleBack = () => {
+  //    navigate(-1) 
+  //}
+
+  const handleToIndex = () => {
+      navigate('/')
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -58,7 +70,9 @@ const CreateProduct = () => {
 
   return (
     <div id="createProduct">
-                 <a href="/"><button className="btn" ><span>Home</span></button></a> 
+                    <button className="btn" onClick={handleToIndex}><span><BsHouse color="black"
+                size="35px"
+                cursor="pointer"/></span></button>
       <div className="contenedor">
     <h1 className="logo"><span className="nombre-empresa">Create</span> Product</h1>
     <div className="wrapper animated bounceInLeft">

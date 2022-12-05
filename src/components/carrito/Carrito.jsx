@@ -2,6 +2,9 @@ import React /*useState,*/ from "react";
 import "./carrito.css";
 import Spinner from "../Spinner/Spinner";
 import Marquee from "../Marquee/Marquee";
+import {
+  BsHouse
+} from "react-icons/bs";
 
 const Carrito = (props) => {
   //  const {id} = useParams()
@@ -52,7 +55,9 @@ const Carrito = (props) => {
     <div>
 
       <div className="table-responsive">
-                 <a href="/"><button className="btn" ><span>Home</span></button></a> 
+                 <a href="/"><button className="btn" ><span><BsHouse color="black"
+                size="35px"
+                cursor="pointer"/></span></button></a> 
         <table className="table">
           <thead>
             <tr>
@@ -73,7 +78,6 @@ const Carrito = (props) => {
           {cartItem.length === 0 ? (
             <div>
               <h1 >Cart Empty</h1>
-              <Spinner />
             </div>
           ) : (
             cartItem?.map((product) => {
@@ -99,7 +103,7 @@ const Carrito = (props) => {
                               {product.title}
                             </a>
                           </h5>
-                          <span class="text-muted font-weight-normal font-italic d-block">
+                          <span className="text-muted font-weight-normal font-italic d-block">
                             Category: {product.category}
                           </span>
                         </div>
@@ -109,9 +113,9 @@ const Carrito = (props) => {
                       <strong>${product.price}</strong>
                     </td>
                     <td className="border-0 align-middle">
-                      <p className="btn" onClick={onKick}>
+                      <button className="btn" onClick={onKick}>
                         <span>-</span>
-                      </p>
+                      </button>
                       <strong>|{product.qty}|</strong>
                       <button className="btn" onClick={onSum}>
                         <span>+</span>{" "}

@@ -124,7 +124,7 @@ const Home = (props) => {
         currentProducts &&
         currentProducts?.map((product) => {
           return (
-            <table className="table">
+            <table  key={product.id} className="table">
                 <div>
                   <div
                     key={product.id}
@@ -143,7 +143,7 @@ const Home = (props) => {
                                 
                               }}
                             >
-                              <span>Add To <BsCart4 color="black"
+                              <span key={product.id} >Add To <BsCart4 color="black"
                 size="30px"
                 cursor="pointer"/></span>
                             </button>

@@ -19,3 +19,7 @@ body {
     background: linear-gradient(to right, #eecda3, #ef629f);
     min-height: 100vh;
   }
+
+  .img-carrito{
+    border: 2px solid black
+  }

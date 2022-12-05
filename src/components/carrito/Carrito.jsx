@@ -96,15 +96,15 @@ const Carrito = (props) => {
                           <tr>
                             <th scope="row" class="border-0">
                               <div class="p-2">
-                                <img src={product.image} alt=""height="350" width="250" />
+                                <img src={product.image} alt=""height="350" width="250" className="img-carrito"/>
                                 <div class="ml-3 d-inline-block align-middle">
-                                  <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{product.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: {product.category}</span>
+                                  <h5 class="mb-0"> <a href={`/SingleProduct/${product.id}`} class="text-dark d-inline-block align-middle">{product.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: {product.category}</span>
                                 </div>
                               </div>
                             </th>
                             <td class="border-0 align-middle"><strong>{product.price}</strong></td>
                             <td class="border-0 align-middle"><strong>{product.qty}</strong></td>
-                            <td class="border-0 align-middle"><button class="text-dark" onClick={() =>onRemove(product)}>X</button></td>
+                            <td class="border-0 align-middle"><button className="btn" onClick={() =>onRemove(product)}><span>remove</span></button></td>
                           </tr>
                         </tbody>
                     );

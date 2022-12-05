@@ -3,18 +3,18 @@
 
   
   .container {
-      display: flex;
+      display: table-column-group;
       /* flex-wrap: wrap; */
       justify-content: space-evenly;
-      width: 100%;
-      margin: 20px 0 20px;
+      /* width: 100%; */
+      /* margin: 20px 0 20px; */
   }
   
   .cardt {
       width: 500px;
       margin: auto;
       left: 50%;
-      background-color: rgb(143, 132, 132);
+      background-color: rgb(141, 129, 148);
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
       }
 

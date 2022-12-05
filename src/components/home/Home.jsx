@@ -8,6 +8,9 @@ import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner";
 import Marquee from "../Marquee/Marquee";
+import {
+  BsCart4
+} from "react-icons/bs";
 
 const Home = (props) => {
   const [, /*allCategories*/ setAllCategories] = useState({});
@@ -133,26 +136,29 @@ const Home = (props) => {
                       <p>⭐{product.rating.rate}</p>
                       <p>${product.price}</p>
                       <div>
-                        <a href={`/SingleProduct/${product.id}`}>
-                          <button className="btn">
-                            <span>Read more</span>
-                          </button>
-                        </a>
+                            <button
+                              className="btn"
+                              onClick={() => {
+                                onAdd(product);
+                                
+                              }}
+                            >
+                              <span>Add To <BsCart4 color="black"
+                size="30px"
+                cursor="pointer"/></span>
+                            </button>
                       </div>
                     </div>
                     <div className="product-image">
                       <img src={product.image} height="250" width="250" />
                       <div className="info">
                         <div className="control">
+                        <a href={`/SingleProduct/${product.id}`}>
+                          <button className="btn">
+                            <span>Read more</span>
+                          </button>
+                        </a>
                           <div>
-                            <button
-                              className="btn"
-                              onClick={() => {
-                                onAdd(product);
-                              }}
-                            >
-                              <span>Add To Cart</span>
-                            </button>
                           </div>
                         </div>
                         <h5>{product.description}</h5>

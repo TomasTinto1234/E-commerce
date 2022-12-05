@@ -59,7 +59,7 @@ const vaciarCarrito = () => {
     if (!existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? {qty: existingItem.qty + 1 } : x
+          x.id === product.id ? {...existingItem,qty: [...existingItem.qty + 1 ]} : x
         )
       );
     }
@@ -69,7 +69,7 @@ const vaciarCarrito = () => {
     if (!existingItem) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? {qty: existingItem.qty - 1} : x
+          x.id === product.id ? {...existingItem,qty: [...existingItem.qty - 1]} : x
         )
       );
     }

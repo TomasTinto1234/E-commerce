@@ -50,7 +50,9 @@ const Carrito = (props) => {
 
   return (
     <div>
+
       <div className="table-responsive">
+                 <a href="/"><button className="btn" ><span>Home</span></button></a> 
         <table className="table">
           <thead>
             <tr>
@@ -107,13 +109,13 @@ const Carrito = (props) => {
                       <strong>${product.price}</strong>
                     </td>
                     <td className="border-0 align-middle">
-                      <button className="btn" onClick={onKick(product)}>
+                      <p className="btn" onClick={onKick}>
                         <span>-</span>
-                      </button>
-                      <button className="btn" onClick={onSum(product)}>
+                      </p>
+                      <strong>|{product.qty}|</strong>
+                      <button className="btn" onClick={onSum}>
                         <span>+</span>{" "}
                       </button>
-                      <strong>|{product.qty}|</strong>
                     </td>
                     <td className="border-0 align-middle">
                       <button className="btn" onClick={() => onRemove(product)}>

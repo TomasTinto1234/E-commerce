@@ -58,6 +58,7 @@ const CreateProduct = () => {
 
   return (
     <div id="createProduct">
+                 <a href="/"><button className="btn" ><span>Home</span></button></a> 
       <div className="contenedor">
     <h1 className="logo"><span className="nombre-empresa">Create</span> Product</h1>
     <div className="wrapper animated bounceInLeft">

@@ -103,7 +103,7 @@ const Carrito = (props) => {
                               </div>
                             </th>
                             <td class="border-0 align-middle"><strong>{product.price}</strong></td>
-                            <td class="border-0 align-middle"><strong>{product.qty}</strong></td>
+                            <td class="border-0 align-middle"><button className="btn"><span>+</span> </button><strong>|{product.qty}|</strong><button className="btn"><span>-</span></button></td>
                             <td class="border-0 align-middle"><button className="btn" onClick={() =>onRemove(product)}><span>remove</span></button></td>
                           </tr>
                         </tbody>

@@ -61,7 +61,7 @@ const CreateProduct = () => {
       <div className="contenedor">
     <h1 className="logo"><span className="nombre-empresa">Create</span> Product</h1>
     <div className="wrapper animated bounceInLeft">
-      <div class="contacto">
+      <div className="contacto">
         <h3>Complete Form</h3>
         <form className="formulario">
           <p>
@@ -90,7 +90,7 @@ const CreateProduct = () => {
             ></input>
           </p>
           <p className="full">
-            <button className="boton-enviar">CREATE</button>
+            <button className="boton-enviar" onClick={handleSubmit}>CREATE</button>
           </p>
         </form>
       </div>

@@ -62,21 +62,21 @@ const Carrito = (props) => {
 
   return (
       <div >
-         <div class="table-responsive">
-                      <table class="table">
+         <div className="table-responsive">
+                      <table className="table">
                         <thead>
                           <tr>
-                            <th scope="col" class="border-0 bg-light">
-                              <div class="p-2 px-3 text-uppercase">Product</div>
+                            <th scope="col" className="border-0 bg-light">
+                              <div className="p-2 px-3 text-uppercase">Product</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                              <div class="py-2 text-uppercase">Price</div>
+                            <th scope="col" className="border-0 bg-light">
+                              <div className="py-2 text-uppercase">Price</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                              <div class="py-2 text-uppercase">Quantity</div>
+                            <th scope="col" className="border-0 bg-light">
+                              <div className="py-2 text-uppercase">Quantity</div>
                             </th>
-                            <th scope="col" class="border-0 bg-light">
-                              <div class="py-2 text-uppercase">Remove</div>
+                            <th scope="col" className="border-0 bg-light">
+                              <div className="py-2 text-uppercase">Remove</div>
                             </th>
                           </tr>
                         </thead>
@@ -94,17 +94,17 @@ const Carrito = (props) => {
                     
                         <tbody>
                           <tr>
-                            <th scope="row" class="border-0">
-                              <div class="p-2">
+                            <th scope="row" className="border-0">
+                              <div className="p-2">
                                 <img src={product.image} alt=""height="350" width="250" className="img-carrito"/>
-                                <div class="ml-3 d-inline-block align-middle">
-                                  <h5 class="mb-0"> <a href={`/SingleProduct/${product.id}`} class="text-dark d-inline-block align-middle">{product.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: {product.category}</span>
+                                <div className="ml-3 d-inline-block align-middle">
+                                  <h5 className="mb-0"> <a href={`/SingleProduct/${product.id}`} className="text-dark d-inline-block align-middle">{product.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: {product.category}</span>
                                 </div>
                               </div>
                             </th>
-                            <td class="border-0 align-middle"><strong>${product.price}</strong></td>
-                            <td class="border-0 align-middle"><button className="btn"><span>+</span> </button><strong>|{product.qty}|</strong><button className="btn"><span>-</span></button></td>
-                            <td class="border-0 align-middle"><button className="btn" onClick={() =>onRemove(product)}><span>remove</span></button></td>
+                            <td className="border-0 align-middle"><strong>${product.price}</strong></td>
+                            <td className="border-0 align-middle"><button className="btn"><span>+</span> </button><strong>|{product.qty}|</strong><button className="btn"><span>-</span></button></td>
+                            <td className="border-0 align-middle"><button className="btn" onClick={() =>onRemove(product)}><span>remove</span></button></td>
                           </tr>
                         </tbody>
                     );

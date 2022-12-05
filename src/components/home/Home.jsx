@@ -6,12 +6,12 @@ import Pagination from "../paginacion/Paginacion";
 import SearchBar from "../searchBar/SearchBar";
 import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
-import Spinner from "../Spinner/Spinner"
-import Marquee from "../Marquee/Marquee"
+import Spinner from "../Spinner/Spinner";
+import Marquee from "../Marquee/Marquee";
 
 const Home = (props) => {
-  const [/*allCategories*/, setAllCategories] = useState({})
-const [allProducts, /*setAllProducts*/] = useState(AllProducts);
+  const [, /*allCategories*/ setAllCategories] = useState({});
+  const [allProducts /*setAllProducts*/] = useState(AllProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage /*setPerPage*/] = useState(5);
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -72,27 +72,27 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   //   })
   // },[])
 
-  useEffect(()=>{
-    getCategory()
+  useEffect(() => {
+    getCategory();
     // select()
- },[])
+  }, []);
 
-//  function getCat(categ){
-//   console.log(categ)
-//    const cat = allProducts.find((e)=> e.category === categ)
-//    return cat
-//  }
+  //  function getCat(categ){
+  //   console.log(categ)
+  //    const cat = allProducts.find((e)=> e.category === categ)
+  //    return cat
+  //  }
 
   const getCategory = async () => {
     await fetch("https://fakestoreapi.com/products/categories")
-    .then((res) => res.json())
-    .then((json) => {
-      setAllCategories(json);
-    })
-    .catch((err) => {
+      .then((res) => res.json())
+      .then((json) => {
+        setAllCategories(json);
+      })
+      .catch((err) => {
         console.log(err);
-    });
-  }
+      });
+  };
   // function handleSort(e) {
   //   // dispatch(orderByName(e));
   //   // setOrden(e);
@@ -105,59 +105,71 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   // }
 
   return (
-    <div >
-      <Marquee/>
-              <div >
-        <SearchBar currentProducts={currentProducts} />
-                </div>
-      <Pagination
-        productsPerPage={productsPerPage}
-        allProducts={allProducts.products.length}
-        paginado={paginado}
-        />
-        {currentProducts.length === 0 ? (
-            <Spinner/>
-        ) : (
-          currentProducts &&
-          currentProducts?.map((product) => {
-            return (
-                <table class="table">
-        <div class="cardt">
- <div>
-    <div key={product.id} id="container" className="products-card">
-    <div className="product-details">
-    <h1>{product.title}</h1>
-    <p>⭐{product.rating.rate}</p>
-    <p>${product.price}</p>
     <div>
-    <a href={`/SingleProduct/${product.id}`}><button className="btn"><span >Read more</span></button></a>
-
-          </div>
-        </div>
-        <div className="product-image">
-        <img src={product.image} height="250" width="250" />
-        <div className="info">
-    <div className="control">
-               <div>
-               <button  className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
+      <Marquee />
+      <div>
+        <SearchBar currentProducts={currentProducts} />
       </div>
-        </div>
-        <h5>{product.description}</h5>
-        </div>
-        </div>
-        </div>
-        </div>
-                  </div>
-                </table>
-            );
-          })
-        )}
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
         paginado={paginado}
       />
-            <Marquee/>
+      {currentProducts.length === 0 ? (
+        <Spinner />
+      ) : (
+        currentProducts &&
+        currentProducts?.map((product) => {
+          return (
+            <table className="table">
+                <div>
+                  <div
+                    key={product.id}
+                    id="container"
+                    className="products-card"
+                  >
+                    <div className="product-details">
+                      <h1>{product.title}</h1>
+                      <p>⭐{product.rating.rate}</p>
+                      <p>${product.price}</p>
+                      <div>
+                        <a href={`/SingleProduct/${product.id}`}>
+                          <button className="btn">
+                            <span>Read more</span>
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="product-image">
+                      <img src={product.image} height="250" width="250" />
+                      <div className="info">
+                        <div className="control">
+                          <div>
+                            <button
+                              className="btn"
+                              onClick={() => {
+                                onAdd(product);
+                              }}
+                            >
+                              <span>Add To Cart</span>
+                            </button>
+                          </div>
+                        </div>
+                        <h5>{product.description}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </table>
+          );
+        })
+      )}
+      <Pagination
+        productsPerPage={productsPerPage}
+        allProducts={allProducts.products.length}
+        paginado={paginado}
+      />
+      <Marquee />
     </div>
   );
 };

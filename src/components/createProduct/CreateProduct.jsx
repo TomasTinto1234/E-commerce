@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./createProduct.css"
 
 const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -57,65 +58,44 @@ const CreateProduct = () => {
 
   return (
     <div id="createProduct">
-      <form onSubmit={handleSubmit}>
-        <div>
-        <div>
-          <div>title</div>
-          <input
-            type="text"
-            name="title"
-            onChange={handleChange}
-            value={title}
-          ></input>
-        <div>
-          <div>price</div>
-          <input
-            type="text"
-            name="price"
-            onChange={handleChange}
-            value={price}
+      <div className="contenedor">
+    <h1 className="logo"><span className="nombre-empresa">Create</span> Product</h1>
+    <div className="wrapper animated bounceInLeft">
+      <div class="contacto">
+        <h3>Complete Form</h3>
+        <form className="formulario">
+          <p>
+            <label>Nombre</label>
+            <input type="text" name="nombre" className="input-form" onChange={handleChange}
+           />
+          </p>
+          <p>
+            <label>Image</label>
+            <input type="file" name="image"className="input-form"  onChange={handleChange}
+          />
+          </p>
+          <p>
+            <label>price</label>
+            <input type="number" name="price"className="input-form" onChange={handleChange}
+           />
+          </p>
+          <p>
+            <label>Category</label>
+            <input type="text" name="category" className="input-form" onChange={handleChange}
+            />
+          </p>
+          <p className="full">
+            <label>Description</label>
+            <input name="mensaje" className="input-form" onChange={handleChange}
             ></input>
-        </div>
-            </div>
-        <div>
-          <div>image</div>
-          <input
-            type="text"
-            name="image"
-            onChange={handleChange}
-            value={image}
-          ></input>
-        </div>
-        <div>
-          <div>category</div>
-          <input
-            type="text"
-            name="category"
-            onChange={handleChange}
-            value={category}
-          ></input>
-        </div>
-        <div>
-          <div>description</div>
-          <input
-            type="text"
-            name="description"
-            onChange={handleChange}
-            value={description}
-          ></input>
-        </div>
-        <h1>title: {title}</h1>
-        <h1>description: {description}</h1>
-        <h1>category: {category}</h1>
-        <h1>image: {image}</h1>
-        <h1>price: {price}</h1>
-
-        </div>
-        <input type="submit" value="create product"/>
-      </form>
-      <div>
-        <button type="submit">create product</button>
+          </p>
+          <p className="full">
+            <button className="boton-enviar">CREATE</button>
+          </p>
+        </form>
       </div>
+    </div>
+  </div>
     </div>
   );
 };

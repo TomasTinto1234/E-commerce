@@ -85,12 +85,12 @@ import AllProducts from "../../products"
                     </Col>
                     </Row>
                 </Card.Body>
+            </Card>
                 <Card.Footer>
                 <marquee className="text-dark" >
                     - E-COMMERCE Tomas Tinto - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> - Entra a mi portfolio para mas proyectos - <a href="https://porfolio-8sla.vercel.app/" target="_blank" rel="noopener noreferrer">Link</a> . 
                   </marquee>
                 </Card.Footer>
-            </Card>
         </>
     )
 }

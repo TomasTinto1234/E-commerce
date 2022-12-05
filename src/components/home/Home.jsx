@@ -105,37 +105,30 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
   // }
 
   return (
-    <div className="totalpag">
-      {/* <div className="colour"></div>
-    <div className="colour"></div>
-    <div className="colour"></div> */}
-      {/* <section> */}
-      {/* <div className="colour"> */}
+    <div >
       <Marquee/>
               <div >
         <SearchBar currentProducts={currentProducts} />
                 </div>
-        <div >
-    </div>
       {/* </div> */}
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
         paginado={paginado}
-      />
+        />
         {currentProducts.length === 0 ? (
-          <div>
             <Spinner/>
-          </div>
-        ) : (currentProducts &&
+        ) : (
+          currentProducts &&
           currentProducts?.map((product) => {
             return (
               // <div key={product.id} id="products" >
                 // <div class="wrapper">
+                <table class="table">
         <div class="cardt">
 		<figure class="card__thumb">
 			<img src={product.image} alt="Picture by Kyle Cottrell" height="350" width="250" class="card__image"/>
-				<h5 class="card__snippet">{product.category}</h5>
+				<h5 className="pages">{product.category}</h5>
 			<div class="card__caption">
 				<h2 class="card__title">{product.title}</h2>
 				<a href={`/SingleProduct/${product.id}`}><button className="btn"><span >Read more</span></button></a>
@@ -159,6 +152,7 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
                   </Link> */}
                 {/* </a> */}
                   </div>
+                </table>
                 // </div>
               // </div>
             );

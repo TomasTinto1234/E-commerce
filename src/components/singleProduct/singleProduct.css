@@ -145,14 +145,14 @@
     }
   }
 
-  .container{
+  /* .container{
     position: relative;
   }
   
   .container .card{
     position: relative;
-    /* width: 320px;
-    height: 450px; */
+    width: 320px;
+    height: 450px;
     background: #232323;
     border-radius: 35px;
     overflow: hidden;
@@ -178,14 +178,13 @@
     content: 'Nike';
     position: absolute;
     top: 30%;
-    /* left: -20%; */
     font-size: 12em;
     font-weight: 800;
     font-style: italic;
     color: rgba(255,255,25,0.05)
-  }
+  } */
   
-  .container .card .imgBx{
+  /* .container .card .imgBx{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -193,7 +192,7 @@
     width: 100%;
     height: 240px;
     transition: 0.5s;
-  }
+  } */
   
   .container .card:hover .imgBx{
     top: 0%;

@@ -80,8 +80,8 @@ return (
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
              {/* <li className="pages"><a href="#products" >PRODUCTOS</a></li> */}
-             <li className="pages"> <select className="btn" onClick={(e)=>getCat(e)} >
-            <option >Category</option>
+             <li> <select className="btn">
+            <option>Category</option>
             {allCategories?.map((e)=>{
               return (
                 <option onClick={()=>getCat(e)} id={e} key={e} value={e}>{e}

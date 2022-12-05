@@ -24,7 +24,7 @@ import Main from "./components/Main";
 function App() {
   const { products } = AllProducts;
   const [cartItems, setCartItems] = useState([]);
-console.log(cartItems)
+// console.log(cartItems)
   const onAdd = (product) => {
     const existingItem = cartItems.find((x) => x.id === product.id);
     console.log(existingItem)
@@ -38,15 +38,15 @@ console.log(cartItems)
       setCartItems([...cartItems, { ...product, qty: 1 }]);
     }
   };
-  console.log(cartItems);
+  // console.log(cartItems);
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
+    const existingItem = cartItems.find((x) => x.id === product.id);
+    if (existingItem) {
       setCartItems(cartItems.filter((x) => x.id !== product.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === product.id ? { ...existingItem, qty: existingItem.qty - 1 } : x
         )
       );
     }
@@ -74,7 +74,7 @@ console.log(cartItems)
       <Route  path="/Detail/:id" element={<Detail onAdd={onAdd} products={products}/>}/>
       <Route  path="/CreateProduct" element={<CreateProduct />}/>
       <Route  path="/CartItem" element={<CartItem products={products}/>}/>
-      <Route  path="/Carrito" element={<Carrito cartItem={cartItems} countCartItems={cartItems}/>}/>
+      <Route  path="/Carrito" element={<Carrito cartItem={cartItems} countCartItems={cartItems} onRemove={onRemove}/>}/>
       {/* <Route  path="/Carrito/:id" element={<Carrito cartItems={cartItems}/>}/> */}
       <Route  path="/ProductItem" element={<ProductItem onAdd={onAdd} products={products}/>}/>
       <Route  path="/Login" element={<Login/>}/>

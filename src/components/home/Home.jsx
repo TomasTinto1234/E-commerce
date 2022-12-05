@@ -110,7 +110,6 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
               <div >
         <SearchBar currentProducts={currentProducts} />
                 </div>
-      {/* </div> */}
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
@@ -122,43 +121,37 @@ const [allProducts, /*setAllProducts*/] = useState(AllProducts);
           currentProducts &&
           currentProducts?.map((product) => {
             return (
-              // <div key={product.id} id="products" >
-                // <div class="wrapper">
                 <table class="table">
         <div class="cardt">
-		<figure class="card__thumb">
-			<img src={product.image} alt="Picture by Kyle Cottrell" height="350" width="250" class="card__image"/>
-				<h5 className="pages">{product.category}</h5>
-			<div class="card__caption">
-				<h2 class="card__title">{product.title}</h2>
-				<a href={`/SingleProduct/${product.id}`}><button className="btn"><span >Read more</span></button></a>
-        <button className="btn" onClick={()=>{onAdd(product)}}><span class="card__button">Add To Cart</span></button>
-			</div>
-		</figure>
+ <div>
+    <div key={product.id} id="container" className="products-card">
+    <div className="product-details">
+    <h1>{product.title}</h1>
+    <p>⭐{product.rating.rate}</p>
+    <p>${product.price}</p>
+    <div>
+    <a href={`/SingleProduct/${product.id}`}><button className="btn"><span >Read more</span></button></a>
 
-
-                {/* <a onClick={() => refresh(product.id)}> */}
-                {/* <Link to={`/SingleProduct/${product.id}`}>
-                  <Detail
-                    id={product.id}
-                    title={product.title}
-                    description={product.description}
-                    category={product.category}
-                    image={product.image}
-                    price={product.price}
-                    rating={product.rating.rate}
-                    ></Detail>
-                    <button className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
-                  </Link> */}
-                {/* </a> */}
+          </div>
+        </div>
+        <div className="product-image">
+        <img src={product.image} height="250" width="250" />
+        <div className="info">
+    <div className="control">
+               <div>
+               <button  className="btn" onClick={()=>{onAdd(product)}}><span>Add To Cart</span></button>
+      </div>
+        </div>
+        <h5>{product.description}</h5>
+        </div>
+        </div>
+        </div>
+        </div>
                   </div>
                 </table>
-                // </div>
-              // </div>
             );
           })
         )}
-      {/* </section> */}
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}

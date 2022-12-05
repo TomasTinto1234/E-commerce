@@ -135,7 +135,7 @@ const Carrito = (props) => {
             <strong>Total: {totalCompra()}</strong>
           </h1>
           <button className="btn" onClick={vaciarCarrito}>
-            <span>Vaciar carrito</span>
+            <span>Clean Cart</span>
           </button>
         </table>
       </div>

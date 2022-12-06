@@ -122,7 +122,6 @@ const Home = (props) => {
         allProducts={allProducts.products.length}
         paginado={paginado}
         />
-        </div>
       {/* <div className="contenedorCard"> */}
       {currentProducts.length === 0 ? (
         <Spinner />
@@ -185,6 +184,7 @@ const Home = (props) => {
         allProducts={allProducts.products.length}
         paginado={paginado}
         />
+    </div>
       <Marquee />
     </div>
         // </div>

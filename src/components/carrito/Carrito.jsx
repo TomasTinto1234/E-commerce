@@ -55,7 +55,7 @@ const Carrito = (props) => {
           </thead>
           {cartItem.length === 0 ? (
             <div>
-              <h1 >Cart Empty</h1>
+              <h1  className="border-0 align-middle">Cart Empty</h1>
             </div>
           ) : (
             cartItem?.map((product) => {

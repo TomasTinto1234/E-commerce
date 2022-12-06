@@ -75,7 +75,7 @@ const vaciarCarrito = () => {
     }
   };
   return (
-    <div>
+    <div className="elApp">
       <NavBar countCartItems={cartItems.length}/>
       {/* <Header countCartItems={cartItems.length}></Header>
       <div className="row">

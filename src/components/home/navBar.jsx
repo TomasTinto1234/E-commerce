@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router'
   const NavBar = (props) => {
  
     const {products} = AllProducts
-
+    const [category , setCategory] = useState({})
   useEffect(()=>{
     getCategory()
     getCategories()
@@ -44,7 +44,7 @@ import { useNavigate } from 'react-router'
     await fetch(`https://fakestoreapi.com/products/category/${category}`)
     .then((res) => res.json())
     .then((json) => {
-      setCategories([json]);
+      setCategory(json);
     })
     .catch((err) => {
         console.log(err);
@@ -66,6 +66,16 @@ import { useNavigate } from 'react-router'
    return cat
  }
 
+ const onClickCategory = (categ) => {
+  console.log(categ)
+  const allProducts = products
+      const categoryFilter =
+      categ === allProducts.category
+          ? allProducts
+          : allProducts.filter((el) => el.category === categ);
+          return categoryFilter
+};
+
 return (
     <div>
           {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />  */}
@@ -84,7 +94,7 @@ return (
             <option>Category</option>
             {allCategories?.map((e)=>{
               return (
-                <option onClick={()=>getCat(e)} id={e} key={e} value={e}>{e}
+                <option onClick={()=>onClickCategory(e)} id={e} key={e} value={e}>{e}
                 </option>
                 )
               })

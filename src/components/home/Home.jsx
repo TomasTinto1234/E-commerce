@@ -110,7 +110,6 @@ const Home = (props) => {
 
   return (
     <div>
-
     <div className="elHome">
     <div>
       <Marquee />

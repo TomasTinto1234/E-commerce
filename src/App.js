@@ -16,9 +16,7 @@ import Login from "./components/login/Login"
 import ProductItem from "./components/ProductItem"
 import AllProducts from "./products";
 import CartItem from "./components/CartItem/CartItem"
-import Basket from "./components/Basquet";
-import Header from "./components/Header";
-import Main from "./components/Main";
+import Category from "./components/Category/Category"
 
 
 function App() {
@@ -87,6 +85,7 @@ const vaciarCarrito = () => {
       <Route  path="/Login" element={<Login/>}/>
       <Route  path="/NavBar" element={<NavBar/> }countCartItems={cartItems.length}/>
       <Route  path="/Products/:id" element={<Products products={products}/>}/>
+      <Route exact path="/Products/:category" element={<Category products={products} onAdd={onAdd}/>}/>
       <Route  path="/Users" element={<Users/>}/>
       <Route  path="/footer" element={<Footer/>}/>
       <Route exact path="/" element={<Home products={products} onAdd={onAdd}/>}/>

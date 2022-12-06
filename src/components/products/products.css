@@ -1,75 +1,15 @@
 
-.spinner {
-    margin-top: 25px;
-    margin:25px ;
-    height: 100px;
-    width: min-content;
-    font-size: 35px;
-    font-weight: 600;
-    font-family: monospace;
-    letter-spacing: 1em;
-    color: #000000;
-    filter: drop-shadow(0 0 10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: center;
-   }
-   
-   .spinner span {
-    animation: loading6454 1.75s ease infinite;
-   }
-   
-   .spinner span:nth-child(2) {
-    animation-delay: 0.25s;
-   }
-   
-   .spinner span:nth-child(3) {
-    animation-delay: 0.5s;
-   }
-   
-   .spinner span:nth-child(4) {
-    animation-delay: 0.75s;
-   }
-   
-   .spinner span:nth-child(5) {
-    animation-delay: 1s;
-   }
-   
-   .spinner span:nth-child(6) {
-    animation-delay: 1.25s;
-   }
-   
-   .spinner span:nth-child(7) {
-    animation-delay: 1.5s;
-   }
-   
-   @keyframes loading6454 {
-    0%, 100% {
-     transform: translateY(0);
-    }
-   
-    50% {
-     transform: translateY(-10px);
-    }
-   }
-
-  /* .products-card{
-    margin-top: 100px;
-    margin:150px;
-
-   
-  } */
-
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
-
-
 body {
 background: #DFC2F2;
 	background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
-	/* background-attachment: fixed;	
-	background-size: cover; */
-  
+	background-attachment: fixed;	
+	background-size: cover;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+	min-height: 100vh;
+	font-family: 'Roboto';
+	display: inline;
 	}
 /* 
 	.productss{

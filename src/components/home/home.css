@@ -16,7 +16,7 @@
   grid-template-rows: repeat(2, 1fr); */
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 10px;
+  padding: 0.1px;
 }
 
 h1 {
@@ -29,6 +29,7 @@ img {
   height: 350px;
   width: 370px;
   max-width: 100%;
+  background-image: none;
 }
 
 .btn {

@@ -135,7 +135,7 @@ const Home = (props) => {
                           </div>
                           <div class="card_content">
                             <h2 class="card_title">{product.title}</h2>
-                            <p class="card_text">{product.description}</p>
+                            <span class="card_text">{product.category}</span>
                             <a href={`/SingleProduct/${product.id}`}>
                               <button className="btn">
                                 <span>Read more</span>

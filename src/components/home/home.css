@@ -8,43 +8,8 @@
       justify-content: space-evenly;
       /* width: 100%; */
       /* margin: 20px 0 20px; */
+      flex-wrap: wrap;
   }
-  .elHome{
-    background-repeat: repeat-x ;
-  }
-  
-  .cardt {
-      width: 100px;
-      left: 50%;
-      background-color: rgb(141, 129, 148);
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-      }
-
-  .disclaimer {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      z-index: 2;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 20px 10px;
-      background-color: white;
-      transform: translateX(-50%);
-      font-family: 'Roboto', sans-serif;
-      font-size: 14px;
-      text-align: center;
-  }
-  /* .card__image{
-    justify-content: center;
-    display: flex;
-    position: center;
-    line-height: 26px;
-    width: 300px;
-    left: 50%;
-    background-color: white;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-  } */
-  
 .contenedorCard { 
   background-color: rgba(229 231 235);
   max-width: 100%;
@@ -55,6 +20,8 @@
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 h1 {
@@ -64,22 +31,21 @@ h1 {
 }
 
 img {
-  height: auto;
+  height: 350px;
+  width: 370px;
   max-width: 100%;
-  vertical-align: middle;
-  
 }
 
 .btn {
-  color: #ffffff;
-  padding: 1.8rem;
+  color: #050505;
+  padding: 0.8rem;
   font-size: 14px;
   text-transform: uppercase;
   border-radius: 4px;
-  display: block;
   width: 100%;
   cursor: pointer;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .btn:hover {

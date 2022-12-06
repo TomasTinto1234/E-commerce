@@ -131,7 +131,7 @@ const Home = (props) => {
         currentProducts?.map((product) => {
           return (
             <div>
-        <div class="main">
+              <div class="main">
   <ul class="cards">
     <li class="cards_item">
       <div class="card">

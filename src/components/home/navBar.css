@@ -8,8 +8,10 @@
 
 html {
     scroll-behavior: smooth;
-
+    z-index: 100;
     width: 200vh;
+    top: 0;
+
 }
 /* *********************/
 /* seccion I N I C I O */
@@ -30,7 +32,7 @@ html {
     /* display: absolute; */
 }
 .search{
-    justify-content: center;
+    justify-content: right;
 }
 #inicio .contenido header {
     background-color: rgba(0, 0, 0, .6);

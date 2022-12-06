@@ -121,6 +121,7 @@ const Home = (props) => {
         allProducts={allProducts.products.length}
         paginado={paginado}
         />
+
       {/* <div className="contenedorCard"> */}
       {currentProducts.length === 0 ? (
         <Spinner />
@@ -129,8 +130,37 @@ const Home = (props) => {
         currentProducts &&
         currentProducts?.map((product) => {
           return (
-            <div className="contenedorPadre">
-            <table  key={product.id} className="table">
+            <div>
+        <div class="main">
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src={product.image}/></div>
+        <div class="card_content">
+          <h2 class="card_title">{product.title}</h2>
+          <p class="card_text">{product.description}</p>
+          <a href={`/SingleProduct/${product.id}`}>
+                          <button className="btn">
+                            <span>Read more</span>
+                          </button>
+                        </a>
+                        <button
+                              className="btn"
+                              onClick={() => {
+                                onAdd(product);
+                                
+                              }}
+                              >
+                              <span key={product.id} >Add To <BsCart4 color="black"
+                size="30px"
+                cursor="pointer"/></span>
+                            </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+            {/* <table  key={product.id} className="table">
                 <div>
                   <div
                     key={product.id}
@@ -172,7 +202,7 @@ const Home = (props) => {
                     </div>
                   </div>
                 </div>
-            </table>
+            </table> */}
         </div>
           );
         })

@@ -8,6 +8,7 @@ import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner";
 import Marquee from "../Marquee/Marquee";
+import Carrusel from "../Carrusel/Carrusel";
 import {
   BsCart4
 } from "react-icons/bs";
@@ -109,6 +110,9 @@ const Home = (props) => {
 
   return (
     <div>
+
+    <div className="elHome">
+    <div>
       <Marquee />
       <div>
         <SearchBar currentProducts={currentProducts} />
@@ -117,13 +121,17 @@ const Home = (props) => {
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
         paginado={paginado}
-      />
+        />
+        </div>
+      <div className="contenedorCard">
       {currentProducts.length === 0 ? (
         <Spinner />
       ) : (
+        
         currentProducts &&
         currentProducts?.map((product) => {
           return (
+            <div className="contenedorPadre">
             <table  key={product.id} className="table">
                 <div>
                   <div
@@ -142,7 +150,7 @@ const Home = (props) => {
                                 onAdd(product);
                                 
                               }}
-                            >
+                              >
                               <span key={product.id} >Add To <BsCart4 color="black"
                 size="30px"
                 cursor="pointer"/></span>
@@ -167,16 +175,19 @@ const Home = (props) => {
                   </div>
                 </div>
             </table>
+        </div>
           );
         })
       )}
+        </div>
       <Pagination
         productsPerPage={productsPerPage}
         allProducts={allProducts.products.length}
         paginado={paginado}
-      />
+        />
       <Marquee />
     </div>
+        </div>
   );
 };
 

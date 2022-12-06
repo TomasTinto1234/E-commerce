@@ -70,7 +70,7 @@ const CreateProduct = () => {
 
   return (
     <div id="createProduct">
-                    <button className="btn" onClick={handleToIndex}><span><BsHouse color="black"
+                    <button className="btn" onClick={handleToIndex}><span>Back<BsHouse color="black"
                 size="35px"
                 cursor="pointer"/></span></button>
       <div className="contenedor">

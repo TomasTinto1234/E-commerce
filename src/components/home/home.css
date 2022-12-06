@@ -3,29 +3,27 @@
 
   
   .container {
-      display: table-column-group;
+      display: block;
       /* flex-wrap: wrap; */
-      justify-content: space-evenly;
+      /* justify-content: space-evenly; */
       /* width: 100%; */
       /* margin: 20px 0 20px; */
   }
   
   .cardt {
-      width: 500px;
-      margin: auto;
-      left: 50%;
+      width: 100%;
       background-color: rgb(141, 129, 148);
       box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
       }
 
   .disclaimer {
-      position: fixed;
+      /* position: fixed; */
       bottom: 0;
-      left: 50%;
+      /* left: 50%; */
       z-index: 2;
       box-sizing: border-box;
       width: 100%;
-      padding: 20px 10px;
+      /* padding: 20px 10px; */
       background-color: white;
       transform: translateX(-50%);
       font-family: 'Roboto', sans-serif;
@@ -43,3 +41,26 @@
     background-color: white;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
   }
+  
+.contenedorCard { 
+  background-color: rgba(229 231 235);
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.contenedorPadre {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.elHome{
+  width: 190vh;
+  max-width: 1200px;
+  gap: 20px;
+  flex-wrap: wrap;
+}

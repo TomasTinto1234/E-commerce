@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     /* box-sizing: border-box; */
     font-family: 'Montserrat';
 
@@ -8,23 +8,18 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    max-width: 100%;
+    /* scroll-behavior: smooth; */
+    /* max-width: 100%; */
 }
 /* *********************/
 /* seccion I N I C I O */
 /* *********************/
 
-#inicio   {
+#inicio {
     background: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../../image/el-ecommerce-que-es.jpg");
     background-size: cover;
-    background-position: cover ;
-    background-image: 100%;
-    height: 60vh;
-    width: 100%;
-    /* text-decoration: none; */
-    /* max-width: 1100px; */
-    display: block;
+    background-position: center center;
+    height: 40vh;
 }
 
 #inicio .contenido header {
@@ -33,17 +28,6 @@ html {
     width: 100%;
     z-index: 100;
     top: 0;
-}
-
-#inicio .pr{
-    text-decoration: none
-}
-.pr{
-    text-decoration: none;
-}
-
-Link{
-    text-decoration: none
 
 }
 
@@ -51,23 +35,21 @@ Link{
     max-width: 1100px;
     margin: auto;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 20px 10px 20px;
+    justify-content: space-evenly;
+    padding: 20px 20px;
+  cursor: pointer;
+    
 }
 
 #inicio .contenido header .contenido-header h1 {
     text-align: center;
-    color: #e28504;
-    text-decoration: none;
-    cursor: pointer;
+    color: #F9B621;
 }
 
 #inicio .contenido header .contenido-header nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-    text-decoration: none
 }
 
 #inicio .contenido header .contenido-header nav ul li a {
@@ -79,9 +61,7 @@ Link{
 }
 
 #inicio .contenido header .contenido-header nav ul li a:hover {
-    color: #e28504;
-    text-decoration: none;
-    cursor: pointer;
+    color: #F9B621;
 }
 
 #inicio .contenido header .contenido-header .redes a {
@@ -93,13 +73,11 @@ Link{
 }
 
 #inicio .contenido header .contenido-header .redes a:hover {
-    color: #e28504;
-    text-decoration: none
+    color: #F9B621;
 }
 
 #inicio .contenido header .contenido-header .seleccionado {
-    color: #e28504;
-    text-decoration: none
+    color: #F9B621;
 }
 
 #inicio .contenido .presentacion {
@@ -111,7 +89,6 @@ Link{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
 }
 
 #inicio .contenido .presentacion .bienvenida {
@@ -119,20 +96,17 @@ Link{
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
-    text-decoration: none;
 }
 
 #inicio .contenido .presentacion h2 {
     font-size: 55px;
     margin-bottom: 25px;
     text-align: center;
-    text-decoration: none;
 }
 
 #inicio .contenido .presentacion h2 span {
     font-size: 55px;
-    color: #e28504;
-    text-decoration: none
+    color: #F9B621;
 }
 
 #inicio .contenido .presentacion .descripcion {
@@ -156,8 +130,7 @@ Link{
 }
 
 #inicio .contenido .presentacion a:hover {
-    background-color: #e28504;
-    text-decoration: none
+    background-color: #F9B621;
 }
 
 #icono-nav {
@@ -209,7 +182,7 @@ Link{
 }
 
 #sobremi .sobremi h2 span {
-    color: #e28504;
+    color: #F9B621;
 }
 
 #sobremi .sobremi h3 {
@@ -239,7 +212,7 @@ Link{
 }
 
 #sobremi .sobremi a:hover {
-    background-color: #e28504;
+    background-color: #F9B621;
     color: #fff;
 }
 /* *********************/
@@ -320,7 +293,7 @@ Link{
 /* *********************/
 
 .contenedor-skills {
-    /* background: linear-gradient( #beb802, rgba(33, 16, 16, 0.8)), url("img/fondo-inicio.jpg"); */
+    background: linear-gradient( #F9B621, rgba(33, 16, 16, 0.8)), url("../../image/el-ecommerce-que-es.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -469,7 +442,7 @@ Link{
     position: absolute;
     left: 0px;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #e28504;
+    color: #F9B621;
     width: 100%;
     padding: 10px;
     opacity: 0;
@@ -484,7 +457,7 @@ Link{
 /* *********************/
 /* seccion C O N T A C T O */
 /* *********************/
-/*
+/* 
 #contacto {
     padding: 100px 15px;
     background-color: #f3f3f3;
@@ -500,14 +473,14 @@ Link{
 }
 
 #contacto .contenedor-form .fila {
-    margin-bottom: auto;
+    margin-bottom: 15px;
 }
 
 #contacto .contenedor-form .mitad {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
-
+ 
 #contacto .contenedor-form input,
 #contacto .contenedor-form textarea{
     padding: 20px;
@@ -517,7 +490,7 @@ Link{
 }
 
 #contacto .contenedor-form .mitad input {
-    width: 48%;
+    width: 60%;
 }
 
 #contacto .contenedor-form .input-full {
@@ -526,12 +499,11 @@ Link{
 
 #contacto .titulo-seccion {
     text-align: center;
-    font-size: 22px;
+    font-size: 50px;
     text-transform: uppercase;
     color: #111135;
     text-decoration: underline;
     text-decoration-color: #d3d3d3;
-    text-decoration-thickness: 5px;
 }
 
 #contacto .btn-enviar {
@@ -543,7 +515,7 @@ Link{
 }
 
 #contacto .btn-enviar:hover {
-    background-color: #e28504;
+    background-color: #F9B621;
     color: #fff;
 }
 /* *********************/
@@ -553,28 +525,21 @@ Link{
 footer {
     background-color: #000;
     color: #fff;
+	padding: 0;
     text-align: center;
-    padding: 30px 0;
-
-}
-
-.one-card{
-    flex-direction: row;
-    justify-content: space-evenly ;
 }
 
 footer a {
     text-decoration: none;
     color: #fff;
     display: inline-block;
-    margin: 5px;
     font-size: 26px;
 }
 /* *********************/
 /* seccion R E S P O N S I V E */
 /* *********************/
 
-@media screen and (max-width: 1067px) {
+@media screen and (max-width: 1090px) {
     .redes {
         display: none;
     }
@@ -586,22 +551,19 @@ footer a {
         background-color: rgba(0, 0, 0, .8);
         width: 100%;
         position: absolute;
-        top: 48px;
-        left: 0;
-        padding: 10px 0;
     }
     nav.responsive ul {
         display: block !important;
         text-align: center;
     }
     nav.responsive ul li {
-        margin: 5px 0;
+        margin: 15px 0;
     }
     #icono-nav {
         display: block;
     }
     #inicio .contenido .presentacion h2 {
-        font-size: 40px;
+        font-size: 60px;
     }
     /* seccion SOBRE MI */
     #sobremi {
@@ -648,7 +610,8 @@ footer a {
     }
     /* seccion CONTACTO */
     #contacto {
-        padding: 50px 15px;
+        padding: 0px 15px;
+        background-color: #000;
     }
     #contacto .contenedor-form .mitad {
         margin-bottom: 15px;
@@ -659,258 +622,3 @@ footer a {
         margin-bottom: 15px;
     }
 }
-/*
-.botones{
-    position: inline-block;
-    font-family: 'Bebas Neue', cursive;
-    text-decoration: none;
-    border: 2px solid #fff;
-    box-shadow: 0 15px 20px 1px grey;
-	background: rgba(0, 0, 0, .8);
-	border-radius: 5px;
-	margin: 4.7rem auto 10% auto;
-	height: 100px;
-    width: 100%;
-    font-size: 20px;
-    padding: 25px ;
-    text-decoration: none;
-    color: #fff;
-    margin: -1 ;
-    font-weight: 400;
-    transition: .5s;
-    margin-top:5%;
-}
-
-.home{
-    margin-top:7px;
-}
-
-#inicio .contenido header {
-    background-color: rgba(0, 0, 0, .8);
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    top: 0;
-    border: 2px solid #fff;
-}
-
-#inicio .contenido header .contenido-header {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px ;
-}
-
-#inicio .contenido header .contenido-header h1 {
-    text-align: center;
-    color: #e2da04;
-}
-
-#inicio .contenido header .contenido-header nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-#inicio .contenido header .contenido-header nav ul .pages a {
-    text-decoration: none;
-    color: #fff;
-    margin: 0 12px;
-    font-weight: 400;
-    transition: .5s;
-}
-
-#inicio .contenido header .contenido-header nav ul .pages a:hover {
-    display: inline-block;
-    color: #e28504;
-}
-
-#inicio .contenido header .contenido-header .redes a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    margin-left: 10px;
-    transition: .5s;
-}
-
-#inicio .contenido header .contenido-header .redes a:hover {
-    color: #e2da04;
-}
-
-#inicio .contenido header .contenido-header .seleccionado {
-     display: inline-block;
-    color: #e28504;
-}
-
-#inicio .contenido .presentacion {
-    max-width: 1100px;
-    height: 100vh;
-    margin: auto;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#inicio .contenido .presentacion .bienvenida {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
-
-#inicio .contenido .presentacion h2 {
-    font-size: 55px;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-#inicio .contenido .presentacion h2 span {
-    font-size: 55px;
-    color: #e28504;
-}
-
-#inicio .contenido .presentacion .descripcion {
-    max-width: 700px;
-    margin: 25px auto;
-    font-size: 18px;
-    text-align: center;
-}
-
-#inicio .contenido .presentacion a {
-    text-decoration: none;
-    display: inline-block;
-    margin: 25px;
-    padding: 20px 25px;
-    border: 2px solid #fff;
-    border-radius: 50px;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: .5s;
-}
-
-#inicio .contenido .presentacion a:hover {
-
-    background-color: #e28504;
-}
-
-#icono-nav {
-    color: rgb(255, 255, 255);
-    display: none;
-}
-
-
-footer {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-}
-
-footer a {
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-    margin: 5px;
-    font-size: 26px;
-}
-
-a:link, a:visited, a:active {
-    text-decoration:none;
-}
-
-
-@media screen and (max-width: 1000px) {
-    .redes {
-        display: none;
-    }
-    nav {
-        display: none;
-    }
-    nav.responsive {
-        display: block;
-        background-color: rgba(0, 0, 0, .8);
-        width: 100%;
-        position: absolute;
-        top: 48px;
-        left: 0;
-        padding: 10px 0;
-    }
-    nav.responsive .ul {
-        display: block ;
-        text-align: center;
-    }
-    nav.responsive ul li {
-        display: inline-table;
-        margin: 5px 0;
-    }
-    #icono-nav {
-        display: block;
-    }
-    #inicio .contenido .presentacion h2 {
-        font-size: 20px;
-    }
-*/
-    #products {
-        flex-direction: row-reverse;
-        /* justify-content: space-evenly ; */
-        /* padding: 50px 0;
-        justify-content: space-around; */
-        /* display: block; */
-    }
-    #products .contenedor-foto {
-        /* max-width: 200px; */
-        /* margin: auto; */
-    }
-    
-    #products .contenedor-foto img {
-        padding: 8px;
-    }
-    #products .products .titulo-seccion {
-        /* text-align: center; */
-    }
-    #products .products h2 {
-        font-size: 25px;
-        /* text-align: center; */
-    }
-/*
-    #categories {
-        padding: 50px 15px;
-    }
-    #categories .fila {
-        display: block;
-    }
-    #categories .fila .servicio {
-        margin: 10px auto;
-    }
-
-    .contenedor-skills {
-        padding: 50px 20px;
-    }
-
-    #portfolio {
-        padding: 50px 0;
-    }
-    #portfolio .fila {
-        display: block;
-    }
-    #portfolio .fila .proyecto {
-        margin: 10px auto;
-    }
-
-    #contacto {
-        padding: 50px 15px;
-    }
-    #contacto .contenedor-form .mitad {
-        margin-bottom: 15px;
-        display: block;
-    }
-    #contacto .contenedor-form .mitad input {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-} */

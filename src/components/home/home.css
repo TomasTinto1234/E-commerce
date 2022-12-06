@@ -1,26 +1,22 @@
 
 
 
-.contenedorCard { 
-  background-color: rgba(229 231 235);
-  max-width: 100%;
-}
+
 
 .main{
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 15px;
-  /* display: grid;
+   /* display: grid; */
   grid-auto-flow: row;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr); */
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: repeat(2, 2fr); 
   display: grid;
-  grid-template-columns: auto auto auto;
+  /* grid-template-columns: auto auto auto; */
   padding: 0.1px;
 }
 
 h1 {
-    font-size: 24px;
     font-weight: 400;
     text-align: center;
 }
@@ -88,7 +84,7 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+  background: linear-gradient(to bottom left, #807d7d 40%, #cfbfb6 100%);
 }
 
 .card_title {

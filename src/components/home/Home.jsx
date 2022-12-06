@@ -15,7 +15,7 @@ const Home = (props) => {
   const [, /*allCategories*/ setAllCategories] = useState({});
   const [allProducts /*setAllProducts*/] = useState(AllProducts);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage /*setPerPage*/] = useState(9);
+  const [productsPerPage /*setPerPage*/] = useState(12);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = allProducts.products?.slice(

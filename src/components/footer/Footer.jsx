@@ -21,7 +21,7 @@ const Footer = () => {
 }
 
   return (
-    <div onClick={()=>responsiveMenu()} id="contacto">
+    <div id="contacto">
       <footer>
         <p>E-commerce Tomas Tinto - © 2022</p>
         <div>

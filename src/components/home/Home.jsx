@@ -9,15 +9,13 @@ import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner";
 import Marquee from "../Marquee/Marquee";
 import Carrusel from "../Carrusel/Carrusel";
-import {
-  BsCart4
-} from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 
 const Home = (props) => {
   const [, /*allCategories*/ setAllCategories] = useState({});
   const [allProducts /*setAllProducts*/] = useState(AllProducts);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage /*setPerPage*/] = useState(5);
+  const [productsPerPage /*setPerPage*/] = useState(9);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = allProducts.products?.slice(
@@ -110,113 +108,72 @@ const Home = (props) => {
 
   return (
     <div>
-    <div className="elHome">
-    <div>
-      <Marquee />
-      <div>
-        <SearchBar currentProducts={currentProducts} />
-      </div>
-      <Pagination
-        productsPerPage={productsPerPage}
-        allProducts={allProducts.products.length}
-        paginado={paginado}
-        />
-
-      {/* <div className="contenedorCard"> */}
-      {currentProducts.length === 0 ? (
-        <Spinner />
-      ) : (
-        
-        currentProducts &&
-        currentProducts?.map((product) => {
-          return (
-            <div>
-              <div class="main">
-  <ul class="cards">
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src={product.image}/></div>
-        <div class="card_content">
-          <h2 class="card_title">{product.title}</h2>
-          <p class="card_text">{product.description}</p>
-          <a href={`/SingleProduct/${product.id}`}>
-                          <button className="btn">
-                            <span>Read more</span>
-                          </button>
-                        </a>
-                        <button
-                              className="btn"
-                              onClick={() => {
-                                onAdd(product);
-                                
-                              }}
-                              >
-                              <span key={product.id} >Add To <BsCart4 color="black"
-                size="30px"
-                cursor="pointer"/></span>
-                            </button>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>
-            {/* <table  key={product.id} className="table">
-                <div>
-                  <div
-                    key={product.id}
-                    id="container"
-                    className="products-card"
-                  >
-                    <div className="product-details">
-                      <h1>{product.title}</h1>
-                      <p>⭐{product.rating.rate}</p>
-                      <p>${product.price}</p>
-                      <div>
+      <div className="elHome">
+        <div>
+          <Marquee />
+          <div>
+            <SearchBar currentProducts={currentProducts} />
+          </div>
+          <Pagination
+            productsPerPage={productsPerPage}
+            allProducts={allProducts.products.length}
+            paginado={paginado}
+          />
+<div class="main">
+          {currentProducts.length === 0 ? (
+            <Spinner />
+          ) : (
+            currentProducts &&
+            currentProducts?.map((product) => {
+              return (
+                  <div class="mains">
+                    <ul class="cards">
+                      <li class="cards_item">
+                        <div class="card">
+                          <div class="card_image">
+                            <img src={product.image} />
+                          </div>
+                          <div class="card_content">
+                            <h2 class="card_title">{product.title}</h2>
+                            <p class="card_text">{product.description}</p>
+                            <a href={`/SingleProduct/${product.id}`}>
+                              <button className="btn">
+                                <span>Read more</span>
+                              </button>
+                            </a>
                             <button
                               className="btn"
                               onClick={() => {
                                 onAdd(product);
-                                
                               }}
-                              >
-                              <span key={product.id} >Add To <BsCart4 color="black"
-                size="30px"
-                cursor="pointer"/></span>
+                            >
+                              <span key={product.id}>
+                                Add To{" "}
+                                <BsCart4
+                                  color="black"
+                                  size="30px"
+                                  cursor="pointer"
+                                />
+                              </span>
                             </button>
-                      </div>
-                    </div>
-                    <div className="product-image">
-                      <img src={product.image} height="250" width="250" />
-                      <div className="info">
-                        <div className="control">
-                        <a href={`/SingleProduct/${product.id}`}>
-                          <button className="btn">
-                            <span>Read more</span>
-                          </button>
-                        </a>
-                          <div>
                           </div>
                         </div>
-                        <h5>{product.description}</h5>
-                      </div>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
-                </div>
-            </table> */}
+              );
+            })
+          )}
         </div>
-          );
-        })
-      )}
         </div>
-      <Pagination
-        productsPerPage={productsPerPage}
-        allProducts={allProducts.products.length}
-        paginado={paginado}
+        <Pagination
+          productsPerPage={productsPerPage}
+          allProducts={allProducts.products.length}
+          paginado={paginado}
         />
-    </div>
+      </div>
       <Marquee />
     </div>
-        // </div>
   );
 };
 

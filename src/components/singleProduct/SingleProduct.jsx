@@ -9,11 +9,7 @@ import {
     BsCart4,
     BsHouse
   } from "react-icons/bs";
-  import {
-    BiUser,
-    BiMenu,
-    BiHomeSmile,
-  } from "react-icons/bi";
+
  
  const SingleProduct = (props) => {
     const { onAdd } = props;
@@ -22,6 +18,7 @@ import {
     const [product, setProduct] = useState({})
     const [carrito, setCarrito] = useState([])
     const { title, category, image, price, description} = product
+  const navigate = useNavigate()
     
     const agregarAlCarrito = (item) => {
        setCarrito( [...carrito, item] )
@@ -44,7 +41,6 @@ import {
            });
        };    
 
-    const navigate = useNavigate()
     //const handleBack = () => {
     //    navigate(-1) 
     //}
@@ -57,7 +53,7 @@ import {
         <>
             <Row>
                 <Col className="mt-4">                    
-                    <Button className="btn" onClick={handleToIndex}><span><BsHouse color="black"
+                <Button className="btn" onClick={handleToIndex}><span>Back<BsHouse color="black"
                 size="35px"
                 cursor="pointer"/></span></Button>
                 </Col>

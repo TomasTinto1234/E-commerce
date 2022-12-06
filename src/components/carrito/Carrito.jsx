@@ -2,42 +2,16 @@ import React /*useState,*/ from "react";
 import "./carrito.css";
 import Spinner from "../Spinner/Spinner";
 import Marquee from "../Marquee/Marquee";
+import { useNavigate } from 'react-router'
 import {
   BsHouse
 } from "react-icons/bs";
 
 const Carrito = (props) => {
-  //  const {id} = useParams()
-  // const [product, /*setProduct*/] = useState([])
   const { cartItem, countCartItems, onAdd, onRemove, vaciarCarrito, onKick, onSum } = props;
   console.log(cartItem);
   console.log(countCartItems);
-  // const [carrito, setCarrito] = useState({})
-
-  // useEffect(()=>{
-  //   getProductId(id)
-  // },[])
-
-  // const getProductId =  (id) => {
-  //    fetch(`https://fakestoreapi.com/products/${id}`)
-  //      .then((res) => res.json())
-  //      .then((json) => {
-  //        console.log(json)
-  //        setProduct(json);
-  //      })
-  //      .catch((err) => {
-  //        console.log(err);
-  //      });
-  //  };
-  // const {title, description, category, image, price} = product
-
-  // const removerDelCarrito = (id) => {
-  //   setCarrito( carrito.filter(prod => prod.id !== id ) )
-  // }
-
-  // const vaciarCarrito = () => {
-  //   setCarrito([])
-  // }
+  const navigate = useNavigate()
 
   const totalCantidad = () => {
     return cartItem.reduce((acc, prod) => acc + prod.cantidad, 0);
@@ -50,14 +24,18 @@ const Carrito = (props) => {
   const isInCart = (id) => {
     return cartItem.some((prod) => prod.id === id);
   };
+  
+  const handleToIndex = () => {
+    navigate('/')
+}
 
   return (
     <div>
 
       <div className="table-responsive">
-                 <a href="/"><button className="btn" ><span><BsHouse color="black"
+      <button className="btn" onClick={handleToIndex}><span>Back<BsHouse color="black"
                 size="35px"
-                cursor="pointer"/></span></button></a> 
+                cursor="pointer"/></span></button>
         <table className="table">
           <thead>
             <tr>

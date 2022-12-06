@@ -11,6 +11,7 @@ html {
     /* scroll-behavior: smooth; */
     height: 90vh;
     width: 225vh;
+    max-width: 100%;
         
 }
 /* *********************/

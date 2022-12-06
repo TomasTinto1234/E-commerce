@@ -34,16 +34,16 @@
       font-size: 14px;
       text-align: center;
   }
-  .card__image{
+  /* .card__image{
     justify-content: center;
     display: flex;
     position: center;
     line-height: 26px;
     width: 300px;
-    /* left: 50%; */
+    left: 50%;
     background-color: white;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-  }
+  } */
   
 .contenedorCard { 
   background-color: rgba(229 231 235);
@@ -51,19 +51,10 @@
   flex-wrap: wrap;
 }
 
-.contenedorPadre {
-  display: flex;
-  width: 90%;
-  max-width: 1500px;
-  padding: 20px 0px;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-
 .main{
   max-width: 1200px;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 h1 {
@@ -76,19 +67,18 @@ img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  
 }
 
 .btn {
   color: #ffffff;
-  padding: 0.8rem;
+  padding: 1.8rem;
   font-size: 14px;
   text-transform: uppercase;
   border-radius: 4px;
-  font-weight: 400;
   display: block;
   width: 100%;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
 }
 
@@ -99,9 +89,9 @@ img {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .cards_item {
@@ -122,9 +112,9 @@ img {
 }
 
 .card {
-  background-color: white;
+  background-color: rgb(239, 234, 234);
   border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 30px 50px -14px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;

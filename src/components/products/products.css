@@ -20,7 +20,7 @@ background: #DFC2F2;
 		padding: 0;
 		list-style-type: none;
 	} */
-
+/* 
 #container{
 	box-shadow: 0 15px 30px 1px grey;
 	background: rgba(255, 255, 255, 0.90);
@@ -32,7 +32,7 @@ background: #DFC2F2;
 	width: 700px;
   
 	
-}
+} */
 
 .product-details {
 	position: relative;
@@ -52,7 +52,7 @@ background: #DFC2F2;
 	color: #344055;
 	margin: 0;
 }
-
+/* 
 #container .product-details h1:before{
 	position: absolute;
 	content: '';
@@ -69,8 +69,8 @@ background: #DFC2F2;
 	margin: 0;
 	animation: chan-sh 6s ease infinite;
 
-}
-.hint-star {
+} */
+/* .hint-star {
 	display: inline-block;
 	margin-left: 0.5em;
 	color: gold;
@@ -88,7 +88,7 @@ font-family: 'EB Garamond', serif;
 	bottom: 20%;
 	left: 22.8%;
 	
-}
+} */
 .btn {
 
 	transform: translateY(0px);
@@ -145,8 +145,8 @@ border: gray
 
 .btn:hover .shopping-cart {transform: translateX(0%);}
 
-.product-image {
-	/* transition: all 0.3s ease-out; */
+/* .product-image {
+	transition: all 0.3s ease-out;
 	display: block;
 	position: relative;
 	overflow: hidden;
@@ -154,11 +154,11 @@ border: gray
 	float: right;
 	width: 50%;
 	display: inline-block ;
-}
+} */
 
-#container img {width: 100%;height: 100%;}
+/* #container img {width: 100%;height: 100%;} */
 
-.info {
+/* .info {
     background: rgba(27, 26, 26, 0.9);
     font-family: 'Bree Serif', serif;
     transition: all 0.3s ease-out;
@@ -173,7 +173,7 @@ border: gray
     width: 100%;
     left: 0;
     top: 0;
-}
+} */
 
 .info h2 {text-align: center}
 .product-image:hover .info{transform: translateX(0);}
@@ -188,7 +188,7 @@ border: gray
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	
 }
 .totalpag{
@@ -196,7 +196,7 @@ border: gray
 	/* display: flex;
 	flex-wrap: wrap; */
 	/* justify-content: space-around; */
-	float: right;
+	/* float: right; */
 }
 .Cart-Container{
 	width: 70%;
@@ -205,14 +205,7 @@ border: gray
 	border-radius: 20px;
 	box-shadow: 0px 25px 40px #1687d933;
    }
-   .Header{
-	margin: auto;
-	width: 90%;
-	height: 15%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-   }
+
    .Heading{
 	font-size: 20px;
 	font-family: ‘Open Sans’;
@@ -235,10 +228,7 @@ border: gray
 	justify-content: space-between;
 	align-items: center;
    }
-   .image-box{
-	width: 15%;
-	text-align: center;
-   }
+
    .about{
 	height: 100%;
    }

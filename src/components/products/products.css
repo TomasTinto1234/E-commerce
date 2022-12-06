@@ -1,5 +1,6 @@
 
 body {
+	scroll-behavior: smooth;
 background: #DFC2F2;
 	background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
 	background-attachment: fixed;	
@@ -33,8 +34,6 @@ background: #DFC2F2;
 	
 }
 
-
-
 .product-details {
 	position: relative;
 	text-align: left;
@@ -43,7 +42,6 @@ background: #DFC2F2;
 	height: 100%;
 	float: left;
 	width: 40%;
-
 }
 
 #container .product-details h1{
@@ -53,7 +51,6 @@ background: #DFC2F2;
 	font-size: 30px;
 	color: #344055;
 	margin: 0;
-	
 }
 
 #container .product-details h1:before{
@@ -73,20 +70,12 @@ background: #DFC2F2;
 	animation: chan-sh 6s ease infinite;
 
 }
-
-
-
-	
-
-
 .hint-star {
 	display: inline-block;
 	margin-left: 0.5em;
 	color: gold;
 	width: 50%;
 }
-
-
 #container .product-details > p {
 font-family: 'EB Garamond', serif;
 	text-align: center;
@@ -155,8 +144,6 @@ border: gray
 .btn:hover .price {transform: translateX(-110%);}
 
 .btn:hover .shopping-cart {transform: translateX(0%);}
-
-
 
 .product-image {
 	/* transition: all 0.3s ease-out; */

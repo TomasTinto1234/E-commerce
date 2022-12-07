@@ -100,11 +100,11 @@ return (
               })
             }
           </select></li>
-          <li className="pages">   <select className="btn">
+          {/* <li className="pages"><select className="btn">
             <option>Name</option>
             <option value="az">a-z</option>
             <option value="za">z-a</option>
-          </select></li>
+          </select></li> */}
              <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li>
              <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE PRODUCT</Link></a></li>
              <li className="pages"><a href="#contacto" >CONTACT</a></li>

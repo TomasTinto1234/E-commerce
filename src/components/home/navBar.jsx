@@ -13,13 +13,12 @@ import { useNavigate } from 'react-router'
 
 
   const NavBar = (props) => {
- 
+
     const {products} = AllProducts
-    const [category , setCategory] = useState({})
+    const [category , setCategory] = useState([])
   useEffect(()=>{
     getCategory()
     getCategories()
-    // select()
  },[])
   function responsiveMenu() {
       const x = document.getElementById("elnav");
@@ -38,7 +37,6 @@ import { useNavigate } from 'react-router'
       navigate('/')
   }
   const [allCategories, setAllCategories] = useState([]);
-  const [/*categories*/, setCategories] = useState([])
 
   const getCategories = async (category) => {
     await fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -61,8 +59,9 @@ import { useNavigate } from 'react-router'
     });
   }
  function getCat(categ){
-  console.log(categ.target.value)
-   const cat = products.filter((e)=> e.category === categ.target.value)
+  console.log(categ)
+   const cat = products.filter((e)=> e.category === categ)
+   console.log(cat)
    return cat
  }
 
@@ -70,36 +69,34 @@ import { useNavigate } from 'react-router'
   console.log(categ)
   const allProducts = products
       const categoryFilter =
-      categ === allProducts.category
-          ? allProducts
+      categ === allProducts
+          ? AllProducts
           : allProducts.filter((el) => el.category === categ);
+          console.log(categoryFilter)
+          // setAllCategories(categoryFilter)
           return categoryFilter
 };
 
 return (
     <div>
-          {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />  */}
         <section id="inicio">
       <div className ="contenido">
         <header>
           <div className="contenido-header">
          <h1 className="pages" onClick={handleToIndex}>E-commerce</h1>
-          {/* <div className="contenedor-foto">
-         <a className="pr" href="#inicio" ><img src={carrito} height="55, 65"/></a>
-      </div> */}
          <nav id="elnav" onClick={()=>responsiveMenu()}>
             <ul id="links" >
              {/* <li className="pages"><a href="#products" >PRODUCTOS</a></li> */}
-             <li> <select className="btn">
+             <li><span> <select className="btn">
             <option>Category</option>
             {allCategories?.map((e)=>{
               return (
-                <option onClick={()=>onClickCategory(e)} id={e} key={e} value={e}>{e}
+                <option onClick={getCat(e)} id={e} key={e} value={e}>{e}
                 </option>
                 )
               })
             }
-          </select></li>
+          </select></span></li>
           {/* <li className="pages"><select className="btn">
             <option>Name</option>
             <option value="az">a-z</option>

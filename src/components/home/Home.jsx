@@ -23,13 +23,6 @@ const Home = (props) => {
     indexOfLastProduct
   );
   const { onAdd } = props;
-
-  // const [activo, setActivo]= useState(false)
-
-  // const toggler =()=>{
-  //   setActivo(!activo)
-  // }
-
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -73,39 +66,6 @@ const Home = (props) => {
   //     setOrden(json)
   //   })
   // },[])
-
-  useEffect(() => {
-    getCategory();
-    // select()
-  }, []);
-
-  //  function getCat(categ){
-  //   console.log(categ)
-  //    const cat = allProducts.find((e)=> e.category === categ)
-  //    return cat
-  //  }
-
-  const getCategory = async () => {
-    await fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => {
-        setAllCategories(json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  // function handleSort(e) {
-  //   // dispatch(orderByName(e));
-  //   // setOrden(e);
-  // }
-
-  // const select = (e)=>{
-  //  if(currentProducts.category=== e){
-  //   setAllProducts(currentProducts.category)
-  //  }
-  // }
-
   return (
     <div>
       <div className="elHome">
@@ -119,23 +79,23 @@ const Home = (props) => {
             allProducts={allProducts.products.length}
             paginado={paginado}
           />
-<div class="main">
+<div className="main">
           {currentProducts.length === 0 ? (
             <Spinner />
           ) : (
             currentProducts &&
             currentProducts?.map((product) => {
               return (
-                  <div class="mains">
-                    <ul class="cards">
-                      <li class="cards_item">
-                        <div class="card">
-                          <div class="card_image">
+                  <div className="mains" key={product.id}>
+                    <ul className="cards">
+                      <li className="cards_item">
+                        <div className="card">
+                          <div className="card_image">
                             <img src={product.image} />
                           </div>
-                          <div class="card_content">
-                            <h2 class="card_title">{product.title}</h2>
-                            <span class="card_text">{product.category}</span>
+                          <div className="card_content">
+                            <h2 className="card_title">{product.title}</h2>
+                            <span className="card_text">{product.category}</span>
                             <a href={`/SingleProduct/${product.id}`}>
                               <button className="btn">
                                 <span>Read more</span>

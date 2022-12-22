@@ -4,16 +4,14 @@
 
 
 .main{
-  max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 15px;
+  border-radius: 45px;
    /* display: grid; */
-  grid-auto-flow: row;
   grid-template-columns: repeat(4, 2fr);
   grid-template-rows: repeat(2, 2fr); 
   display: grid;
   /* grid-template-columns: auto auto auto; */
   padding: 0.1px;
+  min-width: 250px;
 }
 
 h1 {
@@ -34,7 +32,6 @@ img {
   font-size: 14px;
   text-transform: uppercase;
   border-radius: 4px;
-  width: 100%;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.2);
@@ -79,6 +76,7 @@ img {
   flex-direction: column;
   overflow: hidden;
   display: flex;
+  min-width: 250px;
 
 }
 

@@ -539,7 +539,8 @@ footer a {
 /* seccion R E S P O N S I V E */
 /* *********************/
 
-@media screen and (max-width: 1090px) {
+ 
+  @media screen and (max-width: 1090px ) {
     .redes {
         display: none;
     }

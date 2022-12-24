@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router'
     const [category , setCategory] = useState([])
   useEffect(()=>{
     getCategory()
-    getCategories()
+    //getCategories()
  },[])
   function responsiveMenu() {
       const x = document.getElementById("elnav");

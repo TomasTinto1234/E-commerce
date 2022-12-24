@@ -79,13 +79,13 @@ const Home = (props) => {
             allProducts={allProducts.products.length}
             paginado={paginado}
           />
-<div className="main">
-          {currentProducts.length === 0 ? (
-            <Spinner />
-          ) : (
-            currentProducts &&
-            currentProducts?.map((product) => {
-              return (
+          <div className="homeContainer">
+            {currentProducts.length === 0 ? (
+              <Spinner />
+            ) : (
+              currentProducts &&
+              currentProducts?.map((product) => {
+                return (
                   <div className="mains" key={product.id}>
                     <ul className="cards">
                       <li className="cards_item">
@@ -95,7 +95,9 @@ const Home = (props) => {
                           </div>
                           <div className="card_content">
                             <h2 className="card_title">{product.title}</h2>
-                            <span className="card_text">{product.category}</span>
+                            <span className="card_text">
+                              {product.category}
+                            </span>
                             <a href={`/SingleProduct/${product.id}`}>
                               <button className="btn">
                                 <span>Read more</span>
@@ -121,10 +123,10 @@ const Home = (props) => {
                       </li>
                     </ul>
                   </div>
-              );
-            })
-          )}
-        </div>
+                );
+              })
+            )}
+          </div>
         </div>
         <Pagination
           productsPerPage={productsPerPage}

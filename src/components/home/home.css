@@ -3,16 +3,26 @@
 
 
 
-.main{
+.homeContainer{    
+
   border-radius: 45px;
    /* display: grid; */
   grid-template-columns: repeat(4, 2fr);
   grid-template-rows: repeat(2, 2fr); 
-  display: grid;
+  display: flex;
+  flex-direction: row;
   /* grid-template-columns: auto auto auto; */
   padding: 0.1px;
   min-width: 250px;
+
 }
+
+@media (max-width: 480px) { 
+  .homeContainer{    
+  display: flex;
+  flex-direction: column;
+  } 
+} 
 
 h1 {
     font-weight: 400;

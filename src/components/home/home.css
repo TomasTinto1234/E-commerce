@@ -7,8 +7,7 @@
 
   border-radius: 45px;
    /* display: grid; */
-  grid-template-columns: repeat(4, 2fr);
-  grid-template-rows: repeat(2, 2fr); 
+
   display: flex;
   flex-direction: row;
   /* grid-template-columns: auto auto auto; */
@@ -110,4 +109,261 @@ img {
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
+}
+.container-img {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  align-items: center;
+}
+
+.image {
+  /* background: url(); */
+  /* width: 60%;
+  height: 100%; */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.title {
+  width: 100%;
+  color: var(--text-color);
+  margin: 0;
+  margin-bottom: 3px;
+}
+
+.category {
+  /* 
+  margin: 0 5px; */
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  height: 26px;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.author {
+  width: 100%;
+  margin: 0;
+}
+
+.language {
+  width: 100%;
+  margin: 0;
+  margin-inline-end: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  /* .image {
+    width: 60%;
+  } */
+
+  .box {
+    width: 90%;
+    height: auto;
+  }
+
+  .cta1 {
+    font-size: 16px;
+  }
+
+  .btn-notion {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px auto;
+    width: 70%;
+  }
+
+  .product-library {
+    flex-direction: column;
+  }
+
+  .library-tittle {
+    font-size: 1.2rem;
+    margin: 5px 0px 20px;
+  }
+
+  .library-container {
+    width: 90%;
+  }
+
+  .library-btn {
+    margin-top: 15px;
+  }
+
+  .filters-container {
+    padding-left: 30px;
+  }
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: baseline;
+  margin: 10px 0px;
+  padding-left: 100px;
+}
+
+.filter-item {
+  color: gray;
+  border: var(--card-background) solid 1px;
+  background-color: var(--card-background);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 10px;
+  padding: 0px 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+
+.filter-one {
+  background-color: var(--primary-color);
+}
+
+.filter-item:hover {
+  background-color: var(--primary-color);
+}
+
+.section-notion {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  padding: 20px 0px;
+}
+
+.box-container {
+  /* 
+  align-items: start;
+  */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  justify-content: center;
+}
+
+.box {
+  /*  
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 20%;
+  height: 300px;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px 20px;
+  cursor: pointer;
+   */
+  width: 268px;
+  min-width: 250px;
+  max-height: 328px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 3px;
+  border-radius: 5px;
+  border: solid rgb(215, 212, 212) 1px;
+  box-shadow: 0px 0px 10px 2px rgb(215, 212, 212);
+  transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 3px 3px var(--text-color);
+}
+
+/* .image {
+  background: url();
+  margin: 0 auto;
+  max-height: 150px;
+  border-radius: 50%;
+  width: 60%;
+  height: 100%;
+}
+
+.tittle {
+  width: 100%;
+  color: var(--text-color);
+}
+
+.category {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  width: 40%;
+  height: 26px;
+  border-radius: 10px;
+  margin: 0 5px;
+}
+
+.author {
+  width: 100%;
+}
+
+.language {
+  width: 100%;
+} */
+
+.btn-notion {
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  outline: none;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  text-align: center;
+}
+
+.cta1 {
+  text-align: center;
+  width: 100%;
+  padding: 0 30px
+}
+
+@media screen and (max-width: 600px) {
+  .cta1 {
+    width: 100%;
+    margin: auto;
+    padding: 0 30px
+  }
+
+  .btn-notion {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px auto;
+    width: 70%;
+  }
+
+  .filters-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+    gap: 15px;
+  }
+
+  .filter-tittle {
+    text-align: center;
+  }
+
+  .container-btn {
+    text-align: center;
+    display: flex;
+
+  }
+
+  .filter-item {
+    width: 40%;
+    margin: auto;
+  }
+}
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
 }

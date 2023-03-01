@@ -7,7 +7,6 @@ import SearchBar from "../searchBar/SearchBar";
 import AllProducts from "../../products";
 import { Link } from "@chakra-ui/react";
 import Spinner from "../Spinner/Spinner";
-import Marquee from "../Marquee/Marquee";
 import Carrusel from "../Carrusel/Carrusel";
 import { BsCart4 } from "react-icons/bs";
 
@@ -67,33 +66,32 @@ const Home = (props) => {
   //   })
   // },[])
   return (
-    <div>
-      <div className="elHome">
+    <div className="filters-section">
+      <div className="section-notion">
         <div>
-          <Marquee />
-          <div>
+          {/* <div>
             <SearchBar currentProducts={currentProducts} />
-          </div>
+          </div> */}
           <Pagination
             productsPerPage={productsPerPage}
             allProducts={allProducts.products.length}
             paginado={paginado}
           />
-          <div className="homeContainer">
+          <div className="section-notion">
             {currentProducts.length === 0 ? (
               <Spinner />
             ) : (
               currentProducts &&
               currentProducts?.map((product) => {
                 return (
-                  <div className="mains" key={product.id}>
-                    <ul className="cards">
+                  <div className="box-container" key={product.id}>
+                    <ul className="box">
                       <li className="cards_item">
                         <div className="card">
-                          <div className="card_image">
-                            <img src={product.image} />
+                          <div className="container-img">
+                            <img src={product.image}  className="image" />
                           </div>
-                          <div className="card_content">
+                          <div  className="title">
                             <h2 className="card_title">{product.title}</h2>
                             <span className="card_text">
                               {product.category}
@@ -134,7 +132,6 @@ const Home = (props) => {
           paginado={paginado}
         />
       </div>
-      <Marquee />
     </div>
   );
 };

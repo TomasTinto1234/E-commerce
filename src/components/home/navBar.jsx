@@ -102,8 +102,8 @@ return (
             <option value="az">a-z</option>
             <option value="za">z-a</option>
           </select></li> */}
-             <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li>
-             <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE PRODUCT</Link></a></li>
+             {/* <li className="pages"><a href="#users" ><Link to={`/Users` }>USERS</Link></a></li> */}
+             <li className="pages"><a href="#CreateProduct" ><Link to={`/CreateProduct`}>CREATE</Link></a></li>
              <li className="pages"><a href="#contacto" >CONTACT</a></li>
              <li className="pages"><a href="#carrito"><Link to={`/Carrito` }> {props.countCartItems ? (<button className="badge">{props.countCartItems}</button>
           ) : (

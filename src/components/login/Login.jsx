@@ -1,5 +1,4 @@
 import React from "react";
-import Marquee from "../Marquee/Marquee";
 import "./login.css"
 
 

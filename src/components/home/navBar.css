@@ -7,25 +7,11 @@
 
 }
 
-html {
-    /* scroll-behavior: smooth; */
-    /* max-width: 100%; */
-}
-/* *********************/
-/* seccion I N I C I O */
-/* *********************/
 
-#inicio {
-    background: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../../image/el-ecommerce-que-es.jpg");
-    background-size: cover;
-    background-position: center center;
-    height: 40vh;
-}
 
 #inicio .contenido header {
     background-color: rgba(0, 0, 0, .6);
-    position: fixed;
-    width: 100%;
+
     z-index: 100;
     top: 0;
 
@@ -35,7 +21,7 @@ html {
     max-width: 1100px;
     margin: auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 20px 20px;
   cursor: pointer;
     

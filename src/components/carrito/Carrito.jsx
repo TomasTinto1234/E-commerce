@@ -1,7 +1,6 @@
 import React /*useState,*/ from "react";
 import "./carrito.css";
 import Spinner from "../Spinner/Spinner";
-import Marquee from "../Marquee/Marquee";
 import { useNavigate } from 'react-router'
 import {
   BsHouse
@@ -117,7 +116,6 @@ const Carrito = (props) => {
           </button>
         </table>
       </div>
-      <Marquee />
     </div>
   );
 };

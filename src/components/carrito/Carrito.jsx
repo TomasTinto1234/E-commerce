@@ -35,9 +35,9 @@ const Carrito = (props) => {
       <button className="btn" onClick={handleToIndex}><span>Back<BsHouse color="black"
                 size="35px"
                 cursor="pointer"/></span></button>
-        <table className="table">
+        <table>
           <thead>
-            <tr>
+            <tr className="conteiner2">
               <th scope="col" className="border-0 bg-light">
                 <div className="p-2 px-3 text-uppercase">Product</div>
               </th>
@@ -59,7 +59,7 @@ const Carrito = (props) => {
           ) : (
             cartItem?.map((product) => {
               return (
-                <tbody>
+                <tbody className="conteiner2">
                   <tr>
                     <th scope="row" className="border-0">
                       <div className="p-2">

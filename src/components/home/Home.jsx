@@ -66,25 +66,21 @@ const Home = (props) => {
   //   })
   // },[])
   return (
-    <div className="filters-section">
-      <div className="section-notion">
-        <div>
-          {/* <div>
-            <SearchBar currentProducts={currentProducts} />
-          </div> */}
+    <div>
           <Pagination
             productsPerPage={productsPerPage}
             allProducts={allProducts.products.length}
             paginado={paginado}
           />
-          <div className="section-notion">
+      <div className="section-notion">
+          <div className="box-container" >
             {currentProducts.length === 0 ? (
               <Spinner />
             ) : (
               currentProducts &&
               currentProducts?.map((product) => {
                 return (
-                  <div className="box-container" key={product.id}>
+                  <div className="box" key={product.id}>
                     <ul className="box">
                       <li className="cards_item">
                         <div className="card">
@@ -106,7 +102,7 @@ const Home = (props) => {
                               onClick={() => {
                                 onAdd(product);
                               }}
-                            >
+                              >
                               <span key={product.id}>
                                 Add To{" "}
                                 <BsCart4
@@ -123,16 +119,15 @@ const Home = (props) => {
                   </div>
                 );
               })
-            )}
-          </div>
-        </div>
+              )}
         <Pagination
           productsPerPage={productsPerPage}
           allProducts={allProducts.products.length}
           paginado={paginado}
-        />
+          />
+          </div>
       </div>
-    </div>
+          </div>
   );
 };
 

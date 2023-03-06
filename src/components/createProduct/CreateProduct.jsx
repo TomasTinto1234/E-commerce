@@ -69,39 +69,39 @@ const CreateProduct = () => {
   }
 
   return (
-    <div id="createProduct">
+    <div id="createProduct" className="conteiner2">
                     <button className="btn" onClick={handleToIndex}><span>Back<BsHouse color="black"
                 size="35px"
                 cursor="pointer"/></span></button>
-      <div className="contenedor">
+      <div className="content-text">
     <h1 className="logo"><span className="nombre-empresa">Create</span> Product</h1>
     <div className="wrapper animated bounceInLeft">
-      <div className="contacto">
-        <h3>Complete Form</h3>
-        <form className="formulario">
+      <div className="content-text">
+        <form  className="formLogin">
+         <h3>Complete Form</h3>
           <p>
-            <label>Nombre</label>
-            <input type="text" name="nombre" className="input-form" onChange={handleChange}
+            <label className="lbl-nombre"><span className="text-nomb">Nombre</span></label>
+            <input type="text" name="nombre" class="form__field" onChange={handleChange}
            />
           </p>
           <p>
-            <label>Image</label>
-            <input type="file" name="image"className="input-form"  onChange={handleChange}
+            <label className="lbl-nombre"><span className="text-nomb">Image</span></label>
+            <input type="file" name="image"className="input__box"  onChange={handleChange}
           />
           </p>
           <p>
-            <label>price</label>
-            <input type="number" name="price"className="input-form" onChange={handleChange}
+            <label className="lbl-nombre"><span className="text-nomb">price</span></label>
+            <input type="number" name="price"class="form__field" onChange={handleChange}
            />
           </p>
           <p>
-            <label>Category</label>
-            <input type="text" name="category" className="input-form" onChange={handleChange}
+            <label className="lbl-nombre"><span className="text-nomb">Category</span></label>
+            <input type="text" name="category" class="form__field" onChange={handleChange}
             />
           </p>
           <p className="full">
-            <label>Description</label>
-            <input name="mensaje" className="input-form" onChange={handleChange}
+            <label className="lbl-nombre"><span className="text-nomb">Description</span></label>
+            <input name="mensaje" class="form__field" onChange={handleChange}
             ></input>
           </p>
           <p className="full">
@@ -109,8 +109,8 @@ const CreateProduct = () => {
           </p>
         </form>
       </div>
+            </div>
     </div>
-  </div>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const Login = ()=>{
                         <input type="text" placeholder="Username" />
                     </div>
                     <div className="input__box">
-                        <input type="password" placeholder="Password" />
+                        <input type="password"placeholder="••••••••" />
                     </div>
                     <div className="input__box">
                         <input type="submit" value="Login" />

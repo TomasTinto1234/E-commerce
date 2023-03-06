@@ -120,13 +120,13 @@ const Home = (props) => {
                 );
               })
               )}
+          </div>
+      </div>
         <Pagination
           productsPerPage={productsPerPage}
           allProducts={allProducts.products.length}
           paginado={paginado}
           />
-          </div>
-      </div>
           </div>
   );
 };
